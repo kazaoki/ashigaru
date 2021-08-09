@@ -4,11 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e6353d8f6c77c668e96e83ed47b06a4a",
+    "content-hash": "7dd69a6e88425bcd72811a775bb705f0",
     "packages": [
         {
             "name": "bramus/router",
-            "version": "1.6",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bramus/router.git",
@@ -28,6 +28,7 @@
                 "phpunit/php-code-coverage": "~2.0",
                 "phpunit/phpunit": "~4.8"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -51,6 +52,10 @@
                 "router",
                 "routing"
             ],
+            "support": {
+                "issues": "https://github.com/bramus/router/issues",
+                "source": "https://github.com/bramus/router/tree/1.6"
+            },
             "time": "2021-07-23T09:48:14+00:00"
         },
         {
@@ -70,6 +75,7 @@
             "require": {
                 "php": ">=5.3.4"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -92,7 +98,49 @@
             "keywords": [
                 "orm"
             ],
+            "support": {
+                "issues": "https://github.com/gabordemooij/redbean/issues",
+                "source": "https://github.com/gabordemooij/redbean/tree/master"
+            },
             "time": "2021-07-14T18:24:04+00:00"
+        },
+        {
+            "name": "jakeasmith/http_build_url",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jakeasmith/http_build_url.git",
+                "reference": "93c273e77cb1edead0cf8bcf8cd2003428e74e37"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jakeasmith/http_build_url/zipball/93c273e77cb1edead0cf8bcf8cd2003428e74e37",
+                "reference": "93c273e77cb1edead0cf8bcf8cd2003428e74e37",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/http_build_url.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jake A. Smith",
+                    "email": "theman@jakeasmith.com"
+                }
+            ],
+            "description": "Provides functionality for http_build_url() to environments without pecl_http.",
+            "support": {
+                "issues": "https://github.com/jakeasmith/http_build_url/issues",
+                "source": "https://github.com/jakeasmith/http_build_url"
+            },
+            "time": "2017-05-01T15:36:40+00:00"
         },
         {
             "name": "kazaoki/jp_send_mail",
@@ -149,7 +197,9 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "gabordemooij/redbean": 20,
-        "kazaoki/jp_send_mail": 20
+        "bramus/router": 20,
+        "kazaoki/jp_send_mail": 20,
+        "jakeasmith/http_build_url": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
