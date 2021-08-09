@@ -1,0 +1,159 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "e6353d8f6c77c668e96e83ed47b06a4a",
+    "packages": [
+        {
+            "name": "bramus/router",
+            "version": "1.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bramus/router.git",
+                "reference": "d2cf97d5c471e272ac5a2a88b652bc75089c8ae3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bramus/router/zipball/d2cf97d5c471e272ac5a2a88b652bc75089c8ae3",
+                "reference": "d2cf97d5c471e272ac5a2a88b652bc75089c8ae3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "~2.14",
+                "phpunit/php-code-coverage": "~2.0",
+                "phpunit/phpunit": "~4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Bramus": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bram(us) Van Damme",
+                    "email": "bramus@bram.us",
+                    "homepage": "http://www.bram.us"
+                }
+            ],
+            "description": "A lightweight and simple object oriented PHP Router",
+            "homepage": "https://github.com/bramus/router",
+            "keywords": [
+                "router",
+                "routing"
+            ],
+            "time": "2021-07-23T09:48:14+00:00"
+        },
+        {
+            "name": "gabordemooij/redbean",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gabordemooij/redbean.git",
+                "reference": "f37c4cf4d0e646851720940fc53acdacfbdeba4e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gabordemooij/redbean/zipball/f37c4cf4d0e646851720940fc53acdacfbdeba4e",
+                "reference": "f37c4cf4d0e646851720940fc53acdacfbdeba4e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "RedBeanPHP\\": "RedBeanPHP"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Gabor de Mooij",
+                    "email": "gabor@redbeanphp.com",
+                    "homepage": "https://redbeanphp.com"
+                }
+            ],
+            "description": "RedBeanPHP ORM",
+            "homepage": "https://redbeanphp.com/",
+            "keywords": [
+                "orm"
+            ],
+            "time": "2021-07-14T18:24:04+00:00"
+        },
+        {
+            "name": "kazaoki/jp_send_mail",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kazaoki/jp_send_mail.git",
+                "reference": "a3a79e93fe9c23863e9586d990759f052855e0c6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kazaoki/jp_send_mail/zipball/a3a79e93fe9c23863e9586d990759f052855e0c6",
+                "reference": "a3a79e93fe9c23863e9586d990759f052855e0c6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "jp_send_mail.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "karino",
+                    "email": "karino@kazaoki.jp"
+                }
+            ],
+            "description": "Japanese mail sending function that feels just right",
+            "homepage": "https://github.com/kazaoki/jp_send_mail",
+            "keywords": [
+                "japanese",
+                "mail"
+            ],
+            "support": {
+                "issues": "https://github.com/kazaoki/jp_send_mail/issues",
+                "source": "https://github.com/kazaoki/jp_send_mail/tree/1.1.2"
+            },
+            "time": "2021-08-09T02:53:39+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "gabordemooij/redbean": 20,
+        "kazaoki/jp_send_mail": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.1.0"
+}

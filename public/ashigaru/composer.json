@@ -1,0 +1,17 @@
+{
+    "name": "kazaoki/ashigaru",
+    "description": "Super light php web framework",
+    "autoload": {
+        "psr-4": {
+            "App\\Controllers\\" : "Controllers/",
+            "App\\Middlewares\\" : "Middlewares/",
+            "App\\Models\\"      : "Models/",
+            "App\\Modules\\"     : "Modules/"
+        }
+    },
+    "require": {
+        "gabordemooij/redbean": "dev-master",
+        "bramus/router": "~1.6",
+        "kazaoki/jp_send_mail": "dev-master"
+    }
+}
