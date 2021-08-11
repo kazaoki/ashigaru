@@ -2,12 +2,12 @@
 
 namespace App\Controllers\System;
 
-use \RedBeanPHP\R;
+// use \RedBeanPHP\R;
 
 class Login
 {
-    // 管理者画面ログイン調べ
-    public function auth() {
+    // 未ログインならフォームに飛ばす
+    public function not_logged_in() {
         if(!@$_SESSION['loggedin']) {
             echo header('Location: '.__BASE_URL__.'/system/login/');
             exit;

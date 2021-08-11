@@ -9,7 +9,8 @@ require_once __DIR__.'/functions.php';
 use \RedBeanPHP\R;
 
 // session start
-session_start();
+@session_start();
+if(session_status()===PHP_SESSION_NONE) throw new \BadMethodCallException('Session is not active.');
 
 // RedBean init
 // R::setup();

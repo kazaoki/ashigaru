@@ -13,7 +13,7 @@ $router->get('/name/(.+)', '\App\Controllers\Top@name');
 $router->get('/id/(\d+)', '\App\Controllers\Top@detail');
 
 // ルーティング登録：管理者画面
-$router->before('GET', '/system(/(?!login).*)?', '\App\Controllers\System\Login@auth');
+$router->before('GET', '/system(/(?!login).*)?', '\App\Controllers\System\Login@not_logged_in');
 $router->get('/system/', '\App\Controllers\System\Top@index');
 $router->get('/system/login/', '\App\Controllers\System\Login@index');
 $router->post('/system/login/', '\App\Controllers\System\Login@login');
