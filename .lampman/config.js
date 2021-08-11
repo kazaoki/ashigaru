@@ -149,9 +149,17 @@ module.exports.config = {
             desc: 'ngrok を使用して一時的に外部からアクセスできるようにする'
         },
 
-		// ab
+        // ab
         ab: {
             command: 'ab -c 500 -n 500 https://localhost/',
+            // command: 'ab -c 500 -n 500 https://localhost/id/2255/',
+            container: 'lampman',
+            // desc: ''
+        },
+
+        // composer_dump
+        composer_dump: {
+            command: 'cd /var/www/html/ashigaru && /root/.anyenv/envs/phpenv/shims/composer dump-autoload',
             // command: 'ab -c 500 -n 500 https://localhost/id/2255/',
             container: 'lampman',
             // desc: ''
