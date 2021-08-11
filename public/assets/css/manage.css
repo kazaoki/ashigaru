@@ -188,47 +188,54 @@ header {
   font-size: 0.8rem;
   box-shadow: 0 3px 25px 10px rgba(0, 0, 0, 0.16);
 }
-header #cap {
+header .inner {
+  width: 100%;
+  display: flex;
+  height: 100px;
+  max-width: 1500px;
+  margin: 0px auto;
+}
+header .inner #cap {
   display: flex;
   align-items: center;
 }
-header #cap .logo {
+header .inner #cap .logo {
   width: 150px;
   padding-left: 20px;
 }
-header #cap .title {
-  padding-left: 20px;
+header .inner #cap .title {
+  padding-left: 40px;
 }
-header #cap .title * {
+header .inner #cap .title * {
   color: white;
   font-weight: bold;
   white-space: nowrap;
 }
-header #cap .title h1 {
+header .inner #cap .title h1 {
   font-size: 1.5rem;
   margin-bottom: 10px;
 }
-header #cap .title h2 {
+header .inner #cap .title h2 {
   font-size: 1rem;
 }
-header nav#global-menu {
+header .inner nav#global-menu {
   padding: 0 20px;
   flex-grow: 1;
   display: flex;
   flex-direction: column-reverse;
   align-items: flex-end;
 }
-header nav#global-menu > ul {
+header .inner nav#global-menu > ul {
   width: 100%;
   display: flex;
   justify-content: flex-end;
 }
-header nav#global-menu > ul li {
+header .inner nav#global-menu > ul li {
   flex-grow: 1;
   min-width: 65px;
   max-width: 80px;
 }
-header nav#global-menu > ul li a {
+header .inner nav#global-menu > ul li a {
   width: 100%;
   padding-bottom: 10px;
   display: block;
@@ -240,12 +247,12 @@ header nav#global-menu > ul li a {
   transition: border-color 0.1s, color 0.1s, background 0.1s;
   padding-top: 15px;
 }
-header nav#global-menu > ul li a i {
+header .inner nav#global-menu > ul li a i {
   display: block !important;
   margin-bottom: 10px;
   font-size: 2.5rem;
 }
-header nav#global-menu > ul li a:hover {
+header .inner nav#global-menu > ul li a:hover {
   border-bottom: solid 7px white;
   color: white !important;
   transition: border-color 0.1s, color 0.1s, background 0.1s;
@@ -253,14 +260,14 @@ header nav#global-menu > ul li a:hover {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
-header nav#global-menu > ul li.active a {
+header .inner nav#global-menu > ul li.active a {
   border-bottom: solid 7px white;
   color: white !important;
   background: rgba(255, 255, 255, 0.2);
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
-header nav#global-menu > button#menu-sw {
+header .inner nav#global-menu > button#menu-sw {
   display: none;
   border: none;
   background: transparent;
@@ -269,14 +276,14 @@ header nav#global-menu > button#menu-sw {
   padding: 5px 10px;
 }
 @media screen and (max-width: 960px) {
-  header nav#global-menu {
+  header .inner nav#global-menu {
     flex-direction: row-reverse;
     align-items: center;
   }
-  header nav#global-menu > ul {
+  header .inner nav#global-menu > ul {
     display: none;
   }
-  header nav#global-menu > button#menu-sw {
+  header .inner nav#global-menu > button#menu-sw {
     display: block;
   }
 }
