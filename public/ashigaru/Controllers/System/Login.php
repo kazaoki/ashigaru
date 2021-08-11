@@ -16,6 +16,11 @@ class Login
 
     // 管理者画面ログイン処理
     public function login() {
+
+        // CSRFチェック
+        \Ag\Csrf::check();
+
+        // パスワードチェック
         if('123456789'===@$_POST['login_pw']) $_SESSION['loggedin'] = 1;
         echo header('Location: '.__BASE_URL__.'/system/');
         exit;
