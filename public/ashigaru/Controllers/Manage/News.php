@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\System;
+namespace App\Controllers\Manage;
 
 // use \RedBeanPHP\R;
 
@@ -15,7 +15,7 @@ class News
         $page_slugs = ['news'];
 
         // テンプレート出力
-        include __TEMPLATES__.'/system/news.php';
+        include __TEMPLATES__.'/manage/news.php';
 
         // 完了
         return;

@@ -1,0 +1,323 @@
+@charset "utf-8";
+
+/*
+* Manage common styles
+*/
+
+// 各種色指定
+$mainColor: #2C3E50 !default;
+$mainColorLight: lighten($mainColor, 70%);
+// $linkColor: #46719C;
+$linkColor: #333;
+$textColor: #333333;
+$textColorWhite: #eeeeee;
+
+// ヘッダーの高さ固定
+$HeaderHeight: 100px;
+
+// 背景画像
+$backParam: '' !default;
+
+// ホバー等で利用する透明度
+$opacity: .5;
+
+// 線の色（サイドメニュー等）
+$lineColor: #dddddd;
+
+// コンテンツの最大幅
+$contentMaxWidth: 1500px;
+
+// ブレイクポイントリスト
+$breakpoints: (
+	'sm': 'screen and (max-width: 400px)',
+	'md': 'screen and (max-width: 768px)',
+	'mm': 'screen and (max-width: 960px)',
+	'lg': 'screen and (max-width: 1000px)',
+	'xl': 'screen and (max-width: 1200px)',
+) !default;
+
+// Media query importer
+@mixin mq($bp: md) {
+	@media #{map-get($breakpoints, $bp)} {
+		@content;
+	}
+}
+
+// Tag defaults
+body {
+	min-width: 320px;
+}
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+a:link    { color: $linkColor; }
+a:visited { color: $linkColor; }
+a:hover   { color: lighten($mainColor, 50%); }
+a:active  { color: $linkColor; }
+
+// Fonts
+.roboto {
+	font-family: 'Roboto', sans-serif;
+}
+.font-awesome {
+	font-family: 'Font Awesome 5 Free';
+}
+@mixin font-awesome() {
+	font-family: 'Font Awesome 5 Free';
+}
+
+// Base
+html {
+	height: 100%;
+	@extend .roboto;
+	body {
+		min-height: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+// Header
+header {
+	background: $backParam;
+	background-size: cover;
+	height: $HeaderHeight;
+	display: flex;
+	font-size: 0.8rem;
+	box-shadow: 0 3px 25px 10px rgba(#000, 0.16);
+
+	#cap {
+		display: flex;
+		align-items: center;
+		.logo {
+			width: 150px;
+			padding-left: 20px;
+		}
+		.title {
+			padding-left: 20px;
+			* {
+				color: white;
+				font-weight: bold;
+				white-space: nowrap;
+			}
+			h1 {
+				font-size: 1.5rem;
+				margin-bottom: 10px;
+			}
+			h2 {
+				font-size: 1.0rem;
+			}
+		}
+	}
+
+	nav#global-menu {
+		padding: 0 20px;
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column-reverse;
+		align-items: flex-end;
+		> ul {
+			width: 100%;
+			display: flex;
+			justify-content: flex-end;
+			li {
+				flex-grow: 1;
+				min-width: 65px;
+				max-width: 80px;
+				a {
+					width: 100%;
+					padding-bottom: 10px;
+					display: block;
+					text-align: center;
+					line-height: 1;
+					text-decoration: none !important;
+					border-bottom: solid 7px transparent;
+					color: rgba(white, $opacity) !important;
+					transition: border-color .1s, color .1s, background .1s;
+					padding-top: 15px;
+					i {
+						display: block !important;
+						margin-bottom: 10px;
+						font-size: 2.5rem;
+					}
+				}
+				a:hover {
+					border-bottom: solid 7px white;
+					color: white !important;
+					transition: border-color .1s, color .1s, background .1s;
+					background: rgba(white, .2);
+					border-top-left-radius: 5px;
+					border-top-right-radius: 5px;
+				}
+			}
+			li.active {
+				a {
+					border-bottom: solid 7px white;
+					color: white !important;
+					background: rgba(white, .2);
+					border-top-left-radius: 5px;
+					border-top-right-radius: 5px;
+				}
+			}
+		}
+		> button#menu-sw {
+			display: none;
+			border: none;
+			background: transparent;
+			color: $textColorWhite;
+			font-size: 2.5rem;
+			// background: red;
+			padding: 5px 10px;
+		}
+		@include mq(mm) {
+			flex-direction: row-reverse;
+			align-items: center;
+			// padding-right: 30px;
+			> ul {
+				display: none;
+			}
+			> button#menu-sw {
+				display: block;
+			}
+		}
+	}
+}
+
+// Main
+main {
+	flex-grow: 1;
+	display: flex;
+	nav#side-menu {
+		@if not $sideMenuShow {
+			display: none;
+		}
+		box-shadow: -10px 0 25px 0px rgba(#000, 0.1) inset;
+		> div {
+			position: sticky;
+			top: -10px;
+			padding: 0;
+			a {
+				display: block;
+				padding: 10px 20px;
+				text-decoration: underline;
+			}
+			> ul {
+				margin-top: 20px;
+				> li {
+					border-bottom: solid 1px $lineColor;
+					padding: 10px 0;
+					> a {
+						font-weight: bold;
+					}
+					> ul {
+						> li {
+							a {
+								padding: 2px 20px 2px 20px;
+								font-size: 0.9rem;
+							}
+							&:first-child { padding-top: 0px; }
+							& > a:hover,
+							&.active > a {
+								color: $mainColor;
+								background: rgba($mainColor, .1);
+							}
+						}
+					}
+					& > a:hover ,
+					&.active > a {
+						background: rgba($mainColor, .2);
+						color: $mainColor;
+					}
+				}
+			}
+			li {
+				white-space: nowrap;
+			}
+			i {
+				font-size: 1.5rem;
+				margin-right: 5px;
+				vertical-align: middle;
+				&~span {
+					vertical-align: middle;
+				}
+			}
+			button.uk-offcanvas-close {
+				border: none;
+				background: none;
+				color: $textColor;
+			}
+		}
+		>.uk-offcanvas-bar {
+			background: white;
+			box-shadow: 25px 0 25px -25px rgba(0,0,0,0.5) inset;
+		}
+		@include mq(mm) {
+			> div {
+				position: inherit;
+				top: 0;
+				> ul {
+					margin-top: 0;
+				}
+			}
+		}
+	}
+	#content {
+		flex-grow: 1;
+		> section {
+			padding: 0 40px;
+			max-width: $contentMaxWidth;
+			margin: 40px auto;
+		}
+		> section.title {
+			h1 {
+				font-size: 2.5rem;
+				border-bottom: solid 1px $lineColor;
+				padding-bottom: 20px;
+				i {
+					margin-right: 10px;
+				}
+			}
+			a {
+				text-decoration: underline;
+			}
+			ul~h1 {
+				margin-top: 10px;
+			}
+		}
+	}
+}
+
+// Footer
+footer {
+	position: relative;
+	z-index: 100;
+	clear: both;
+	background: $backParam;
+	background-size: cover;
+	color: $textColorWhite;
+	padding: 20px;
+	text-align: center;
+	> small {
+		> div {
+			font-size: 18px;
+			color: $textColorWhite;
+		}
+	}
+}
+
+// UIkit adjust
+.uk-offcanvas-bar {
+	width: 200px;
+}
+.uk-offcanvas-flip .uk-offcanvas-bar {
+	left: auto;
+	right: -200px;
+}
+.uk-offcanvas-flip.uk-offcanvas-container-animation {
+	left: -200px;
+}

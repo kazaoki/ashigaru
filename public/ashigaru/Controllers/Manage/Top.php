@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\System;
+namespace App\Controllers\Manage;
 
 use \RedBeanPHP\R;
 
@@ -15,7 +15,7 @@ class Top
         $page_slugs = ['top'];
 
         // テンプレート出力
-        include __TEMPLATES__.'/system/index.php';
+        include __TEMPLATES__.'/manage/index.php';
 
         // 完了
         return;

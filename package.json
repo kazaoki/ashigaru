@@ -1,0 +1,13 @@
+{
+  "name": "ashigaru",
+  "scripts": {
+    "dev": "npx rollup -c -w"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^8.2.5",
+    "rollup": "^2.56.2",
+    "rollup-plugin-scss": "^3.0.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "sass": "^1.37.5"
+  }
+}

@@ -6,7 +6,7 @@ name: <?= @$name ?>
 <br><br>
 
 <div>
-  <a href="/system/">管理画面ログイン</a>
+  <a href="/manage/">管理画面ログイン</a>
 </div>
 
 <?php include 'footer.php' ?>

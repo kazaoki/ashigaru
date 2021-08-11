@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\System;
+namespace App\Controllers\Manage;
 
 // use \RedBeanPHP\R;
 
@@ -9,7 +9,7 @@ class Login
     // 未ログインならフォームに飛ばす
     public function not_logged_in() {
         if(!@$_SESSION['loggedin']) {
-            echo header('Location: '.__BASE__.'/system/login/');
+            echo header('Location: '.__BASE__.'/manage/login/');
             exit;
         }
     }
@@ -25,7 +25,7 @@ class Login
             'admin'===@$_POST['login_id'] &&
             '123456789'===@$_POST['login_pw']
         ) $_SESSION['loggedin'] = 1;
-        echo header('Location: '.__BASE__.'/system/');
+        echo header('Location: '.__BASE__.'/manage/');
         exit;
     }
 
@@ -39,17 +39,17 @@ class Login
 
         // すでにログイン中なら管理画面TOPに飛ばし
         if(@$_SESSION['loggedin']) {
-            echo header('Location: '.__BASE__.'/system/');
+            echo header('Location: '.__BASE__.'/manage/');
             exit;
         }
         // ログイン画面出力
-        include __TEMPLATES__.'/system/login.php';
+        include __TEMPLATES__.'/manage/login.php';
     }
 
     // 管理者画面ログアウト処理
     public function logout() {
         unset($_SESSION['loggedin']);
-        echo header('Location: '.__BASE__.'/system/login/');
+        echo header('Location: '.__BASE__.'/manage/login/');
         exit;
     }
 }

@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+/*
+* Error page styles
+*/
+
+#error {
+	width: 100% !important;
+	background: #F4F6FC;
+	> section {
+		color: $mainColor;
+		width: 100%;
+		> h1 {
+			> i {
+				margin-right: 10px;
+			}
+		}
+		.detail {
+			margin: 50px 0;
+			h2 {
+				font-size: 20px;
+			}
+			> pre {
+				background: #fff;
+				padding: 20px;
+				line-height: 1.5;
+			}
+		}
+	}
+}

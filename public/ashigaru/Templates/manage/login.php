@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<?php include __TEMPLATES__.'/system/common/meta.php' ?>
+<?php include __TEMPLATES__.'/manage/common/meta.php' ?>
 <title>システム管理画面 - <?= @$Ag['config']['site_title'] ?></title>
 </head>
 <body>
-<?php include __TEMPLATES__.'/system/common/header.php' ?>
+<?php include __TEMPLATES__.'/manage/common/header.php' ?>
 <main class="<?= implode(' ', $page_slugs) ?>">
 <div id="content">
 <!-------------------------- content start -------------------------->
@@ -37,6 +37,6 @@
 <!--------------------------- content end --------------------------->
 </div>
 </main>
-<?php include __TEMPLATES__.'/system/common/footer.php' ?>
+<?php include __TEMPLATES__.'/manage/common/footer.php' ?>
 </body>
 </html>

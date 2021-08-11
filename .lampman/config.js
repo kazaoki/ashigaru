@@ -160,8 +160,13 @@ module.exports.config = {
         // composer_dump
         composer_dump: {
             command: 'cd /var/www/html/ashigaru && /root/.anyenv/envs/phpenv/shims/composer dump-autoload',
-            // command: 'ab -c 500 -n 500 https://localhost/id/2255/',
             container: 'lampman',
+            // desc: ''
+        },
+
+        // rollup
+        rollup: {
+            command: 'npx rollup -c -w',
             // desc: ''
         },
 
@@ -221,5 +226,13 @@ module.exports.config = {
         //         unix: 'ls -la',
         //     },
         // },
-    ],
+
+        // {
+        //     // run extra command on upped
+        //     type: 'run_extra_command',
+        //     name: 'rollup',
+        //     // args: [],
+        // },
+
+	],
 }
