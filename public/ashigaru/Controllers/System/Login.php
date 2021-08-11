@@ -9,7 +9,7 @@ class Login
     // 未ログインならフォームに飛ばす
     public function not_logged_in() {
         if(!@$_SESSION['loggedin']) {
-            echo header('Location: '.__BASE_URL__.'/system/login/');
+            echo header('Location: '.__BASE__.'/system/login/');
             exit;
         }
     }
@@ -20,17 +20,26 @@ class Login
         // CSRFチェック
         \Ag\Csrf::check();
 
-        // パスワードチェック
-        if('123456789'===@$_POST['login_pw']) $_SESSION['loggedin'] = 1;
-        echo header('Location: '.__BASE_URL__.'/system/');
+        // ID/PW認証
+        if(
+            'admin'===@$_POST['login_id'] &&
+            '123456789'===@$_POST['login_pw']
+        ) $_SESSION['loggedin'] = 1;
+        echo header('Location: '.__BASE__.'/system/');
         exit;
     }
 
     // 管理者画面ログインページ
     public function index() {
+
+        global $Ag;
+
+        // ページスラッグ設定
+        $page_slugs = ['login'];
+
         // すでにログイン中なら管理画面TOPに飛ばし
         if(@$_SESSION['loggedin']) {
-            echo header('Location: '.__BASE_URL__.'/system/');
+            echo header('Location: '.__BASE__.'/system/');
             exit;
         }
         // ログイン画面出力
@@ -40,7 +49,7 @@ class Login
     // 管理者画面ログアウト処理
     public function logout() {
         unset($_SESSION['loggedin']);
-        echo header('Location: '.__BASE_URL__.'/system/login/');
+        echo header('Location: '.__BASE__.'/system/login/');
         exit;
     }
 }

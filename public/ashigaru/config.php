@@ -1,15 +1,15 @@
 <?php
-global $Ashigaru;
+global $Ag;
 
 // グローバル定義
 
 // パス定義
-define('__BASE_URL__', 'https://localhost');
+define('__BASE__', 'https://localhost');
 define('__BASE_DIR__', __DIR__);
 define('__TEMPLATES__', __DIR__.'/Templates');
 
 // その他設定
-$Ashigaru['config'] =
+$Ag['config'] =
 [
     'site_title' => 'Ashigaru sample',
     'db' => [

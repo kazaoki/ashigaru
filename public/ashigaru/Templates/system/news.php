@@ -12,7 +12,7 @@
 <!-------------------------- content start -------------------------->
 
 <section class="title">
-  <h1>管理画面トップ</h1>
+  <h1>お知らせ管理</h1>
 </section>
 
 <section>

@@ -2,20 +2,20 @@
 
 namespace App\Controllers\System;
 
-use \RedBeanPHP\R;
+// use \RedBeanPHP\R;
 
-class Top
+class News
 {
-    // 管理者画面トップページ
+    // 管理者画面：お知らせTOP
     public function index() {
 
         global $Ag;
 
         // ページスラッグ設定
-        $page_slugs = ['top'];
+        $page_slugs = ['news'];
 
         // テンプレート出力
-        include __TEMPLATES__.'/system/index.php';
+        include __TEMPLATES__.'/system/news.php';
 
         // 完了
         return;

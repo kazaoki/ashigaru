@@ -9,9 +9,6 @@ class Top
     // トップページコントローラ
     public function index() {
 
-        global $Ashigaru;
-        global $router;
-
         // 強制404
         // $router->trigger404();
         // return;
@@ -43,9 +40,6 @@ class Top
     // test
     public function name($name) {
 
-        global $Ashigaru;
-        global $router;
-
         //
         $post = R::dispense('post');
         $post->title = 'My holiday! name:'.$name;
@@ -62,9 +56,6 @@ class Top
 
     // detail
     public function detail($id) {
-
-        global $Ashigaru;
-        global $router;
 
         //
         $post = R::load( 'post', $id );
