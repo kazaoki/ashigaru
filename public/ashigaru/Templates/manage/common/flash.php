@@ -1,9 +1,12 @@
-<?php if(@$Flash) { ?>
-<?php foreach(array_keys($Flash) as $key) { ?>
-<div class="flash flash-<?= $key ?>">
-<?php foreach($Flash[$key] as $message) { ?>
-<p><?= $message ?></p>
-<?php } ?>
-</div>
-<?php } ?>
-<?php } ?>
+<?php
+if($flashes = \Ag\flash::get()) {
+  ?>
+  <section id="flash">
+    <?php foreach($flashes as $flash) { ?>
+    <div class="uk-alert-<?= $flash['class'] ? $flash['class'] : '' ?>" uk-alert>
+      <a class="uk-alert-close" uk-close></a>
+      <p><?= $flash['message'] ?></p>
+    </div>
+    <?php } ?>
+  <?php
+}

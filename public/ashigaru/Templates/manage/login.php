@@ -8,6 +8,7 @@
 <?php include __TEMPLATES__.'/manage/common/header.php' ?>
 <main class="<?= implode(' ', $page_slugs) ?>">
 <div id="content">
+<?php include __DIR__.'/common/flash.php' ?>
 <!-------------------------- content start -------------------------->
 
 <section class="title">

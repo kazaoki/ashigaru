@@ -87,7 +87,6 @@ header {
 	background: $barBackground;
 	background-size: cover;
 	height: $HeaderHeight;
-	display: flex;
 	font-size: 0.8rem;
 	box-shadow: 0 3px 25px 10px rgba(#000, 0.16);
 
@@ -312,10 +311,7 @@ footer {
 	padding: 20px;
 	text-align: center;
 	> small {
-		> div {
-			font-size: 18px;
-			color: $textColorWhite;
-		}
+		font-style: italic;
 	}
 }
 

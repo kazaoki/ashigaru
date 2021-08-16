@@ -9,6 +9,7 @@
 <main class="<?= implode(' ', $page_slugs) ?>">
 <?php include __TEMPLATES__.'/manage/common/side.php' ?>
 <div id="content">
+<?php include __DIR__.'/common/flash.php' ?>
 <!-------------------------- content start -------------------------->
 
 <section class="title">

@@ -15,4 +15,3 @@
     <?php } ?>
   </div>
 </header>
-<?php include __DIR__.'/flash.php' ?>

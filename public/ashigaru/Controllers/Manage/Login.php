@@ -22,7 +22,7 @@ class Login
         $admin = \App\Models\Admin::where('login_id', @$_POST['login_id'])->first();
 
         // ログイン認証成功
-        if(password_verify(@$_POST['login_pw'], $admin->login_pw)) {
+        if($admin && password_verify(@$_POST['login_pw'], $admin->login_pw)) {
 
             // セッション記録
             $admin->login_sessions()->save(new \App\Models\LoginSession([
@@ -31,7 +31,7 @@ class Login
                 'session_id' => session_id(),
             ]));
 
-            // ログイン中の情報を保存
+            // ログイン中である記録をセッションに保存
             $_SESSION['loggedin'] = 1;
 
             // 管理画面トップへ移動
@@ -40,7 +40,7 @@ class Login
         }
 
         // ログイン認証失敗
-        // \Ag::Flash('ログイン認証に失敗しました。', 'FAILED');
+        \Ag\Flash::set('ログイン認証に失敗しました。', 'danger');
         echo header('Location: '.__BASE__.'/manage/login/');
     }
 
@@ -63,7 +63,11 @@ class Login
 
     // 管理者画面ログアウト処理
     public function logout() {
+        // セッションを破棄してログイン状態を終了する
         unset($_SESSION['loggedin']);
+
+        // ログアウト成功
+        \Ag\Flash::set('ログアウトしました。', 'success');
         echo header('Location: '.__BASE__.'/manage/login/');
         exit;
     }

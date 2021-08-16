@@ -184,7 +184,6 @@ header {
   background: linear-gradient(66deg, #403b39 0%, #1d609d 79%);
   background-size: cover;
   height: 100px;
-  display: flex;
   font-size: 0.8rem;
   box-shadow: 0 3px 25px 10px rgba(0, 0, 0, 0.16);
 }
@@ -393,9 +392,8 @@ footer {
   padding: 20px;
   text-align: center;
 }
-footer > small > div {
-  font-size: 18px;
-  color: #eeeeee;
+footer > small {
+  font-style: italic;
 }
 
 .uk-offcanvas-bar {

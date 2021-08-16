@@ -1,3 +1,3 @@
 <footer>
-  <small>- Ashigaru Management System -</small>
+  <small>- Contents Management System -</small>
 </footer>
