@@ -2,8 +2,6 @@
 
 namespace App\Controllers\Manage;
 
-use \RedBeanPHP\R;
-
 class Top
 {
     // 管理者画面トップページ

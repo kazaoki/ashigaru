@@ -2,8 +2,6 @@
 
 namespace App\Controllers\Manage;
 
-// use \RedBeanPHP\R;
-
 class News
 {
     // 管理者画面：お知らせTOP

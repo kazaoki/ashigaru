@@ -2,8 +2,6 @@
 
 namespace App\Controllers\Manage;
 
-// use \RedBeanPHP\R;
-
 class Login
 {
     // 未ログインならフォームに飛ばす
@@ -21,12 +19,29 @@ class Login
         \Ag\Csrf::check();
 
         // ID/PW認証
-        if(
-            'admin'===@$_POST['login_id'] &&
-            '123456789'===@$_POST['login_pw']
-        ) $_SESSION['loggedin'] = 1;
-        echo header('Location: '.__BASE__.'/manage/');
-        exit;
+        $admin = \App\Models\Admin::where('login_id', @$_POST['login_id'])->first();
+
+        // ログイン認証成功
+        if(password_verify(@$_POST['login_pw'], $admin->login_pw)) {
+
+            // セッション記録
+            $admin->login_sessions()->save(new \App\Models\LoginSession([
+                'login_id'   => @$_POST['login_id'],
+                'access_ip'  => \Ag\AccessIp::get(),
+                'session_id' => session_id(),
+            ]));
+
+            // ログイン中の情報を保存
+            $_SESSION['loggedin'] = 1;
+
+            // 管理画面トップへ移動
+            echo header('Location: '.__BASE__.'/manage/');
+            exit;
+        }
+
+        // ログイン認証失敗
+        // \Ag::Flash('ログイン認証に失敗しました。', 'FAILED');
+        echo header('Location: '.__BASE__.'/manage/login/');
     }
 
     // 管理者画面ログインページ

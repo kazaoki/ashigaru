@@ -1,7 +1,6 @@
 
 import '../scss/manage/style.scss'
 
-
 /**
  * onload
  */
@@ -17,7 +16,7 @@ window.addEventListener('DOMContentLoaded', function(event)
  */
 function sidemenu_changer()
 {
-    var $sideMenu    = document.querySelector('#side-menu');
+    var $sideMenu = document.querySelector('#side-menu');
     if(!$sideMenu) return;
     var $sideMenuDiv = document.querySelector('#side-menu>div.oc-wrap');
     if(960<document.body.clientWidth) {

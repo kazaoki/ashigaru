@@ -15,8 +15,8 @@ $textColorWhite: #eeeeee;
 // ヘッダーの高さ固定
 $HeaderHeight: 100px;
 
-// 背景画像
-$backParam: '' !default;
+// 上下バー背景
+$barBackground: '' !default;
 
 // ホバー等で利用する透明度
 $opacity: .5;
@@ -84,7 +84,7 @@ html {
 
 // Header
 header {
-	background: $backParam;
+	background: $barBackground;
 	background-size: cover;
 	height: $HeaderHeight;
 	display: flex;
@@ -306,7 +306,7 @@ footer {
 	position: relative;
 	z-index: 100;
 	clear: both;
-	background: $backParam;
+	background: $barBackground;
 	background-size: cover;
 	color: $textColorWhite;
 	padding: 20px;

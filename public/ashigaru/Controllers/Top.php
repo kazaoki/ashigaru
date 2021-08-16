@@ -2,33 +2,15 @@
 
 namespace App\Controllers;
 
-use \RedBeanPHP\R;
-
 class Top
 {
     // トップページコントローラ
     public function index() {
 
-        // 強制404
+        // // 強制404
+        // global $router;
         // $router->trigger404();
         // return;
-
-        // test
-        $photo1 = R::dispense('photos');
-        $photo1->filename = 'AAA.jpg';
-        $photo2 = R::dispense('photos');
-        $photo2->filename = 'BBB.jpg';
-
-
-        $post = R::dispense('post');
-        $post->title = 'My holiday! (index)';
-        $post->ownPhotoList[] = $photo1;
-        $post->ownPhotoList[] = $photo2;
-        $id = R::store($post);
-
-        var_dump($id);
-
-
 
         // テンプレート出力
         include __TEMPLATES__.'/index.php';

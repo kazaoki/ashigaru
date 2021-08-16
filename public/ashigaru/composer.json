@@ -6,13 +6,14 @@
             "App\\Controllers\\" : "Controllers/",
             "App\\Models\\"      : "Models/",
             "App\\Modules\\"     : "Modules/",
-            "Ag\\"               : "Modules/Ag/"
+            "Ag\\"               : "Modules/Ag"
         }
     },
     "require": {
-        "gabordemooij/redbean": "dev-master",
         "bramus/router": " dev-master",
         "kazaoki/jp_send_mail": "dev-master",
-        "jakeasmith/http_build_url": "dev-master"
+        "jakeasmith/http_build_url": "dev-master",
+        "illuminate/database": "^8.54",
+        "illuminate/events": "^8.54"
     }
 }

@@ -1,0 +1,128 @@
+﻿# A5:ER FORMAT:15
+# A5:ER ENCODING:UTF8
+# A5:ER Mk-1 Copyright © 2007 m.matsubara
+# A5:SQL Mk-2 Version 2.16.1 Copyright © 1997 - 2021 m.matsubara
+#  https://a5m2.mmatsubara.com
+
+[Manager]
+ProjectName=sample
+Author=
+MaxEntityRowShow=1000
+ReadOnlyRecommend=0
+Page=Main
+PageInfo="Main",5,"A4Landscape",$FFFFFF
+LogicalView=1
+DecodeDomain=0
+ViewModePageIndividually=1
+ViewMode=5
+ViewFormat=0
+UseNondependenceDashLine=0
+FontName=游ゴシック Medium
+FontSize=6
+PaperSize=A4Landscape
+HeaderLeft=
+HeaderCenter=
+HeaderRight=
+FooterLeft=
+FooterCenter=
+FooterRight=
+ShowPageoutRelation=1
+RDBMSType=5
+RDBMSTypeName=MySQL
+GenerateDropTableStatement=1
+DropTableIfExists=1
+DefaultPkName=%0:s_PKC
+DefaultPkIndexName=%0:s_PKI
+DefaultIndexName=%0:s_IX%1:d
+DefaultFkName=%0:s_FK%1:d
+SqlSeparator=0
+UpperCaseKeyword=0
+ShowTag=1
+ShowCommonAttributes=0
+
+[Relation]
+Entity1=admins
+Entity2=login_sessions
+RelationType1=3
+RelationType2=3
+Fields1=login_id
+Fields2=login_id
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,3782,6045,4593,R,R,""
+Dependence=0
+Caption=
+PName=
+ModifiedDateTime=20210816112855
+LineMode=0
+Bar1=378
+Bar2=604
+Bar3=459
+TermPos1=R
+TermPos2=R
+ZOrder=21
+
+[Entity]
+PName=login_sessions
+LName=ログインセッション
+Comment=
+TableOption=
+Page=MAIN
+Left=200
+Top=450
+Field="ID","id","int(11) auto_increment","NOT NULL",0,"","",$FFFFFFFF,""
+Field="作成日時","created_at","timestamp","NOT NULL",,"CURRENT_TIMESTAMP","",$00808080,""
+Field="更新日時","updated_at","datetime",,,"NULL","",$00808080,""
+Field="状態","status","smallint(2)","NOT NULL",,"1","",$00808080,""
+Field="ログインID","login_id","VARCHAR(32)",,,"","",$FFFFFFFF,""
+Field="アクセスIP","access_ip","text",,,"","",$FFFFFFFF,""
+Field="セッションID","session_id","char(32)",,,"","",$FFFFFFFF,""
+Index=status=0,status
+EffectMode=None
+Tag=T
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20210816135605
+Position="MAIN",200,450
+ZOrder=20
+
+[Comment]
+Comment=sample
+FontName=JetBrains Mono
+FontBold=0
+FontItalic=0
+FontUnderline=0
+FontSize=9
+FontColor=$000000
+LineColor=$FFFFFF
+BkColor=$FFFFFF
+Page=Main
+Left=2184
+Top=53
+ZOrder=19
+Width=669
+Height=102
+
+[Entity]
+PName=admins
+LName=管理者
+Comment=
+TableOption=
+Page=MAIN
+Left=200
+Top=150
+Field="ID","id","int(11) auto_increment","NOT NULL",0,"","",$FFFFFFFF,""
+Field="作成日時","created_at","timestamp","NOT NULL",,"CURRENT_TIMESTAMP","",$00808080,""
+Field="更新日時","updated_at","datetime",,,"NULL","",$00808080,""
+Field="状態","status","smallint(2)","NOT NULL",,"1","",$00808080,""
+Field="ログインID","login_id","VARCHAR(32)","NOT NULL",,"","",$FFFFFFFF,""
+Field="ログインパスワード","login_pw","VARCHAR(255)","NOT NULL",,"","",$FFFFFFFF,""
+Index=status=0,status
+Index=login_id=1,login_id
+EffectMode=None
+Tag=R
+Color=$000000
+BkColor=$D1D1FF
+ModifiedDateTime=20210816112912
+Position="MAIN",200,150
+ZOrder=0
