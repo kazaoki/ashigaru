@@ -127,10 +127,10 @@ module.exports.config = {
             ['/var/log/httpd/ssl_request_log', ['-cS', 'apache']],
             ['/var/log/httpd/ssl_error_log', ['-cS', 'apache_errors']],
         ],
-        // http: [
-        //     ['/var/log/httpd/access_log', ['-cS', 'apache']],
-        //     ['/var/log/httpd/error_log', ['-cS', 'apache_errors']],
-        // ],
+        http: [
+            ['/var/log/httpd/access_log', ['-cS', 'apache']],
+            ['/var/log/httpd/error_log', ['-cS', 'apache_errors']],
+        ],
         // db: [
         //     ['/var/log/mysql/query.log', ['-ci', 'green']],
         // ],
@@ -164,11 +164,17 @@ module.exports.config = {
             // desc: ''
         },
 
-        // rollup
-        rollup: {
-            command: 'npx rollup -c -w',
+        // gulp
+        gulp: {
+            command: 'npx gulp',
             // desc: ''
         },
+
+        // // rollup
+        // rollup: {
+        //     command: 'npx rollup -c -w',
+        //     // desc: ''
+        // },
 
         // extraサンプル：`lamp sample`
         // sample: {
@@ -194,17 +200,17 @@ module.exports.config = {
         //     port: '1080',
         // },
         {
-            // open browser on upped (win&mac only)
-            type: 'open_browser',
-            schema: 'https',
-            path: '/',
-            // port: '',
-            // container: 'lampman',
-            // url: 'http://localhost:9981',
+            type: 'run_command',
+            command: 'gulp',
         },
         // {
-        //     type: 'run_command',
-        //     command: 'gulp',
+        //     // open browser on upped (win&mac only)
+        //     type: 'open_browser',
+        //     schema: 'https',
+        //     path: '/',
+        //     // port: '',
+        //     // container: 'lampman',
+        //     // url: 'http://localhost:9981',
         // },
         // {
         //     // show message on upped

@@ -1,6 +1,4 @@
 
-import '../scss/manage/style.scss'
-
 /**
  * onload
  */
@@ -23,10 +21,10 @@ function sidemenu_changer()
         if(!$sideMenu.getAttribute('uk-offcanvas')) return;
         $sideMenu.removeAttribute('uk-offcanvas');
         $sideMenu.classList.remove('uk-offcanvas')
-        $sideMenuDiv.classList.remove('uk-offcanvas-bar')
+        $sideMenuDiv?.classList.remove('uk-offcanvas-bar')
     } else {
         if($sideMenu.getAttribute('uk-offcanvas')) return;
         $sideMenu.setAttribute('uk-offcanvas', 'mode:push; flip:true; overlay:true');
-        $sideMenuDiv.classList.add('uk-offcanvas-bar')
+        $sideMenuDiv?.classList.add('uk-offcanvas-bar')
     }
 }

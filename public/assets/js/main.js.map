@@ -1,0 +1,1 @@
+{"version":3,"sources":["public/assets/ts/main.ts"],"names":["console","log","fff","str"],"mappings":"AACAA,QAAQC,IAAI,WAIR,IAAMC,IAAM,SAACC,GAAa,OAAAH,QAAQC,IAAIE,EAAI","file":"main.js","sourcesContent":["\nconsole.log(123456789)\n\n// !!!!!!\n{\n    const fff = (str:string)=>console.log(str+'!!!!!!!!!!')\n}\n"]}
