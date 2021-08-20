@@ -11,16 +11,7 @@ if(session_status()===PHP_SESSION_NONE) throw new \BadMethodCallException('Sessi
 
 // Database setup
 $capsule = new \Illuminate\Database\Capsule\Manager;
-$capsule->addConnection([
-    'driver'    => 'mysql',
-    'host'      => 'main.db',
-    'database'  => 'test',
-    'username'  => 'test',
-    'password'  => 'test',
-    'charset'   => 'utf8mb4',
-    'collation' => 'utf8mb4_unicode_ci',
-    'prefix'    => '',
-]);
+$capsule->addConnection($Ag['config']['db']);
 use \Illuminate\Events\Dispatcher;
 use \Illuminate\Container\Container;
 $capsule->setEventDispatcher(new Dispatcher(new Container));

@@ -4,7 +4,8 @@ global $Ag;
 // グローバル定義
 
 // パス定義
-define('__BASE__', getenv('LAMPMAN_MODE') ? '' : 'https://localhost' );
+define('__URL__', getenv('LAMPMAN_MODE') ? 'https://localhost' : '');
+define('__BASE__', '');
 define('__BASE_DIR__', __DIR__);
 define('__TEMPLATES__', __DIR__.'/Templates');
 
@@ -13,10 +14,14 @@ $Ag['config'] =
 [
     'site_title' => 'Ashigaru sample',
     'db' => [
-        'host' => '',
-        'name' => '',
-        'user' => '',
-        'pass' => '',
+        'driver'    => 'mysql',
+        'host'      => 'main.db',
+        'database'  => 'test',
+        'username'  => 'test',
+        'password'  => 'test',
+        'charset'   => 'utf8mb4',
+        'collation' => 'utf8mb4_unicode_ci',
+        'prefix'    => '',
     ],
     'items_per_page' => 10,
 ];
