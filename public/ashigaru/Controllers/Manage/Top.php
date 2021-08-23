@@ -4,18 +4,18 @@ namespace App\Controllers\Manage;
 
 class Top
 {
-    // 管理者画面トップページ
-    public function index() {
+	// 管理者画面トップページ
+	public function index() {
 
-        global $Ag;
+		global $Ag;
 
-        // ページスラッグ設定
-        $page_slugs = ['top'];
+		// ページスラッグ設定
+		$page_slugs = ['top'];
 
-        // テンプレート出力
-        include __TEMPLATES__.'/manage/index.php';
+		// テンプレート出力
+		include __TEMPLATES__.'/manage/index.php';
 
-        // 完了
-        return;
-    }
+		// 完了
+		return;
+	}
 }

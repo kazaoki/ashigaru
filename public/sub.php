@@ -13,9 +13,11 @@
 
 <pre>
 <?php
-var_dump($Ashigaru);
+var_dump($Ag);
 ?>
 </pre>
+
+<?= AG::h('<a href="">') ?>
 
 </body>
 </html>

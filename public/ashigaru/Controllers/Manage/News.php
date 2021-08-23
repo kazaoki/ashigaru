@@ -4,18 +4,18 @@ namespace App\Controllers\Manage;
 
 class News
 {
-    // 管理者画面：お知らせTOP
-    public function index() {
+	// 管理者画面：お知らせTOP
+	public function index() {
 
-        global $Ag;
+		global $Ag;
 
-        // ページスラッグ設定
-        $page_slugs = ['news'];
+		// ページスラッグ設定
+		$page_slugs = ['news'];
 
-        // テンプレート出力
-        include __TEMPLATES__.'/manage/news.php';
+		// テンプレート出力
+		include __TEMPLATES__.'/manage/news.php';
 
-        // 完了
-        return;
-    }
+		// 完了
+		return;
+	}
 }

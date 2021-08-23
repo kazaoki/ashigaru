@@ -123,10 +123,10 @@ module.exports.config = {
      * ---------------------------------------------------------------
      */
     logs: {
-        https: [
-            ['/var/log/httpd/ssl_request_log', ['-cS', 'apache']],
-            ['/var/log/httpd/ssl_error_log', ['-cS', 'apache_errors']],
-        ],
+        // https: [
+        //     ['/var/log/httpd/ssl_request_log', ['-cS', 'apache']],
+        //     ['/var/log/httpd/ssl_error_log', ['-cS', 'apache_errors']],
+        // ],
         http: [
             ['/var/log/httpd/access_log', ['-cS', 'apache']],
             ['/var/log/httpd/error_log', ['-cS', 'apache_errors']],

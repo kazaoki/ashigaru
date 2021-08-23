@@ -4,10 +4,12 @@ global $Ag;
 // グローバル定義
 
 // パス定義
-define('__URL__', getenv('LAMPMAN_MODE') ? 'https://localhost' : '');
+define('__URL__', getenv('LAMPMAN_MODE') ? 'https://localhost' : 'https://example.jp');
 define('__BASE__', '');
-define('__BASE_DIR__', __DIR__);
+define('__BASE_DIR__', dirname(__DIR__));
 define('__TEMPLATES__', __DIR__.'/Templates');
+// define('__UPLOADS__', __BASE__.'/uploads');
+// define('__UPLOADS_DIR__', __BASE_DIR__.'/uploads');
 
 // その他設定
 $Ag['config'] =
@@ -23,5 +25,5 @@ $Ag['config'] =
         'collation' => 'utf8mb4_unicode_ci',
         'prefix'    => '',
     ],
-    'items_per_page' => 10,
+    // 'items_per_page' => 10,
 ];

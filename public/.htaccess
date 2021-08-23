@@ -1,4 +1,6 @@
 
+Options +SymLinksIfOwnerMatch
+
 # 末尾スラッシュの徹底
 <IfModule mod_rewrite.c>
   RewriteEngine on

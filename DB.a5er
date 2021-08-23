@@ -40,54 +40,8 @@ UpperCaseKeyword=0
 ShowTag=1
 ShowCommonAttributes=0
 
-[Relation]
-Entity1=admins
-Entity2=login_sessions
-RelationType1=3
-RelationType2=3
-Fields1=login_id
-Fields2=login_id
-Cardinarity1=
-Cardinarity2=
-Position="MAIN",0,3782,6045,4593,R,R,""
-Dependence=0
-Caption=
-PName=
-ModifiedDateTime=20210816112855
-LineMode=0
-Bar1=378
-Bar2=604
-Bar3=459
-TermPos1=R
-TermPos2=R
-ZOrder=21
-
-[Entity]
-PName=login_sessions
-LName=ログインセッション
-Comment=
-TableOption=
-Page=MAIN
-Left=200
-Top=450
-Field="ID","id","int(11) auto_increment","NOT NULL",0,"","",$FFFFFFFF,""
-Field="作成日時","created_at","timestamp","NOT NULL",,"CURRENT_TIMESTAMP","",$00808080,""
-Field="更新日時","updated_at","datetime",,,"NULL","",$00808080,""
-Field="状態","status","smallint(2)","NOT NULL",,"1","",$00808080,""
-Field="ログインID","login_id","VARCHAR(32)",,,"","",$FFFFFFFF,""
-Field="アクセスIP","access_ip","text",,,"","",$FFFFFFFF,""
-Field="セッションID","session_id","char(32)",,,"","",$FFFFFFFF,""
-Index=status=0,status
-EffectMode=None
-Tag=T
-Color=$000000
-BkColor=$FFFFFF
-ModifiedDateTime=20210816135605
-Position="MAIN",200,450
-ZOrder=20
-
 [Comment]
-Comment=sample
+Comment=Base
 FontName=JetBrains Mono
 FontBold=0
 FontItalic=0
@@ -110,7 +64,7 @@ Comment=
 TableOption=
 Page=MAIN
 Left=200
-Top=150
+Top=200
 Field="ID","id","int(11) auto_increment","NOT NULL",0,"","",$FFFFFFFF,""
 Field="作成日時","created_at","timestamp","NOT NULL",,"CURRENT_TIMESTAMP","",$00808080,""
 Field="更新日時","updated_at","datetime",,,"NULL","",$00808080,""
@@ -124,5 +78,51 @@ Tag=R
 Color=$000000
 BkColor=$D1D1FF
 ModifiedDateTime=20210816112912
-Position="MAIN",200,150
-ZOrder=0
+Position="MAIN",200,200
+ZOrder=22
+
+[Entity]
+PName=login_sessions
+LName=ログインセッション
+Comment=
+TableOption=
+Page=MAIN
+Left=700
+Top=200
+Field="ID","id","int(11) auto_increment","NOT NULL",0,"","",$FFFFFFFF,""
+Field="作成日時","created_at","timestamp","NOT NULL",,"CURRENT_TIMESTAMP","",$00808080,""
+Field="更新日時","updated_at","datetime",,,"NULL","",$00808080,""
+Field="状態","status","smallint(2)","NOT NULL",,"1","",$00808080,""
+Field="ログインID","login_id","VARCHAR(32)",,,"","",$FFFFFFFF,""
+Field="アクセスIP","access_ip","text",,,"","",$FFFFFFFF,""
+Field="セッションID","session_id","char(32)",,,"","",$FFFFFFFF,""
+Index=status=0,status
+EffectMode=None
+Tag=E
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20210816160106
+Position="MAIN",700,200
+ZOrder=23
+
+[Relation]
+Entity1=admins
+Entity2=login_sessions
+RelationType1=3
+RelationType2=3
+Fields1=login_id
+Fields2=login_id
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,3782,6045,3242,R,R,""
+Dependence=0
+Caption=
+PName=
+ModifiedDateTime=20210816112855
+LineMode=0
+Bar1=378
+Bar2=604
+Bar3=324
+TermPos1=R
+TermPos2=R
+ZOrder=24

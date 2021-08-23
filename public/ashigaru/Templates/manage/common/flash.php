@@ -1,5 +1,5 @@
 <?php
-if($flashes = \Ag\flash::get()) {
+if($flashes = AG::flash_get()) {
   ?>
   <section id="flash">
     <?php foreach($flashes as $flash) { ?>
@@ -8,5 +8,6 @@ if($flashes = \Ag\flash::get()) {
       <p><?= $flash['message'] ?></p>
     </div>
     <?php } ?>
+  </section>
   <?php
 }
