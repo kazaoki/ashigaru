@@ -411,4 +411,16 @@ class AG
 
 		return true;
 	}
+
+	/**
+	 * 指定文字数よりながければカットして「...」付けて返す
+	 * -------------------------------------------------------------------------------------------------
+	 */
+	public static function string_cut(string $text, int $limit, string $tail_char='...')
+	{
+		return mb_strlen($text) > $limit
+			? mb_substr($text, 0, $limit).$tail_char
+			: $text
+		;
+	}
 }
