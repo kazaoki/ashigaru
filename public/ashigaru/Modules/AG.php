@@ -242,7 +242,7 @@ class AG
 		}
 
 		// 再帰関数定義
-		$f = function($vars, $prefix) use(&$f) {
+		$f = function($vars, $prefix) use(&$f, &$html) {
 			foreach($vars as $key=>$value) {
 				if(is_array($value)) {
 					$f($value, strlen($prefix) ? $prefix.'['.$key.']' : $key);
