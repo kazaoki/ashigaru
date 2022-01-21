@@ -1,7 +1,7 @@
 <?php
 
 // バージョン
-define('__ASHIGARU_VERSION__', '1.0.1');
+define('__ASHIGARU_VERSION__', '1.0.2');
 
 class AG
 {
