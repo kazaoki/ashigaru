@@ -330,7 +330,7 @@ class AG
 	 * BASE64で入ってきたPOSTデータを元に、ファイルを保存/更新/削除する
 	 * -------------------------------------------------------------------------------------------------
 	 */
-	public static function base64_submit($filebase, $uploads_path, $base64=null, $delete=null)
+	public static function base64_submit($filebase, $uploads_path, $base64=null, $delete=null, $ext=null)
 	{
 		if(!($base64||$delete)) return;
 
@@ -344,7 +344,7 @@ class AG
 			// 新たなファイルを保存
 			$tmpfile = tempnam('/tmp', 'ag-');
 			file_put_contents($tmpfile, base64_decode(preg_replace('/^.*?base64\,/', '', $base64)));
-			$ext = self::get_ext_from_file($tmpfile);
+			$ext = $ext ?: self::get_ext_from_file($tmpfil);
 			chmod($tmpfile, 0644);
 			$outfile = $uploads_path.'/'.$filebase.'.'.$ext;
 			rename($tmpfile, $outfile);
