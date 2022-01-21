@@ -1,7 +1,7 @@
 <?php
 
 // バージョン
-define('__ASHIGARU_VERSION__', '1.0.2');
+define('__ASHIGARU_VERSION__', '1.0.3');
 
 class AG
 {
@@ -344,7 +344,7 @@ class AG
 			// 新たなファイルを保存
 			$tmpfile = tempnam('/tmp', 'ag-');
 			file_put_contents($tmpfile, base64_decode(preg_replace('/^.*?base64\,/', '', $base64)));
-			$ext = $ext ?: self::get_ext_from_file($tmpfil);
+			$ext = $ext ?: self::get_ext_from_file($tmpfile);
 			chmod($tmpfile, 0644);
 			$outfile = $uploads_path.'/'.$filebase.'.'.$ext;
 			rename($tmpfile, $outfile);
