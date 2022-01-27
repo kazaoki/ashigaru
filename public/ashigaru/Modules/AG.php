@@ -1,7 +1,7 @@
 <?php
 
 // バージョン
-define('__ASHIGARU_VERSION__', '1.0.3');
+define('__ASHIGARU_VERSION__', '1.0.4');
 
 class AG
 {
@@ -347,7 +347,7 @@ class AG
 			$ext = $ext ?: self::get_ext_from_file($tmpfile);
 			chmod($tmpfile, 0644);
 			$outfile = $uploads_path.'/'.$filebase.'.'.$ext;
-			rename($tmpfile, $outfile);
+			copy($tmpfile, $outfile) && unlink($tmpfile); // before: rename($tmpfile, $outfile); # reason -> https://kazumaryu.hatenablog.com/entry/20100616/1276699776
 			return $outfile;
 		}
 
