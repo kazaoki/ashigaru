@@ -1,3 +1,6 @@
+
+const base_dir = 'public/'
+
 const gulp         = require('gulp');
 const plumber      = require('gulp-plumber');
 // const rename       = require('gulp-rename');
@@ -16,7 +19,7 @@ const terser       = require('gulp-terser');
  * sass compile
  */
 gulp.task('main-sass', done=>{
-	gulp.src(['public/assets/scss/*.scss'])
+	gulp.src([base_dir+'assets/scss/*.scss'])
 		.pipe(plumber({
 			handleError: function (err) {
 				console.log(err);
@@ -30,17 +33,17 @@ gulp.task('main-sass', done=>{
 		.pipe(cmq({log:true}))
 		// .pipe(csslint())
 		// .pipe(csslint.formatter())
-		// .pipe(gulp.dest('public/assets/css'))
+		// .pipe(gulp.dest(base_dir+'assets/css'))
 		// .pipe(rename({suffix: '.min'}))
 		.pipe(cleanCss())
 		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest('public/assets/css'))
+		.pipe(gulp.dest(base_dir+'assets/css'))
 		.pipe(browserSync.stream())
 	done()
 });
 
 gulp.task('manage-sass', done=>{
-	gulp.src(['public/assets-manage/scss/*.scss'])
+	gulp.src([base_dir+'assets-manage/scss/*.scss'])
 		.pipe(plumber({
 			handleError: function (err) {
 				console.log(err);
@@ -54,11 +57,11 @@ gulp.task('manage-sass', done=>{
 		.pipe(cmq({log:true}))
 		// .pipe(csslint())
 		// .pipe(csslint.formatter())
-		// .pipe(gulp.dest('public/assets/manage/css'))
+		// .pipe(gulp.dest(base_dir+'assets/manage/css'))
 		// .pipe(rename({suffix: '.min'}))
 		.pipe(cleanCss())
 		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest('public/assets-manage/css'))
+		.pipe(gulp.dest(base_dir+'assets/css'))
 		.pipe(browserSync.stream())
 	done()
 });
@@ -67,7 +70,7 @@ gulp.task('manage-sass', done=>{
  * typescript compile
  */
 gulp.task('main-ts', done=>{
-	gulp.src(['public/assets/ts/*.ts'])
+	gulp.src([base_dir+'assets/ts/*.ts'])
 		.pipe(sourcemaps.init())
 		.pipe(typescript({
 			out: 'main.js',
@@ -75,7 +78,7 @@ gulp.task('main-ts', done=>{
 			// module: "system",
 			removeComments: true,
 		}))
-		// .pipe(gulp.dest('public/assets/js'))
+		// .pipe(gulp.dest(base_dir+'assets/js'))
 		// .pipe(rename({suffix: '.min'}))
 		.pipe(terser({
 			compress: {
@@ -83,13 +86,16 @@ gulp.task('main-ts', done=>{
 			}
 		}))
 		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest('public/assets/js'))
+		.pipe(gulp.dest(base_dir+'assets/js'))
 		.pipe(browserSync.stream())
 	done()
 });
 
 gulp.task('manage-ts', done=>{
-	gulp.src(['public/assets-manage/ts/*.ts'])
+	gulp.src([
+		base_dir+'assets-manage/ts/main.ts', // main.ts を先に実行
+		base_dir+'assets-manage/ts/*.ts'
+	])
 		.pipe(sourcemaps.init())
 		.pipe(typescript({
 			out: 'main.js',
@@ -97,7 +103,7 @@ gulp.task('manage-ts', done=>{
 			// module: "system",
 			removeComments: true,
 		}))
-		// .pipe(gulp.dest('public/assets-manage/js'))
+		// .pipe(gulp.dest(base_dir+'assets-manage/js'))
 		// .pipe(rename({suffix: '.min'}))
 		.pipe(terser({
 			compress: {
@@ -105,7 +111,7 @@ gulp.task('manage-ts', done=>{
 			}
 		}))
 		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest('public/assets-manage/js'))
+		.pipe(gulp.dest(base_dir+'assets-manage/js'))
 		.pipe(browserSync.stream())
 	done()
 });
@@ -114,11 +120,11 @@ gulp.task('manage-ts', done=>{
  * watch files change
  */
 gulp.task('watch', ()=>{
-	gulp.watch('public/assets/scss/**/*.scss', gulp.task('main-sass'));
-	gulp.watch('public/assets/ts/**/*.ts', gulp.task('main-ts'));
-	gulp.watch('public/assets-manage/scss/**/*.scss', gulp.task('manage-sass'));
-	gulp.watch('public/assets-manage/ts/**/*.ts', gulp.task('manage-ts'));
-	gulp.watch("public/**/*.php").on('change', browserSync.reload);
+	gulp.watch(base_dir+'assets/scss/**/*.scss', gulp.task('main-sass'));
+	gulp.watch(base_dir+'assets/ts/**/*.ts', gulp.task('main-ts'));
+	gulp.watch(base_dir+'assets-manage/scss/**/*.scss', gulp.task('manage-sass'));
+	gulp.watch(base_dir+'assets-manage/ts/**/*.ts', gulp.task('manage-ts'));
+	gulp.watch(base_dir+'**/*.php').on('change', browserSync.reload);
 });
 
 /**
