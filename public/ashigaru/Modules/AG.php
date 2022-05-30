@@ -187,6 +187,37 @@ class AG
 	}
 
 	/**
+	 * 引数が正しければ checked を返す
+	 *
+	 * @param int|string|array
+	 * @param int|string|null
+	 *
+	 * ex. <input type="checkbox" name="sw" value="1"<?= checked($sw) ?>> // 第一引数を評価する
+	 * ex. <input type="checkbox" name="type" value="AAA"<?= checked($type,'AAA') ?>> // 第二引数と比較
+	 */
+	public static function checked()
+	{
+		$args = func_get_args();
+		if (count($args) == 1) return $args[0] ? ' checked' : '';
+		if (is_array($args[0])) return in_array($args[1], $args[0]) ? ' checked' : '';
+		return strval($args[0]) == strval($args[1]) ? ' checked' : '';
+	}
+
+	/**
+	 * 引数が正しければ selected を返す
+	 *
+	 * @param string|int|array
+	 * @param string|int
+	 *
+	 * ex. <option value="hoge"<?= selected($list, 'AAA') ?>>
+	 */
+	public static function selected($list, $need)
+	{
+		if (is_array($list)) return in_array($need, $list) ? ' selected' : '';
+		return strval($need) == strval($list) ? ' selected' : '';
+	}
+
+	/**
 	 * hiddenを一度に返す（特定用途キー指定可能）
 	 *
 	 * @param array|null $keys [任意、未指定の場合は全データ]
