@@ -2,7 +2,7 @@
 <html>
 <head>
 <?php include __TEMPLATES__.'/manage/common/meta.php' ?>
-<title>システム管理画面 - <?= @$Ag['config']['site_title'] ?></title>
+<title><?= @$Ag['config']['system_title'] ?></title>
 </head>
 <body>
 <?php include __TEMPLATES__.'/manage/common/header.php' ?>

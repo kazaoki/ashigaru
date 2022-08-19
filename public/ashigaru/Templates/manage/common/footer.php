@@ -1,3 +1,3 @@
 <footer>
-  <small>- Contents Management System -</small>
+  <small>- Contents management system on Ashigaru web framework -</small>
 </footer>

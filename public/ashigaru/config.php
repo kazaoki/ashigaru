@@ -14,7 +14,7 @@ define('__TEMPLATES__', __DIR__.'/Templates');
 // その他設定
 $Ag['config'] =
 [
-    'site_title' => 'Ashigaru sample',
+    'system_title' => 'サンプルサイト 情報更新システム',
     'db' => [
         'driver'    => 'mysql',
         'host'      => 'main.db',

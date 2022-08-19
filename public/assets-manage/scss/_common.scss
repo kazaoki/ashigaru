@@ -112,8 +112,8 @@ header {
 					white-space: nowrap;
 				}
 				h1 {
-					font-size: 1.5rem;
-					margin-bottom: 10px;
+					// font-size: 1.5rem;
+					font-size: clamp(1.0rem, 10 / 320 * 100vw, 2.0em);
 				}
 				h2 {
 					font-size: 1.0rem;

@@ -61,7 +61,7 @@ gulp.task('manage-sass', done=>{
 		// .pipe(rename({suffix: '.min'}))
 		.pipe(cleanCss())
 		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest(base_dir+'assets/css'))
+		.pipe(gulp.dest(base_dir+'assets-manage/css'))
 		.pipe(browserSync.stream())
 	done()
 });

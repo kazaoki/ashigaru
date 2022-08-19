@@ -3,8 +3,7 @@
     <div id="cap">
       <!-- <img class="logo" src="<?= __BASE__ ?>/assets/images/logo.svg"> -->
       <div class="title">
-        <!-- <h1><?= @$Settings['package_label'] ?></h1> -->
-        <h2 style="text-align:center;line-height:1.5">システム<wbr>管理画面</h2>
+        <h1><?= @$Ag['config']['system_title'] ?></h1>
       </div>
     </div>
     <?php if(@$_SESSION['loggedin']) { ?>
