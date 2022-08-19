@@ -1,7 +1,7 @@
-﻿# A5:ER FORMAT:15
+﻿# A5:ER FORMAT:16
 # A5:ER ENCODING:UTF8
 # A5:ER Mk-1 Copyright © 2007 m.matsubara
-# A5:SQL Mk-2 Version 2.16.1 Copyright © 1997 - 2021 m.matsubara
+# A5:SQL Mk-2 Version 2.17.1 Copyright © 1997 - 2022 m.matsubara
 #  https://a5m2.mmatsubara.com
 
 [Manager]
@@ -17,7 +17,7 @@ ViewModePageIndividually=1
 ViewMode=5
 ViewFormat=0
 UseNondependenceDashLine=0
-FontName=游ゴシック Medium
+FontName=UDEV Gothic LG
 FontSize=6
 PaperSize=A4Landscape
 HeaderLeft=
@@ -39,22 +39,23 @@ SqlSeparator=0
 UpperCaseKeyword=0
 ShowTag=1
 ShowCommonAttributes=0
+BugFixEntityWidth=0
 
 [Comment]
-Comment=Base
-FontName=JetBrains Mono
+Comment=Ashigaruサンプル用\n最終修正：2022-8-19\n
+FontName=UDEV Gothic LG
 FontBold=0
 FontItalic=0
 FontUnderline=0
-FontSize=9
+FontSize=10
 FontColor=$000000
 LineColor=$FFFFFF
 BkColor=$FFFFFF
 Page=Main
-Left=2184
-Top=53
+Left=2414
+Top=74
 ZOrder=19
-Width=669
+Width=391
 Height=102
 
 [Entity]
@@ -64,7 +65,7 @@ Comment=
 TableOption=
 Page=MAIN
 Left=200
-Top=200
+Top=300
 Field="ID","id","int(11) auto_increment","NOT NULL",0,"","",$FFFFFFFF,""
 Field="作成日時","created_at","timestamp","NOT NULL",,"CURRENT_TIMESTAMP","",$00808080,""
 Field="更新日時","updated_at","datetime",,,"NULL","",$00808080,""
@@ -78,7 +79,7 @@ Tag=R
 Color=$000000
 BkColor=$D1D1FF
 ModifiedDateTime=20210816112912
-Position="MAIN",200,200
+Position="MAIN",200,300
 ZOrder=22
 
 [Entity]
@@ -88,7 +89,7 @@ Comment=
 TableOption=
 Page=MAIN
 Left=700
-Top=200
+Top=300
 Field="ID","id","int(11) auto_increment","NOT NULL",0,"","",$FFFFFFFF,""
 Field="作成日時","created_at","timestamp","NOT NULL",,"CURRENT_TIMESTAMP","",$00808080,""
 Field="更新日時","updated_at","datetime",,,"NULL","",$00808080,""
@@ -102,7 +103,7 @@ Tag=E
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20210816160106
-Position="MAIN",700,200
+Position="MAIN",700,300,494,184
 ZOrder=23
 
 [Relation]
@@ -114,7 +115,7 @@ Fields1=login_id
 Fields2=login_id
 Cardinarity1=
 Cardinarity2=
-Position="MAIN",0,3782,6045,3242,R,R,""
+Position="MAIN",0,3782,6045,3132,R,R,""
 Dependence=0
 Caption=
 PName=
@@ -122,7 +123,111 @@ ModifiedDateTime=20210816112855
 LineMode=0
 Bar1=378
 Bar2=604
-Bar3=324
+Bar3=313
 TermPos1=R
 TermPos2=R
 ZOrder=24
+
+[Entity]
+PName=news
+LName=お知らせ
+Comment=
+TableOption=
+Page=MAIN
+Left=700
+Top=700
+Field="ID","id","int(11) auto_increment","NOT NULL",0,"","",$FFFFFFFF,""
+Field="作成日時","created_at","timestamp","NOT NULL",,"CURRENT_TIMESTAMP","",$00808080,""
+Field="更新日時","updated_at","datetime",,,"NULL","",$00808080,""
+Field="削除日時","deleted_at","datetime",,,"","",$FFFFFFFF,""
+Field="状態","status","smallint(2)","NOT NULL",,"1","",$00808080,""
+Field="公開日時","published_at","datetime","NOT NULL",,"","",$FFFFFFFF,""
+Field="タイトル","title","text","NOT NULL",,"","",$FFFFFFFF,""
+Field="本文","content","text",,,"","",$FFFFFFFF,""
+Field="カテゴリID","category_id","int(11)","NOT NULL",,"","",$FFFFFFFF,""
+Field="記事タイプ","type","enum(\qentry\q,\qpdf\q,\qurl\q)","NOT NULL",,"\qentry\q","",$FFFFFFFF,""
+Field="リンク先URL","url","text",,,"","",$FFFFFFFF,""
+Field="リンク先は別窓か","is_blank","boolean",,,"","記事タイプが pdf または url のとき時のみ有効",$FFFFFFFF,""
+Field="アップロードPDFファイル名","pdf_filename","text",,,"","",$FFFFFFFF,""
+Index=status=0,status
+EffectMode=None
+Tag=R
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20220118151021
+Position="MAIN",700,700,494,351
+ZOrder=32
+
+[Entity]
+PName=news_categories
+LName=お知らせカテゴリ
+Comment=
+TableOption=
+Page=MAIN
+Left=1350
+Top=700
+Field="ID","id","int(11) auto_increment","NOT NULL",0,"","",$FFFFFFFF,""
+Field="作成日時","created_at","timestamp","NOT NULL",,"CURRENT_TIMESTAMP","",$00808080,""
+Field="更新日時","updated_at","datetime",,,"NULL","",$00808080,""
+Field="削除日時","deleted_at","datetime",,,"","",$FFFFFFFF,""
+Field="状態","status","smallint(2)","NOT NULL",,"1","",$00808080,""
+Field="ソート","sort","smallint","NOT NULL",,"","",$FFFFFFFF,""
+Field="ラベル","label","text","NOT NULL",,"","",$FFFFFFFF,""
+Field="スラッグ","slug","varchar(32)","NOT NULL",,"","",$FFFFFFFF,""
+Index=status=0,status
+EffectMode=None
+Tag=R
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20220819142428
+Position="MAIN",1350,700,322,238
+ZOrder=26
+
+[Relation]
+Entity1=news_categories
+Entity2=news
+RelationType1=2
+RelationType2=4
+Fields1=id
+Fields2=category_id
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,3171,5142,2150,R,R,""
+Dependence=0
+Caption=
+PName=
+NoDDL=1
+ModifiedDateTime=20211202091255
+LineMode=0
+Bar1=317
+Bar2=514
+Bar3=215
+TermPos1=R
+TermPos2=R
+ZOrder=27
+
+[Comment]
+Comment=【記事タイプ】\n・entry ... 通常記事（デフォ）\n・pdf ... 登録したPDFにリンク\n・url ... 登録したURLにリンク
+FontName=游ゴシック
+FontBold=0
+FontItalic=0
+FontUnderline=0
+FontSize=7
+FontColor=$800000
+LineColor=$800000
+BkColor=$FFFFFF
+Page=Main
+Left=198
+Top=964
+ZOrder=31
+Width=412
+Height=207
+
+[Line]
+Page=Main
+Left=564
+Top=1003
+ZOrder=29
+Width=143
+Height=-69
+LineColor=$800000

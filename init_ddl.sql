@@ -1,5 +1,5 @@
 -- Project Name : sample
--- Date/Time    : 2021/08/23 17:09:38
+-- Date/Time    : 2022/08/19 14:24:39
 -- Author       : kazaoki
 -- RDBMS Type   : MySQL
 -- Application  : A5:SQL Mk-2
@@ -11,6 +11,51 @@
   この機能は一時的に $$TableName のような一時テーブルを作成します。
   この機能は A5:SQL Mk-2でのみ有効であることに注意してください。
 */
+
+-- お知らせ
+--* BackupToTempTable
+drop table if exists news cascade;
+
+--* RestoreFromTempTable
+create table news (
+  id int(11) auto_increment not null comment 'ID'
+  , created_at timestamp default CURRENT_TIMESTAMP not null comment '作成日時'
+  , updated_at datetime default NULL comment '更新日時'
+  , deleted_at datetime comment '削除日時'
+  , status smallint(2) default 1 not null comment '状態'
+  , published_at datetime not null comment '公開日時'
+  , title text not null comment 'タイトル'
+  , content text comment '本文'
+  , category_id int(11) not null comment 'カテゴリID'
+  , type enum('entry','pdf','url') default 'entry' not null comment '記事タイプ'
+  , url text comment 'リンク先URL'
+  , is_blank boolean comment 'リンク先は別窓か:記事タイプが pdf または url のとき時のみ有効'
+  , pdf_filename text comment 'アップロードPDFファイル名'
+  , constraint news_PKC primary key (id)
+) comment 'お知らせ' ;
+
+create index status
+  on news(status);
+
+-- お知らせカテゴリ
+--* BackupToTempTable
+drop table if exists news_categories cascade;
+
+--* RestoreFromTempTable
+create table news_categories (
+  id int(11) auto_increment not null comment 'ID'
+  , created_at timestamp default CURRENT_TIMESTAMP not null comment '作成日時'
+  , updated_at datetime default NULL comment '更新日時'
+  , deleted_at datetime comment '削除日時'
+  , status smallint(2) default 1 not null comment '状態'
+  , sort smallint not null comment 'ソート'
+  , label text not null comment 'ラベル'
+  , slug varchar(32) not null comment 'スラッグ'
+  , constraint news_categories_PKC primary key (id)
+) comment 'お知らせカテゴリ' ;
+
+create index status
+  on news_categories(status);
 
 -- ログインセッション
 --* BackupToTempTable
