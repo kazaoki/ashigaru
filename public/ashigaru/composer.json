@@ -9,9 +9,14 @@
         }
     },
     "require": {
-        "bramus/router": " dev-master",
+        "bramus/router": "dev-master",
         "kazaoki/jp_send_mail": "dev-master",
-        "illuminate/database": "^8.54",
-        "illuminate/events": "^8.54"
+        "illuminate/database": "^8",
+        "illuminate/events": "^8"
+    },
+    "config": {
+        "platform": {
+            "php": "7.4"
+        }
     }
 }
