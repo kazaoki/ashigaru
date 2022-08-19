@@ -1,5 +1,5 @@
 
-const base_dir = 'public/'
+const __BASE_DIR = './public'
 
 const gulp         = require('gulp');
 const plumber      = require('gulp-plumber');
@@ -18,8 +18,8 @@ const terser       = require('gulp-terser');
 /**
  * sass compile
  */
-gulp.task('main-sass', done=>{
-	gulp.src([base_dir+'assets/scss/*.scss'])
+gulp.task('sass', done=>{
+	gulp.src([__BASE_DIR+'/assets/scss/*.scss'])
 		.pipe(plumber({
 			handleError: function (err) {
 				console.log(err);
@@ -33,17 +33,17 @@ gulp.task('main-sass', done=>{
 		.pipe(cmq({log:true}))
 		// .pipe(csslint())
 		// .pipe(csslint.formatter())
-		// .pipe(gulp.dest(base_dir+'assets/css'))
+		// .pipe(gulp.dest(__BASE_DIR+'/assets/css'))
 		// .pipe(rename({suffix: '.min'}))
 		.pipe(cleanCss())
 		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest(base_dir+'assets/css'))
+		.pipe(gulp.dest(__BASE_DIR+'/assets/css'))
 		.pipe(browserSync.stream())
 	done()
 });
 
 gulp.task('manage-sass', done=>{
-	gulp.src([base_dir+'assets-manage/scss/*.scss'])
+	gulp.src([__BASE_DIR+'/ashigaru/assets/scss/*.scss'])
 		.pipe(plumber({
 			handleError: function (err) {
 				console.log(err);
@@ -57,11 +57,11 @@ gulp.task('manage-sass', done=>{
 		.pipe(cmq({log:true}))
 		// .pipe(csslint())
 		// .pipe(csslint.formatter())
-		// .pipe(gulp.dest(base_dir+'assets/manage/css'))
+		// .pipe(gulp.dest(__BASE_DIR+'/assets/manage/css'))
 		// .pipe(rename({suffix: '.min'}))
 		.pipe(cleanCss())
 		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest(base_dir+'assets-manage/css'))
+		.pipe(gulp.dest(__BASE_DIR+'/ashigaru/assets/css/'))
 		.pipe(browserSync.stream())
 	done()
 });
@@ -69,8 +69,8 @@ gulp.task('manage-sass', done=>{
 /**
  * typescript compile
  */
-gulp.task('main-ts', done=>{
-	gulp.src([base_dir+'assets/ts/*.ts'])
+gulp.task('ts', done=>{
+	gulp.src([__BASE_DIR+'/assets/ts/*.ts'])
 		.pipe(sourcemaps.init())
 		.pipe(typescript({
 			out: 'main.js',
@@ -78,7 +78,7 @@ gulp.task('main-ts', done=>{
 			// module: "system",
 			removeComments: true,
 		}))
-		// .pipe(gulp.dest(base_dir+'assets/js'))
+		// .pipe(gulp.dest(__BASE_DIR+'/assets/js'))
 		// .pipe(rename({suffix: '.min'}))
 		.pipe(terser({
 			compress: {
@@ -86,15 +86,15 @@ gulp.task('main-ts', done=>{
 			}
 		}))
 		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest(base_dir+'assets/js'))
+		.pipe(gulp.dest(__BASE_DIR+'/assets/js'))
 		.pipe(browserSync.stream())
 	done()
 });
 
 gulp.task('manage-ts', done=>{
 	gulp.src([
-		base_dir+'assets-manage/ts/main.ts', // main.ts を先に実行
-		base_dir+'assets-manage/ts/*.ts'
+		__BASE_DIR+'/ashigaru/assets/ts/main.ts', // main.ts を先に実行
+		__BASE_DIR+'/ashigaru/assets/ts/*.ts'
 	])
 		.pipe(sourcemaps.init())
 		.pipe(typescript({
@@ -103,7 +103,7 @@ gulp.task('manage-ts', done=>{
 			// module: "system",
 			removeComments: true,
 		}))
-		// .pipe(gulp.dest(base_dir+'assets-manage/js'))
+		// .pipe(gulp.dest(__BASE_DIR+'/ashigaru/assets/js'))
 		// .pipe(rename({suffix: '.min'}))
 		.pipe(terser({
 			compress: {
@@ -111,7 +111,7 @@ gulp.task('manage-ts', done=>{
 			}
 		}))
 		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest(base_dir+'assets-manage/js'))
+		.pipe(gulp.dest(__BASE_DIR+'/ashigaru/assets/js'))
 		.pipe(browserSync.stream())
 	done()
 });
@@ -120,11 +120,11 @@ gulp.task('manage-ts', done=>{
  * watch files change
  */
 gulp.task('watch', ()=>{
-	gulp.watch(base_dir+'assets/scss/**/*.scss', gulp.task('main-sass'));
-	gulp.watch(base_dir+'assets/ts/**/*.ts', gulp.task('main-ts'));
-	gulp.watch(base_dir+'assets-manage/scss/**/*.scss', gulp.task('manage-sass'));
-	gulp.watch(base_dir+'assets-manage/ts/**/*.ts', gulp.task('manage-ts'));
-	gulp.watch(base_dir+'**/*.php').on('change', browserSync.reload);
+	gulp.watch(__BASE_DIR+'/assets/scss/**/*.scss', gulp.task('sass'));
+	gulp.watch(__BASE_DIR+'/assets/ts/**/*.ts', gulp.task('ts'));
+	gulp.watch(__BASE_DIR+'/ashigaru/assets/scss/**/*.scss', gulp.task('manage-sass'));
+	gulp.watch(__BASE_DIR+'/ashigaru/assets/ts/**/*.ts', gulp.task('manage-ts'));
+	gulp.watch(__BASE_DIR+'/**/*.php').on('change', browserSync.reload);
 });
 
 /**
@@ -138,8 +138,8 @@ gulp.task('server', ()=>{
 //  * build only
 //  */
 gulp.task('build', gulp.series(
-	'main-sass',
-	'main-ts',
+	'sass',
+	'ts',
 	'manage-sass',
 	'manage-ts',
 ));
@@ -148,8 +148,8 @@ gulp.task('build', gulp.series(
 //  * build & watch (default))
 //  */
 gulp.task('default', gulp.series(
-	'main-sass',
-	'main-ts',
+	'sass',
+	'ts',
 	'manage-sass',
 	'manage-ts',
 	gulp.parallel(

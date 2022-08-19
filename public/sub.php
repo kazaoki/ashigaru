@@ -17,7 +17,12 @@ var_dump($Ag);
 ?>
 </pre>
 
-<?= AG::h('<a href="">') ?>
+<?= AG::h('<a href="">') ?><br><br><br>
+__TEMPLATES_DIR__ = <?= __TEMPLATES_DIR__ ?><br>
+__BASE__ = <?= __BASE__ ?><br>
+__BASE_DIR__ = <?= __BASE_DIR__ ?><br>
+__MANAGE_ASSETS__ = <?= __MANAGE_ASSETS__ ?><br>
+
 
 </body>
 </html>

@@ -13,7 +13,7 @@ class Top
 		// return;
 
 		// テンプレート出力
-		include __TEMPLATES__.'/index.php';
+		include __TEMPLATES_DIR__.'/index.php';
 
 		// 完了
 		return;
@@ -23,7 +23,7 @@ class Top
 	public function name($name) {
 
 		// テンプレート出力
-		include __TEMPLATES__.'/index.php';
+		include __TEMPLATES_DIR__.'/index.php';
 
 		// 完了
 		return;
@@ -33,7 +33,7 @@ class Top
 	public function detail($id) {
 
 		// テンプレート出力
-		include __TEMPLATES__.'/detail.php';
+		include __TEMPLATES_DIR__.'/detail.php';
 
 		// 完了
 		return;

@@ -7,7 +7,9 @@ global $Ag;
 define('__URL__', getenv('LAMPMAN_MODE') ? 'https://localhost' : 'https://example.jp');
 define('__BASE__', '');
 define('__BASE_DIR__', dirname(__DIR__));
-define('__TEMPLATES__', __DIR__.'/Templates');
+define('__TEMPLATES_DIR__', __DIR__.'/Templates');
+define('__MANAGE_ASSETS__', __BASE__.'/'.basename(__DIR__).'/assets');
+
 // define('__UPLOADS__', __BASE__.'/uploads');
 // define('__UPLOADS_DIR__', __BASE_DIR__.'/uploads');
 

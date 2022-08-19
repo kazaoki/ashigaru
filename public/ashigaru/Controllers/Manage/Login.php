@@ -58,7 +58,7 @@ class Login
 			exit;
 		}
 		// ログイン画面出力
-		include __TEMPLATES__.'/manage/login.php';
+		include __TEMPLATES_DIR__.'/manage/login.php';
 	}
 
 	// 管理者画面ログアウト処理

@@ -6,6 +6,6 @@
 <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.3/dist/js/uikit.min.js"></script>
 <!-- <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.3/dist/js/uikit-icons.min.js"></script> -->
 
-<link rel="stylesheet" href="<?= __BASE__ ?>/assets-manage/css/style.css">
+<link rel="stylesheet" href="<?= __MANAGE_ASSETS__ ?>/css/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-<script src="<?= __BASE__ ?>/assets-manage/js/main.js"></script>
+<script src="<?= __MANAGE_ASSETS__ ?>/js/main.js"></script>

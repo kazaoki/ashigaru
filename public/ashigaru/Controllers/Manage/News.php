@@ -13,7 +13,7 @@ class News
 		$page_slugs = ['news'];
 
 		// テンプレート出力
-		include __TEMPLATES__.'/manage/news.php';
+		include __TEMPLATES_DIR__.'/manage/news.php';
 
 		// 完了
 		return;

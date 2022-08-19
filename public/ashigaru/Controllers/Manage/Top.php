@@ -13,7 +13,7 @@ class Top
 		$page_slugs = ['top'];
 
 		// テンプレート出力
-		include __TEMPLATES__.'/manage/index.php';
+		include __TEMPLATES_DIR__.'/manage/index.php';
 
 		// 完了
 		return;
