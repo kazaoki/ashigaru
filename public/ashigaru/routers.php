@@ -19,6 +19,7 @@ $router->mount('', function() use ($router)
 $router->mount('/news', function() use ($router)
 {
 	$router->get('/?(?:cat/([^/]+))?/?(?:page/([^/]+))?', '\App\Controllers\News@index');
+	$router->get('/entry/(\d+)/', '\App\Controllers\News@detail');
 });
 
 // -----------------------------------------------------------------------------

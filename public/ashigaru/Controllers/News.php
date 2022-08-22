@@ -48,13 +48,22 @@ class News extends \App\Controllers\Base
 
 	}
 
-	// // お知らせ詳細
-	// public function detail($id) {
+	// お知らせ詳細
+	public function detail($id) {
 
-	// 	// テンプレート出力
-	// 	include __TEMPLATES_DIR__.'/detail.php';
+		global $router;
+		global $message;
 
-	// 	// 完了
-	// 	return;
-	// }
+		// お知らせを取得
+		try {
+			$entry = \App\Models\News::findOrFail($id);
+		} catch(ModelNotFoundException $e){
+			$message = 'ご指定の記事が見つからないか公開待ちです。';
+			$router->trigger404();
+			return;
+		}
+
+		// ページ出力
+		include __TEMPLATES_DIR__.'/news/detail.php';
+	}
 }
