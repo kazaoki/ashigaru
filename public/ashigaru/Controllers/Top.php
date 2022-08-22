@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class Top
+class Top extends \App\Controllers\Base
 {
 	// トップページコントローラ
 	public function index() {

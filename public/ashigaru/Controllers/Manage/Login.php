@@ -2,12 +2,13 @@
 
 namespace App\Controllers\Manage;
 
-class Login
+class Login extends \App\Controllers\Base
 {
 	// 未ログインならフォームに飛ばす
-	public function not_logged_in() {
-		if(!@$_SESSION['loggedin']) {
-			echo header('Location: '.__BASE__.'/manage/login/');
+	public function logged_in_check() {
+		// 該当する管理者が見つからなければログイン画面へ
+		if(!@$this->admin->id) {
+			echo header('Location: '.__MANAGE__.'/login/');
 			exit;
 		}
 	}
@@ -32,16 +33,16 @@ class Login
 			]));
 
 			// ログイン中である記録をセッションに保存
-			$_SESSION['loggedin'] = 1;
+			$_SESSION['loggedin_admin_id'] = $admin->login_id;
 
 			// 管理画面トップへ移動
-			echo header('Location: '.__BASE__.'/manage/');
+			echo header('Location: '.__MANAGE__);
 			exit;
 		}
 
 		// ログイン認証失敗
 		\AG::flash_set('ログイン認証に失敗しました。', 'danger');
-		echo header('Location: '.__BASE__.'/manage/login/');
+		echo header('Location: '.__MANAGE__.'/login/');
 	}
 
 	// 管理者画面ログインページ
@@ -53,8 +54,8 @@ class Login
 		$page_slugs = ['login'];
 
 		// すでにログイン中なら管理画面TOPに飛ばし
-		if(@$_SESSION['loggedin']) {
-			echo header('Location: '.__BASE__.'/manage/');
+		if(@$_SESSION['loggedin_admin_id']) {
+			echo header('Location: '.__MANAGE__);
 			exit;
 		}
 		// ログイン画面出力
@@ -64,11 +65,11 @@ class Login
 	// 管理者画面ログアウト処理
 	public function logout() {
 		// セッションを破棄してログイン状態を終了する
-		unset($_SESSION['loggedin']);
+		unset($_SESSION['loggedin_admin_id']);
 
 		// ログアウト成功
 		\AG::flash_set('ログアウトしました。', 'success');
-		echo header('Location: '.__BASE__.'/manage/login/');
+		echo header('Location: '.__MANAGE__.'/login/');
 		exit;
 	}
 }

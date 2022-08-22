@@ -1,4 +1,4 @@
-<?php include 'header.php' ?>
+<?php include __TEMPLATES_DIR__.'/header.php' ?>
 
 <img src="/assets/images/albert-01.jpg" width="50"><br>
 id: <?= @$post->id ?><br>
@@ -9,4 +9,4 @@ photos: <?php if(@count($photos=@$post->with('limit 1')->ownPhotosList)) { ?>
 <?php } ?>
 <?php } ?>
 
-<?php include 'footer.php' ?>
+<?php include __TEMPLATES_DIR__.'/footer.php' ?>

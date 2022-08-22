@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Models;
+
 use \Illuminate\Database\Eloquent\Model;
-use \Illuminate\Database\Capsule\Manager as DB;
+// use \Illuminate\Database\Capsule\Manager as DB;
 
 /**
  * 管理者モデル

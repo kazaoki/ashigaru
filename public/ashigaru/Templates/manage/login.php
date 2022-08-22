@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<?php include __TEMPLATES_DIR__.'/manage/common/meta.php' ?>
+<?php include __TEMPLATES_DIR__.'/manage/meta.php' ?>
 <title><?= @$Ag['config']['system_title'] ?></title>
 </head>
 <body>
-<?php include __TEMPLATES_DIR__.'/manage/common/header.php' ?>
+<?php include __TEMPLATES_DIR__.'/manage/header.php' ?>
 <main class="<?= implode(' ', $page_slugs) ?>">
 <div id="content" class="login">
-<?php include __DIR__.'/common/flash.php' ?>
+<?php include __TEMPLATES_DIR__.'/manage/flash.php' ?>
 <!-------------------------- content start -------------------------->
 
   <section class="title">
@@ -38,6 +38,6 @@
 <!--------------------------- content end --------------------------->
 </div>
 </main>
-<?php include __TEMPLATES_DIR__.'/manage/common/footer.php' ?>
+<?php include __TEMPLATES_DIR__.'/manage/footer.php' ?>
 </body>
 </html>

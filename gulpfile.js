@@ -43,7 +43,7 @@ gulp.task('sass', done=>{
 });
 
 gulp.task('manage-sass', done=>{
-	gulp.src([__BASE_DIR+'/ashigaru/assets/scss/*.scss'])
+	gulp.src([__BASE_DIR+'/manage/assets/scss/*.scss'])
 		.pipe(plumber({
 			handleError: function (err) {
 				console.log(err);
@@ -61,7 +61,7 @@ gulp.task('manage-sass', done=>{
 		// .pipe(rename({suffix: '.min'}))
 		.pipe(cleanCss())
 		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest(__BASE_DIR+'/ashigaru/assets/css/'))
+		.pipe(gulp.dest(__BASE_DIR+'/manage/assets/css/'))
 		.pipe(browserSync.stream())
 	done()
 });
@@ -93,8 +93,8 @@ gulp.task('ts', done=>{
 
 gulp.task('manage-ts', done=>{
 	gulp.src([
-		__BASE_DIR+'/ashigaru/assets/ts/main.ts', // main.ts を先に実行
-		__BASE_DIR+'/ashigaru/assets/ts/*.ts'
+		__BASE_DIR+'/manage/assets/ts/main.ts', // main.ts を先に実行
+		__BASE_DIR+'/manage/assets/ts/*.ts'
 	])
 		.pipe(sourcemaps.init())
 		.pipe(typescript({
@@ -103,7 +103,7 @@ gulp.task('manage-ts', done=>{
 			// module: "system",
 			removeComments: true,
 		}))
-		// .pipe(gulp.dest(__BASE_DIR+'/ashigaru/assets/js'))
+		// .pipe(gulp.dest(__BASE_DIR+'/manage/assets/js'))
 		// .pipe(rename({suffix: '.min'}))
 		.pipe(terser({
 			compress: {
@@ -111,7 +111,7 @@ gulp.task('manage-ts', done=>{
 			}
 		}))
 		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest(__BASE_DIR+'/ashigaru/assets/js'))
+		.pipe(gulp.dest(__BASE_DIR+'/manage/assets/js'))
 		.pipe(browserSync.stream())
 	done()
 });
@@ -122,8 +122,8 @@ gulp.task('manage-ts', done=>{
 gulp.task('watch', ()=>{
 	gulp.watch(__BASE_DIR+'/assets/scss/**/*.scss', gulp.task('sass'));
 	gulp.watch(__BASE_DIR+'/assets/ts/**/*.ts', gulp.task('ts'));
-	gulp.watch(__BASE_DIR+'/ashigaru/assets/scss/**/*.scss', gulp.task('manage-sass'));
-	gulp.watch(__BASE_DIR+'/ashigaru/assets/ts/**/*.ts', gulp.task('manage-ts'));
+	gulp.watch(__BASE_DIR+'/manage/assets/scss/**/*.scss', gulp.task('manage-sass'));
+	gulp.watch(__BASE_DIR+'/manage/assets/ts/**/*.ts', gulp.task('manage-ts'));
 	gulp.watch(__BASE_DIR+'/**/*.php').on('change', browserSync.reload);
 });
 

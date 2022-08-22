@@ -4,34 +4,52 @@
 global $router;
 $router = new \Bramus\Router\Router();
 
-/**
- * 管理画面ルーティング
- * -----------------------------------------------------------------------------
- */
-// ログイン回り
-$router->before('GET', '/manage(/(?!login).*)?', '\App\Controllers\Manage\Login@not_logged_in');
-$router->get('/manage/login/', '\App\Controllers\Manage\Login@index');
-$router->post('/manage/login/', '\App\Controllers\Manage\Login@login');
-$router->get('/manage/logout/', '\App\Controllers\Manage\Login@logout');
-// 管理画面トップ
-$router->get('/manage/', '\App\Controllers\Manage\Top@index');
-// お知らせ
-$router->get('/manage/news/', '\App\Controllers\Manage\News@index');
-
-/**
- * 公開画面ルーティング
- * -----------------------------------------------------------------------------
- */
+// -----------------------------------------------------------------------------
+// 公開画面
+// -----------------------------------------------------------------------------
 // トップページ
-$router->get('/', '\App\Controllers\Top@index');
-$router->get('/name/(.+)', '\App\Controllers\Top@name');
-$router->get('/id/(\d+)', '\App\Controllers\Top@detail');
+$router->mount('', function() use ($router)
+{
+	$router->get('/', '\App\Controllers\Top@index');
+	$router->get('/name/(.+)', '\App\Controllers\Top@name');
+	$router->get('/id/(\d+)', '\App\Controllers\Top@detail');
+});
 
+// お知らせ
+$router->mount('/news', function() use ($router)
+{
+	$router->get('/?(?:cat/([^/]+))?/?(?:page/([^/]+))?', '\App\Controllers\News@index');
+});
 
-/**
- * エラー画面ルーティング
- * -----------------------------------------------------------------------------
- */
+// -----------------------------------------------------------------------------
+// 管理画面
+// -----------------------------------------------------------------------------
+$router->mount('/manage', function() use ($router)
+{
+	// ログイン済みか毎回チェック
+	$router->before('GET|POST', '/', '\App\Controllers\Manage\Login@logged_in_check');
+	// $router->before('GET|POST', '/((?!login).*)?', '\App\Controllers\Manage\Login@logged_in_check');
+
+	// ログイン回り
+	$router->get('/login/', '\App\Controllers\Manage\Login@index');
+	$router->post('/login/', '\App\Controllers\Manage\Login@login');
+	$router->get('/logout/', '\App\Controllers\Manage\Login@logout');
+
+	// トップ
+	$router->get('/', '\App\Controllers\Manage\Top@index');
+
+	// お知らせ管理
+	$router->get('/news(?:/page/(\d+))?/', '\App\Controllers\Manage\News@index');
+	$router->match('GET|POST', '/news/edit(?:/(\d+))?/', '\App\Controllers\Manage\News@edit');
+	// // $router->post('/news/copy(?:/(\d+))?/', '\App\Controllers\Manage\News@copy');
+	$router->post('/news/check/', '\App\Controllers\Manage\News@check');
+	$router->post('/news/save/', '\App\Controllers\Manage\News@save');
+	$router->post('/news/delete/', '\App\Controllers\Manage\News@delete');
+});
+
+// -----------------------------------------------------------------------------
+// エラー画面
+// -----------------------------------------------------------------------------
 // 404 Not Found
 $router->set404('\App\Controllers\Error@notFound');
 

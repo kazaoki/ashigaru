@@ -1,7 +1,7 @@
 <header>
   <div class="inner">
     <div id="cap">
-      <!-- <img class="logo" src="<?= __BASE__ ?>/assets/images/logo.svg"> -->
+      <!-- <img class="logo" src="<?= __SITE__ ?>/assets/images/logo.svg"> -->
       <div class="title">
         <h1><?= @$Ag['config']['system_title'] ?></h1>
       </div>
