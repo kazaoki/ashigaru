@@ -2,7 +2,7 @@
   <?php if(1!==$pager['now']) { ?>
   <li><a href="<?= sprintf($pager['href_template'], $pager['prev_page']) ?>"><span uk-pagination-previous></span></a></li>
   <?php } else { ?>
-  <li><a class="uk-disabled"><span uk-pagination-previous></span></a></li>
+  <!-- <li><a class="uk-disabled"><span uk-pagination-previous></span></a></li> -->
   <?php } ?>
   <?php if(1!==$pager['head_page']) { ?>
   <li><a href="<?= sprintf($pager['href_template'], 1) ?>">1</a></li>
@@ -22,6 +22,6 @@
   <?php if($pager['last_page']!==$pager['now']) { ?>
   <li><a href="<?= sprintf($pager['href_template'], $pager['next_page']) ?>"><span uk-pagination-next></span></a></li>
   <?php } else { ?>
-  <li><a class="uk-disabled"><span uk-pagination-next></span></a></li>
+  <!-- <li><a class="uk-disabled"><span uk-pagination-next></span></a></li> -->
   <?php } ?>
 </ul>
