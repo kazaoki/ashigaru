@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <?php include __TEMPLATES_DIR__.'/manage/meta.php' ?>
-<title><?= @$Ag['config']['site_title'] ?> CMS管理画面</title>
+<title><?= @$Ag['config']['system_title'] ?></title>
 </head>
 <body class="<?= implode(' ', @$page_slugs) ?>">
 <?php include __TEMPLATES_DIR__.'/manage/header.php' ?>
@@ -19,12 +19,20 @@
 
 <section>
   <div class="uk-overflow-auto table-scroll">
-    <table class="uk-table uk-table-middle uk-table-divider uk-table-striped uk-table-hover uk-table-small">
+  <table class="uk-table uk-table-middle uk-table-divider uk-table-striped uk-table-hover uk-table-small">
       <thead>
         <tr>
-          <th>管理ID</th>
+          <th>ID</th>
           <th>状態</th>
           <th>公開日時</th>
+          <th>
+            <select id="filter-cat" class="uk-select uk-form-small">
+              <option value="">カテゴリ</option>
+              <?php foreach($cats as $cat) { ?>
+                <option value="<?= AG::h($cat->id) ?>"<?= intval($cat_id)===$cat->id ? 'selected' : '' ?>><?= AG::h($cat->label) ?> (<?= $cat->news()->full()->get()->count() ?>)</option>
+              <?php } ?>
+            </select>
+          </th>
           <th>タイトル</th>
           <th>操作</th>
         </tr>
@@ -41,8 +49,10 @@
             <?= $entry->published_at->format('Y/n/j H:i') ?>
             <?= $entry->is_reserved ? '<i class="far fa-clock" uk-tooltip="title: 公開日時が過ぎるまで<br>記事は公開されません"></i>' : '' ?>
           </td>
+          <td nowrap>
+            <?= AG::h($entry->category->label) ?>
+          </td>
           <td>
-            <?= $entry->is_topics ? '<i class="fas fa-star"></i>' : '' ?>
             <?php if($entry->status) { ?>
             <a href="<?= $entry->permalink ?>" target="_blank" class="uk-link-text"><?= AG::h($entry->title) ?> <i class="fas fa-external-link-alt"></i></a>
             <?php } else { ?>
@@ -59,7 +69,7 @@
         <?php } else { ?>
         <tr>
           <td colspan="100">
-            表示可能な情報はありません。
+            現在、表示可能なお知らせはありません。
           </td>
         </tr>
         <?php } ?>

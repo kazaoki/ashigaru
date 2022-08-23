@@ -62,7 +62,7 @@ CREATE TABLE `login_sessions` (
   `session_id` char(32) DEFAULT NULL COMMENT 'セッションID',
   PRIMARY KEY (`id`),
   KEY `status` (`status`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COMMENT='ログインセッション';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COMMENT='ログインセッション';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,8 +71,73 @@ CREATE TABLE `login_sessions` (
 
 LOCK TABLES `login_sessions` WRITE;
 /*!40000 ALTER TABLE `login_sessions` DISABLE KEYS */;
-INSERT INTO `login_sessions` VALUES (1,'2021-08-16 04:56:28','2021-08-16 13:56:28',1,'admin','172.22.0.1','gqetf9muue3caismcrqt1sm8ou'),(2,'2021-08-16 04:56:37','2021-08-16 13:56:37',1,'admin','172.22.0.1','gqetf9muue3caismcrqt1sm8ou'),(3,'2021-08-16 04:59:13','2021-08-16 13:59:13',1,'admin','172.22.0.1','gqetf9muue3caismcrqt1sm8ou');
+INSERT INTO `login_sessions` VALUES (1,'2021-08-16 04:56:28','2021-08-16 13:56:28',1,'admin','172.22.0.1','gqetf9muue3caismcrqt1sm8ou'),(2,'2021-08-16 04:56:37','2021-08-16 13:56:37',1,'admin','172.22.0.1','gqetf9muue3caismcrqt1sm8ou'),(3,'2021-08-16 04:59:13','2021-08-16 13:59:13',1,'admin','172.22.0.1','gqetf9muue3caismcrqt1sm8ou'),(4,'2022-08-19 05:09:34','2022-08-19 14:09:34',1,'admin','172.23.0.1','4tco7kvfgjknh209qqcf7mprg3'),(5,'2022-08-19 05:09:34','2022-08-19 14:09:34',1,'admin','172.23.0.1','4mkiqkoq2j4q1tafi47no89and'),(6,'2022-08-19 05:25:11','2022-08-19 14:25:11',1,'admin','172.23.0.1','4tco7kvfgjknh209qqcf7mprg3');
 /*!40000 ALTER TABLE `login_sessions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `news`
+--
+
+DROP TABLE IF EXISTS `news`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `news` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '作成日時',
+  `updated_at` datetime DEFAULT NULL COMMENT '更新日時',
+  `deleted_at` datetime DEFAULT NULL COMMENT '削除日時',
+  `status` smallint(2) NOT NULL DEFAULT '1' COMMENT '状態',
+  `published_at` datetime NOT NULL COMMENT '公開日時',
+  `title` text NOT NULL COMMENT 'タイトル',
+  `content` text COMMENT '本文',
+  `category_id` int(11) NOT NULL COMMENT 'カテゴリID',
+  `type` enum('entry','pdf','url') NOT NULL DEFAULT 'entry' COMMENT '記事タイプ',
+  `url` text COMMENT 'リンク先URL',
+  `is_blank` tinyint(1) DEFAULT NULL COMMENT 'リンク先は別窓か:記事タイプが pdf または url のとき時のみ有効',
+  `pdf_filename` text COMMENT 'アップロードPDFファイル名',
+  PRIMARY KEY (`id`),
+  KEY `status` (`status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='お知らせ';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `news`
+--
+
+LOCK TABLES `news` WRITE;
+/*!40000 ALTER TABLE `news` DISABLE KEYS */;
+/*!40000 ALTER TABLE `news` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `news_categories`
+--
+
+DROP TABLE IF EXISTS `news_categories`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `news_categories` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '作成日時',
+  `updated_at` datetime DEFAULT NULL COMMENT '更新日時',
+  `deleted_at` datetime DEFAULT NULL COMMENT '削除日時',
+  `status` smallint(2) NOT NULL DEFAULT '1' COMMENT '状態',
+  `sort` smallint(6) NOT NULL COMMENT 'ソート',
+  `label` text NOT NULL COMMENT 'ラベル',
+  `slug` varchar(32) NOT NULL COMMENT 'スラッグ',
+  PRIMARY KEY (`id`),
+  KEY `status` (`status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='お知らせカテゴリ';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `news_categories`
+--
+
+LOCK TABLES `news_categories` WRITE;
+/*!40000 ALTER TABLE `news_categories` DISABLE KEYS */;
+/*!40000 ALTER TABLE `news_categories` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -84,4 +149,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-23 17:01:52
+-- Dump completed on 2022-08-19 14:25:34

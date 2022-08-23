@@ -59,6 +59,7 @@ a:link    { color: $linkColor; }
 a:visited { color: $linkColor; }
 a:hover   { color: lighten($mainColor, 50%); }
 a:active  { color: $linkColor; }
+a:hover   { color: lighten($mainColor, 50%); }
 
 // Fonts
 .roboto {
@@ -379,4 +380,28 @@ button.cancel-button {
 }
 #content a {
 	text-decoration: underline !important;
+	color: inherit;
+}
+
+/* content preview in confirm */
+.content-preview {
+	border: dashed 2px #ccc;
+	padding: 30px !important;
+}
+
+#tab-type-entry ,
+#tab-type-pdf ,
+#tab-type-url {
+	display: none;
+}
+.show {
+	display: block !important;
+}
+
+.pdf-filelink {
+	background: #eee;
+	border: solid 1px #e5e5e5;
+	margin: 0;
+	padding: 3px 10px;
+	border-bottom: none;
 }

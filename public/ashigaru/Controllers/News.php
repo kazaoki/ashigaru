@@ -66,4 +66,30 @@ class News extends \App\Controllers\Base
 		// ページ出力
 		include __TEMPLATES_DIR__.'/news/detail.php';
 	}
+
+	// PDF出力
+	public function pdf($id) {
+
+		global $router;
+
+		// お知らせを取得
+		try {
+			$news = \App\Models\News::findOrFail($id);
+		} catch(ModelNotFoundException $e){
+			$router->trigger404();
+			return;
+		} catch(\Exception $e){
+			$router->trigger404();
+			echo 'ご指定の記事が見つからないか公開待ちです。<br><a href="'.__SITE__.'/">トップページへ移動</a>';
+			return;
+		}
+
+		// PDFの内容を出力
+		$pdf_file = __UPLOADS_DIR__.'/news_pdf/'.$news->id.'.pdf';
+		$pdf_data = file_get_contents($pdf_file);
+		header('Content-Type: application/pdf');
+		header('Content-Length: '.strlen($pdf_data));
+		header('Content-Disposition: inline; filename="'.$news->pdf_filename.'"');
+		echo $pdf_data;
+	}
 }

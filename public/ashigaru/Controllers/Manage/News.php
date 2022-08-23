@@ -10,7 +10,7 @@ class News extends \App\Controllers\Base
 	 * お知らせ一覧
 	 * ---------------------------------------------------------------------------------------------
 	 */
-	public function index($page=1) {
+	public function index($cat_id=null, $page=1) {
 
 		global $Ag;
 		global $Admin;
@@ -18,20 +18,26 @@ class News extends \App\Controllers\Base
 		// ページスラッグ設定
 		$page_slugs = ['news'];
 
+		// カテゴリロード
+		$cats = \App\Models\NewsCategory::all();
+
 		// クエリ用意
-		$news_query = \App\Models\News::full(); // 管理画面のときは status=0 でも表示対象に。
+		$query = \App\Models\News::full(); // 管理画面のときは status=0 でも表示対象に。
+		if($cat_id) $query->where('category_id', $cat_id);
 
 		// ページング用意
 		$pager = \AG::pager([
 			'now'           => $page,
 			'per'           => $Ag['config']['manage']['items_per_page'],
-			'count'         => $news_query->count(),
+			'count'         => $query->count(),
 			'links'         => 5,
-			'href_template' => __MANAGE__.'/news/page/%d/',
+			'href_template' => $cat_id
+				? __MANAGE__.'/news/cat/'.$cat_id.'/page/%d/'
+				: __MANAGE__.'/news/page/%d/'
 		]);
 
 		// クエリにページング適用
-		$news = $news_query
+		$news = $query
 			->take($Ag['config']['manage']['items_per_page'])
 			->skip($pager['offset'])
 			->get()
@@ -56,6 +62,9 @@ class News extends \App\Controllers\Base
 
 		// ページスラッグ設定
 		$page_slugs = ['news'];
+
+		// カテゴリロード
+		$cats = \App\Models\NewsCategory::all();
 
 		// エントリセット
 		try {
@@ -125,24 +134,44 @@ class News extends \App\Controllers\Base
 		// CSRFトークン検証
 		\AG::csrf_check();
 
-		// エントリセット
+		// お知らせセット
 		try {
+			// お知らせモデル用意
 			$entry = @$_POST['entry_id']
 				? \App\Models\News::full()->findOrFail(@$_POST['entry_id']) // 既存データの場合
 				: new \App\Models\News() // 新規データの場合
 			;
 
-			// 入力中のデータで上書き
+			// 入力中のお知らせデータで上書き
+			$_POST['is_blank'] = @$_POST['is_blank']; // チェックしてないとキーが作成されず既存の値でfill↓されてしまうため
 			if('POST'===$_SERVER['REQUEST_METHOD']) $entry->fill($_POST);
 
 		} catch(ModelNotFoundException $e) { return $router->trigger404(); }
 
-		// DB保存
-		$entry->save();
+		// 記事タイプがPDF以外の場合はPDFファイルを削除する
+		$pdf_delete = false;
+		if('pdf'!==$entry->type) {
+			$entry->pdf_filename = null;
+			$pdf_delete = true;
+		}
+
+		try {
+			// DB保存
+			$entry->save();
+
+			// PDF更新
+			\AG::base64_submit(
+				$entry->id,
+				__UPLOADS_DIR__.'/news_pdf',
+				@$_POST['pdf_base64'],
+				$pdf_delete,
+				'pdf'
+			);
+		} catch(ModelNotFoundException $e) { return $router->trigger404(); }
 
 		// 一覧に飛ぶ
 		\AG::flash_set(
-			'「'.$entry->title.'」を保存しました。'.
+			'「'.$entry->title.'」のお知らせを更新しました。'.
 				'<a href="'.__MANAGE__.'/news/edit/'.$entry->id.'/" class="uk-button uk-button-default uk-button-small uk-margin-left"><i class="fas fa-pen"></i> 編集する</a>'.
 				($entry->status
 					? '<a href="'.$entry->permalink.'" target="_blank" class="uk-button uk-button-default uk-button-small uk-margin-left"> <i class="fas fa-external-link-alt"></i> 公開ページを確認する</a>'
@@ -180,6 +209,35 @@ class News extends \App\Controllers\Base
 		// 一覧に飛ぶ
 		\AG::flash_set('「'.$entry->title.'」を削除しました。', 'success');
 		echo header('Location: '.__MANAGE__.'/news'.(@$_POST['page'] ? '/page/'.$_POST['page'] : '').'/');
+
+		// 完了
+		return;
+	}
+
+	/**
+	 * PDFプレビュー（POSTで飛ばす必要あり）
+	 * ---------------------------------------------------------------------------------------------
+	 */
+	public function pdf_preview() {
+
+		global $router;
+		global $Ag;
+
+		// 新規アップロードPDFのプレビュー
+		if(strlen($_POST['pdf_base64'])) {
+			$pdf_data = base64_decode(str_replace('data:application/pdf;base64,', '', $_POST['pdf_base64']));
+		}
+		// アップ済みPDFのプレビュー
+		else if ($_POST['id']){
+			$pdf_file = __UPLOADS_DIR__.'/news_pdf/'.$_POST['id'].'.pdf';
+			$pdf_data = file_get_contents($pdf_file);
+		}
+
+		// 出力
+		header('Content-Type: application/pdf');
+		header('Content-Length: '.strlen($pdf_data));
+		header('Content-Disposition: inline; filename="'.$_POST['pdf_filename'].'"');
+		echo $pdf_data;
 
 		// 完了
 		return;

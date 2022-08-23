@@ -20,6 +20,7 @@ $router->mount('/news', function() use ($router)
 {
 	$router->get('/?(?:cat/([^/]+))?/?(?:page/([^/]+))?', '\App\Controllers\News@index');
 	$router->get('/entry/(\d+)/', '\App\Controllers\News@detail');
+	$router->get('/pdf/(\d+)/', '\App\Controllers\News@pdf');
 });
 
 // -----------------------------------------------------------------------------
@@ -40,12 +41,20 @@ $router->mount('/manage', function() use ($router)
 	$router->get('/', '\App\Controllers\Manage\Top@index');
 
 	// お知らせ管理
-	$router->get('/news(?:/page/(\d+))?/', '\App\Controllers\Manage\News@index');
+	$router->get('/news(?:/cat/(\d+))?(?:/page/(\d+))?/', '\App\Controllers\Manage\News@index');
 	$router->match('GET|POST', '/news/edit(?:/(\d+))?/', '\App\Controllers\Manage\News@edit');
-	// // $router->post('/news/copy(?:/(\d+))?/', '\App\Controllers\Manage\News@copy');
+	// $router->post('/news/copy(?:/(\d+))?/', '\App\Controllers\Manage\News@copy');
 	$router->post('/news/check/', '\App\Controllers\Manage\News@check');
 	$router->post('/news/save/', '\App\Controllers\Manage\News@save');
 	$router->post('/news/delete/', '\App\Controllers\Manage\News@delete');
+	$router->post('/news/pdf_preview/', '\App\Controllers\Manage\News@pdf_preview');
+
+	// $router->get('/news(?:/page/(\d+))?/', '\App\Controllers\Manage\News@index');
+	// $router->match('GET|POST', '/news/edit(?:/(\d+))?/', '\App\Controllers\Manage\News@edit');
+	// // // $router->post('/news/copy(?:/(\d+))?/', '\App\Controllers\Manage\News@copy');
+	// $router->post('/news/check/', '\App\Controllers\Manage\News@check');
+	// $router->post('/news/save/', '\App\Controllers\Manage\News@save');
+	// $router->post('/news/delete/', '\App\Controllers\Manage\News@delete');
 });
 
 // -----------------------------------------------------------------------------

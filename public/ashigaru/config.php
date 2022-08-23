@@ -10,9 +10,8 @@ define('__SITE_DIR__', dirname(__DIR__));
 define('__MANAGE__', __SITE__.'/manage');
 define('__MANAGE_ASSETS__', __MANAGE__.'/assets');
 define('__TEMPLATES_DIR__', __DIR__.'/Templates');
-
-// define('__UPLOADS__', __SITE__.'/uploads');
-// define('__UPLOADS_DIR__', __SITE_DIR__.'/uploads');
+define('__UPLOADS__', __SITE__.'/uploads');
+define('__UPLOADS_DIR__', __SITE_DIR__.'/uploads');
 
 // その他設定
 $Ag['config'] =
@@ -38,4 +37,15 @@ $Ag['config'] =
 	'manage' => [
 		'items_per_page' => 3,
 	],
+
+    // 公開サイト設定
+    'allow_image_ext'               => ['jpg', 'jpeg', 'png', 'gif'],
+    'allow_pdf_ext'                 => ['pdf'],
+
+    // 記事タイプラベル
+    'entry_types' => [
+        'entry' => '通常記事',
+        'pdf'   => 'PDFファイル',
+        'url'   => 'URLリンク',
+    ]
 ];

@@ -3,7 +3,6 @@
 <head>
 <?php include __TEMPLATES_DIR__.'/manage/meta.php' ?>
 <title><?= @$Ag['config']['site_title'] ?> CMS管理画面</title>
-<link rel="stylesheet" href="<?= __MANAGE__ ?>/assets/css/add-ckeditor.css?20220120-01">
 </head>
 <body class="<?= implode(' ', @$page_slugs) ?>">
 <?php include __TEMPLATES_DIR__.'/manage/header.php' ?>
@@ -14,7 +13,7 @@
 <!-------------------------- content start -------------------------->
 
 <section class="title">
-  <h1>お知らせ管理 - <?= $entry->id ? '編集' : '新規追加' ?></h1>
+  <h1>お知らせ管理 - <?= @$_POST['entry_id'] ? '編集' : '新規追加' ?></h1>
 </section>
 
 <section>
@@ -23,7 +22,7 @@
   </p>
   <form action="<?= __MANAGE__ ?>/news/save/" method="POST" class="uk-form-horizontal uk-margin-large" id="form">
     <div class="uk-margin">
-      <label class="uk-form-label">管理ID</label>
+      <label class="uk-form-label">登録ID</label>
       <div class="uk-form-controls uk-form-controls-text">
         <?= $entry->id ? $entry->id.'（変更不可）' : '（自動発行）' ?>
       </div>
@@ -50,19 +49,78 @@
       </div>
     </div>
     <hr>
+    <div class="uk-margin">
+      <label class="uk-form-label">カテゴリ</label>
+      <div class="uk-form-controls uk-form-controls-text">
+        <?= AG::h($entry->category->label) ?>
+      </div>
+    </div>
+    <hr>
+    <div class="uk-margin">
+      <label class="uk-form-label">記事タイプ</label>
+      <div class="uk-form-controls uk-form-controls-text">
+        <?= AG::h(@$Ag['config']['entry_types'][$entry->type]) ?>
+      </div>
+    </div>
+    <hr>
+    <?php if('entry'===$entry->type) { ?>
     <div class="uk-margin uk-overflow-hidden">
       <label class="uk-form-label">本文</label>
       <div class="uk-form-controls uk-form-controls-text">
-        <div class="content-preview Inner">
+        <div id="newsCo" class="content-preview newsDetail">
           <?= $entry->content ?>
         </div>
       </div>
     </div>
+    <?php } else if('pdf'===$entry->type) { ?>
+    <div class="uk-margin">
+      <label class="uk-form-label">PDFファイルアップロード</label>
+      <div class="uk-form-controls uk-form-controls-text">
+        <div class="uk-grid-small" uk-grid>
+          <?php if(!@$_POST['pdf_delete']) { ?>
+            <?php if(@$_POST['pdf_base64'] || @$_POST['pdf_upped']) { ?>
+            <a onclick="document.getElementById('pdf-preview-form').submit()">
+              <?= $entry->pdf_filename ?>
+            </a>
+            <?php } else { ?>
+            <div class="uk-text uk-text-default">
+              （PDF未選択）
+            </div>
+            <?php } ?>
+          <?php } else { ?>
+          <div class="uk-text uk-text-danger">
+            （PDFを削除します）
+          </div>
+          <?php } ?>
+        </div>
+        <?php if($entry->is_blank) { ?>
+          <div>（別ウィンドウで開く）</div>
+        <?php } ?>
+      </div>
+    </div>
+    <?php } else if('url'===$entry->type) { ?>
+    <div class="uk-margin">
+      <label class="uk-form-label">URLリンク先</label>
+      <div class="uk-form-controls uk-form-controls-text">
+        <a href="<?= \AG::h($entry->url) ?>" target="_blank"><?= \AG::h($entry->url) ?></a>
+        <?php if($entry->is_blank) { ?>
+          <div>（別ウィンドウで開く）</div>
+        <?php } ?>
+      </div>
+    </div>
+    <?php } ?>
+    <hr>
     <div class="uk-flex uk-flex-center" id="submit-buttons">
-      <button type="button" class="uk-button uk-button-link uk-margin-right" onclick="validon.back('../edit/<?= @$_POST['news_id'] ? @$_POST['news_id'].'/' : '' ?>')"><i class="fas fa-pen"></i> 修正する</button>
+      <button type="button" class="uk-button uk-button-link uk-margin-right" onclick="validon.back('../edit/<?= @$_POST['entry_id'] ? @$_POST['entry_id'].'/' : '' ?>')"><i class="fas fa-pen"></i> 修正する</button>
       <button type="submit" class="uk-button uk-button-primary uk-button-large uk-margin-left"><i class="fas fa-save"></i> 保存する</button>
     </div>
     <?= AG::hiddens() ?>
+  </form>
+  <!-- PDFプレビュー用フォーム -->
+  <form action="<?= __MANAGE__ ?>/news/pdf_preview/" target="_blank" method="POST" id="pdf-preview-form" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="<?= $entry->id ?>">
+    <input type="hidden" name="pdf_base64" value="<?= @$_POST['pdf_base64'] ?>">
+    <input type="hidden" name="pdf_filename" value="<?= $entry->pdf_filename ?>">
   </form>
 </section>
 
@@ -71,7 +129,7 @@
 </main>
 <?php include __TEMPLATES_DIR__.'/manage/footer.php' ?>
 
-<script src="<?= __SITE__ ?>/assets/validon/validon.js"></script>
+<script src="<?= __MANAGE__ ?>/assets/validon/validon.js"></script>
 <script>
 var validon
 document.addEventListener('DOMContentLoaded', function (event)

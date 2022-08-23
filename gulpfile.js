@@ -73,7 +73,7 @@ gulp.task('ts', done=>{
 	gulp.src([__BASE_DIR+'/assets/ts/*.ts'])
 		.pipe(sourcemaps.init())
 		.pipe(typescript({
-			out: 'main.js',
+			out: 'index.js',
 			// target: 'es5',
 			// module: "system",
 			removeComments: true,
@@ -93,12 +93,12 @@ gulp.task('ts', done=>{
 
 gulp.task('manage-ts', done=>{
 	gulp.src([
-		__BASE_DIR+'/manage/assets/ts/main.ts', // main.ts を先に実行
+		__BASE_DIR+'/manage/assets/ts/index.ts', // index.ts を先に実行
 		__BASE_DIR+'/manage/assets/ts/*.ts'
 	])
 		.pipe(sourcemaps.init())
 		.pipe(typescript({
-			out: 'main.js',
+			out: 'index.js',
 			// target: 'es5',
 			// module: "system",
 			removeComments: true,
