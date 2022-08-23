@@ -1,5 +1,5 @@
 -- Project Name : sample
--- Date/Time    : 2022/08/19 14:24:39
+-- Date/Time    : 2022/08/24 6:15:25
 -- Author       : kazaoki
 -- RDBMS Type   : MySQL
 -- Application  : A5:SQL Mk-2
@@ -14,10 +14,10 @@
 
 -- お知らせ
 --* BackupToTempTable
-drop table if exists news cascade;
+drop table if exists `ag-news` cascade;
 
 --* RestoreFromTempTable
-create table news (
+create table `ag-news` (
   id int(11) auto_increment not null comment 'ID'
   , created_at timestamp default CURRENT_TIMESTAMP not null comment '作成日時'
   , updated_at datetime default NULL comment '更新日時'
@@ -31,18 +31,18 @@ create table news (
   , url text comment 'リンク先URL'
   , is_blank boolean comment 'リンク先は別窓か:記事タイプが pdf または url のとき時のみ有効'
   , pdf_filename text comment 'アップロードPDFファイル名'
-  , constraint news_PKC primary key (id)
+  , constraint `ag-news_PKC` primary key (id)
 ) comment 'お知らせ' ;
 
 create index status
-  on news(status);
+  on `ag-news`(status);
 
 -- お知らせカテゴリ
 --* BackupToTempTable
-drop table if exists news_categories cascade;
+drop table if exists `ag-news_categories` cascade;
 
 --* RestoreFromTempTable
-create table news_categories (
+create table `ag-news_categories` (
   id int(11) auto_increment not null comment 'ID'
   , created_at timestamp default CURRENT_TIMESTAMP not null comment '作成日時'
   , updated_at datetime default NULL comment '更新日時'
@@ -51,18 +51,18 @@ create table news_categories (
   , sort smallint not null comment 'ソート'
   , label text not null comment 'ラベル'
   , slug varchar(32) not null comment 'スラッグ'
-  , constraint news_categories_PKC primary key (id)
+  , constraint `ag-news_categories_PKC` primary key (id)
 ) comment 'お知らせカテゴリ' ;
 
 create index status
-  on news_categories(status);
+  on `ag-news_categories`(status);
 
 -- ログインセッション
 --* BackupToTempTable
-drop table if exists login_sessions cascade;
+drop table if exists `ag-login_sessions` cascade;
 
 --* RestoreFromTempTable
-create table login_sessions (
+create table `ag-login_sessions` (
   id int(11) auto_increment not null comment 'ID'
   , created_at timestamp default CURRENT_TIMESTAMP not null comment '作成日時'
   , updated_at datetime default NULL comment '更新日時'
@@ -70,30 +70,30 @@ create table login_sessions (
   , login_id VARCHAR(32) comment 'ログインID'
   , access_ip text comment 'アクセスIP'
   , session_id char(32) comment 'セッションID'
-  , constraint login_sessions_PKC primary key (id)
+  , constraint `ag-login_sessions_PKC` primary key (id)
 ) comment 'ログインセッション' ;
 
 create index status
-  on login_sessions(status);
+  on `ag-login_sessions`(status);
 
 -- 管理者
 --* BackupToTempTable
-drop table if exists admins cascade;
+drop table if exists `ag-admins` cascade;
 
 --* RestoreFromTempTable
-create table admins (
+create table `ag-admins` (
   id int(11) auto_increment not null comment 'ID'
   , created_at timestamp default CURRENT_TIMESTAMP not null comment '作成日時'
   , updated_at datetime default NULL comment '更新日時'
   , status smallint(2) default 1 not null comment '状態'
   , login_id VARCHAR(32) not null comment 'ログインID'
   , login_pw VARCHAR(255) not null comment 'ログインパスワード'
-  , constraint admins_PKC primary key (id)
+  , constraint `ag-admins_PKC` primary key (id)
 ) comment '管理者' ;
 
 create index status
-  on admins(status);
+  on `ag-admins`(status);
 
 create unique index login_id
-  on admins(login_id);
+  on `ag-admins`(login_id);
 

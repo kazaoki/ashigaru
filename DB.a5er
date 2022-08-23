@@ -42,7 +42,7 @@ ShowCommonAttributes=0
 BugFixEntityWidth=0
 
 [Comment]
-Comment=Ashigaruサンプル用\n最終修正：2022-8-19\n
+Comment=Ashigaruサンプル用\n最終修正：2022-8-24\n
 FontName=UDEV Gothic LG
 FontBold=0
 FontItalic=0
@@ -59,7 +59,7 @@ Width=391
 Height=102
 
 [Entity]
-PName=admins
+PName=ag-admins
 LName=管理者
 Comment=
 TableOption=
@@ -78,12 +78,12 @@ EffectMode=None
 Tag=R
 Color=$000000
 BkColor=$D1D1FF
-ModifiedDateTime=20210816112912
+ModifiedDateTime=20220824061443
 Position="MAIN",200,300
 ZOrder=22
 
 [Entity]
-PName=login_sessions
+PName=ag-login_sessions
 LName=ログインセッション
 Comment=
 TableOption=
@@ -102,13 +102,13 @@ EffectMode=None
 Tag=E
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20210816160106
+ModifiedDateTime=20220824061505
 Position="MAIN",700,300,494,184
 ZOrder=23
 
 [Relation]
-Entity1=admins
-Entity2=login_sessions
+Entity1=ag-admins
+Entity2=ag-login_sessions
 RelationType1=3
 RelationType2=3
 Fields1=login_id
@@ -129,7 +129,7 @@ TermPos2=R
 ZOrder=24
 
 [Entity]
-PName=news
+PName=ag-news
 LName=お知らせ
 Comment=
 TableOption=
@@ -154,12 +154,12 @@ EffectMode=None
 Tag=R
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20220118151021
+ModifiedDateTime=20220824061449
 Position="MAIN",700,700,494,351
 ZOrder=32
 
 [Entity]
-PName=news_categories
+PName=ag-news_categories
 LName=お知らせカテゴリ
 Comment=
 TableOption=
@@ -179,13 +179,13 @@ EffectMode=None
 Tag=R
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20220819142428
+ModifiedDateTime=20220824061455
 Position="MAIN",1350,700,322,238
 ZOrder=26
 
 [Relation]
-Entity1=news_categories
-Entity2=news
+Entity1=ag-news_categories
+Entity2=ag-news
 RelationType1=2
 RelationType2=4
 Fields1=id

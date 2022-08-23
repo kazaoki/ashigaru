@@ -98,7 +98,7 @@ CREATE TABLE `news` (
   `pdf_filename` text COMMENT 'アップロードPDFファイル名',
   PRIMARY KEY (`id`),
   KEY `status` (`status`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='お知らせ';
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COMMENT='お知らせ';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -107,6 +107,7 @@ CREATE TABLE `news` (
 
 LOCK TABLES `news` WRITE;
 /*!40000 ALTER TABLE `news` DISABLE KEYS */;
+INSERT INTO `news` VALUES (1,'2022-08-22 07:20:32',NULL,NULL,1,'2022-08-22 16:20:32','お知らせサンプル001','test1\ntest2\ntest3\n',1,'entry',NULL,NULL,NULL),(2,'2022-08-22 07:20:32',NULL,NULL,1,'2022-08-22 16:20:32','お知らせサンプル002','test1\ntest2\ntest3\n',2,'entry',NULL,NULL,NULL),(3,'2022-08-22 07:20:32',NULL,NULL,1,'2022-08-22 16:20:32','お知らせサンプル003','test1\ntest2\ntest3\n',3,'entry',NULL,NULL,NULL),(4,'2022-08-22 07:20:32',NULL,NULL,1,'2022-08-22 16:20:32','お知らせサンプル004','test1\ntest2\ntest3\n',1,'entry',NULL,NULL,NULL),(5,'2022-08-22 07:20:32',NULL,NULL,1,'2022-08-22 16:20:32','お知らせサンプル005','test1\ntest2\ntest3\n',2,'entry',NULL,NULL,NULL),(6,'2022-08-22 07:20:33',NULL,NULL,1,'2022-08-22 16:20:33','お知らせサンプル006','test1\ntest2\ntest3\n',3,'entry',NULL,NULL,NULL),(7,'2022-08-22 07:20:33',NULL,NULL,1,'2022-08-22 16:20:33','お知らせサンプル007','test1\ntest2\ntest3\n',1,'entry',NULL,NULL,NULL),(8,'2022-08-22 07:20:33',NULL,NULL,1,'2022-08-22 16:20:33','お知らせサンプル008','test1\ntest2\ntest3\n',2,'entry',NULL,NULL,NULL),(9,'2022-08-22 07:20:33',NULL,NULL,1,'2022-08-22 16:20:33','お知らせサンプル009','test1\ntest2\ntest3\n',3,'entry',NULL,NULL,NULL),(10,'2022-08-22 07:20:33',NULL,NULL,1,'2022-08-22 16:20:33','お知らせサンプル010','test1\ntest2\ntest3\n',1,'entry',NULL,NULL,NULL),(11,'2022-08-22 07:20:33',NULL,NULL,1,'2022-08-22 16:20:33','お知らせサンプル011','test1\ntest2\ntest3\n',2,'entry',NULL,NULL,NULL),(12,'2022-08-22 07:20:33',NULL,NULL,1,'2022-08-22 16:20:33','お知らせサンプル012','test1\ntest2\ntest3\n',3,'entry',NULL,NULL,NULL),(13,'2022-08-22 07:20:33',NULL,NULL,1,'2022-08-22 16:20:33','お知らせサンプル013','test1\ntest2\ntest3\n',1,'entry',NULL,NULL,NULL),(14,'2022-08-22 07:20:33',NULL,NULL,1,'2022-08-22 16:20:33','お知らせサンプル014','test1\ntest2\ntest3\n',2,'entry',NULL,NULL,NULL),(15,'2022-08-22 07:20:33',NULL,NULL,1,'2022-08-22 16:20:33','お知らせサンプル015','test1\ntest2\ntest3\n',3,'entry',NULL,NULL,NULL),(16,'2022-08-22 07:20:33',NULL,NULL,1,'2022-08-22 16:20:33','コンテンツ確認','ダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。<br>文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。<br><br><br>この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。<br>量、字間、行間等を確認するために入れています。この文章はダミーです。<br>文字の大きさ、量、字間、行間等を確認するために入れています。<br><br><br>ダミーです。<br>文字の大きさ、量、字間、行間等を確認するために入れています。<br><br><br>行間等を確認するために入れています。文章はダミーです。<br>文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。<br>文字を確認するために入れています。この文章はダミーです。<br>量、字間、行間等を確認するために入れています。',1,'entry',NULL,NULL,NULL),(17,'2022-08-22 07:20:33',NULL,NULL,1,'2022-08-22 16:20:33','リンクお知らせAAA',NULL,1,'url','https://google.com',NULL,NULL),(18,'2022-08-22 07:20:33',NULL,NULL,1,'2022-08-22 16:20:33','リンクお知らせBBB（別窓）',NULL,3,'url','https://yahoo.jp',1,NULL),(19,'2022-08-22 07:20:33',NULL,NULL,1,'2022-08-22 16:20:33','PDFお知らせ111',NULL,2,'pdf',NULL,NULL,'ほげほげ.pdf'),(20,'2022-08-22 07:20:33',NULL,NULL,1,'2022-08-22 16:20:33','PDFお知らせ222（別窓）',NULL,1,'pdf',NULL,1,'ふげふげ.pdf');
 /*!40000 ALTER TABLE `news` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -128,7 +129,7 @@ CREATE TABLE `news_categories` (
   `slug` varchar(32) NOT NULL COMMENT 'スラッグ',
   PRIMARY KEY (`id`),
   KEY `status` (`status`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='お知らせカテゴリ';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COMMENT='お知らせカテゴリ';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -137,6 +138,7 @@ CREATE TABLE `news_categories` (
 
 LOCK TABLES `news_categories` WRITE;
 /*!40000 ALTER TABLE `news_categories` DISABLE KEYS */;
+INSERT INTO `news_categories` VALUES (1,'2022-08-22 07:20:32',NULL,NULL,1,1,'お知らせ','cat1'),(2,'2022-08-22 07:20:32',NULL,NULL,1,2,'更新情報','cat2'),(3,'2022-08-22 07:20:32',NULL,NULL,1,3,'お客様の声','cat3');
 /*!40000 ALTER TABLE `news_categories` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -149,4 +151,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-19 14:25:34
+-- Dump completed on 2022-08-22 16:20:46

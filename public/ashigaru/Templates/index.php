@@ -7,7 +7,7 @@
 
 <section>
   <h1>お知らせ新着</h1>
-  <?php if($posts = \App\Models\News::take(3)) { ?>
+  <?php if(($posts = \App\Models\News::take(3))->count()) { ?>
   <ul>
     <?php foreach($posts->get() as $post) { ?>
     <li>
@@ -19,6 +19,8 @@
     <?php } ?>
     <li><small><a href="/news/">more ...</a></small></li>
   </ul>
+  <?php } else { ?>
+    （お知らせなし）
   <?php } ?>
 </section>
 
