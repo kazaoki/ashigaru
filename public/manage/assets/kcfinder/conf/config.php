@@ -1,5 +1,6 @@
 <?php
-require __DIR__ . '/../../../ashigaru/loader.php';
+require __DIR__ . '/../../../../ashigaru/loader.php';
+require __DIR__ . '/../each-polyfill.php';
 
 /** This file is part of KCFinder project
   *
@@ -17,12 +18,15 @@ require __DIR__ . '/../../../ashigaru/loader.php';
    even if you are using session configuration.
    See http://kcfinder.sunhater.com/install for setting descriptions */
 
+$loggedin_admin = (new \App\Controllers\Base)->admin;
+if(!($loggedin_admin && $loggedin_admin->id)) die('Can not access!');
+
 $_CONFIG = array(
 
 
 // GENERAL SETTINGS
 
-    'disabled' => !$_SESSION['loggedin'],
+    'disabled' => !$loggedin_admin->id,
     'uploadURL' => __UPLOADS__.'/kcfinder',
     'uploadDir' => __UPLOADS_DIR__.'/kcfinder',
     'theme' => "default",

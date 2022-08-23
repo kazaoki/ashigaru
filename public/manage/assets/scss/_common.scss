@@ -387,6 +387,10 @@ button.cancel-button {
 .content-preview {
 	border: dashed 2px #ccc;
 	padding: 30px !important;
+
+	img {
+		display: inline;
+	}
 }
 
 #tab-type-entry ,

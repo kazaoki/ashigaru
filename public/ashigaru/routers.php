@@ -29,8 +29,8 @@ $router->mount('/news', function() use ($router)
 $router->mount('/manage', function() use ($router)
 {
 	// ログイン済みか毎回チェック
-	$router->before('GET|POST', '/', '\App\Controllers\Manage\Login@logged_in_check');
-	// $router->before('GET|POST', '/((?!login).*)?', '\App\Controllers\Manage\Login@logged_in_check');
+	// $router->before('GET|POST', '/', '\App\Controllers\Manage\Login@logged_in_check');
+	$router->before('GET|POST', '/((?!login).*)?', '\App\Controllers\Manage\Login@logged_in_check');
 
 	// ログイン回り
 	$router->get('/login/', '\App\Controllers\Manage\Login@index');
