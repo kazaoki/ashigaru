@@ -8,22 +8,22 @@ INSERT INTO `ag-news_categories` (id, sort, label, slug) VALUES (2, 2, '更新�
 INSERT INTO `ag-news_categories` (id, sort, label, slug) VALUES (3, 3, 'お客様の声', 'cat3');
 
 -- サンプルお知らせ
-INSERT INTO `ag-news` (published_at, category_id, title, content) VALUES (CURRENT_TIMESTAMP, 1, 'お知らせサンプル001', 'test1<br>test2<br>test3<br>');
-INSERT INTO `ag-news` (published_at, category_id, title, content) VALUES (CURRENT_TIMESTAMP, 2, 'お知らせサンプル002', 'test1<br>test2<br>test3<br>');
-INSERT INTO `ag-news` (published_at, category_id, title, content) VALUES (CURRENT_TIMESTAMP, 3, 'お知らせサンプル003', 'test1<br>test2<br>test3<br>');
-INSERT INTO `ag-news` (published_at, category_id, title, content) VALUES (CURRENT_TIMESTAMP, 1, 'お知らせサンプル004', 'test1<br>test2<br>test3<br>');
-INSERT INTO `ag-news` (published_at, category_id, title, content) VALUES (CURRENT_TIMESTAMP, 2, 'お知らせサンプル005', 'test1<br>test2<br>test3<br>');
-INSERT INTO `ag-news` (published_at, category_id, title, content) VALUES (CURRENT_TIMESTAMP, 3, 'お知らせサンプル006', 'test1<br>test2<br>test3<br>');
-INSERT INTO `ag-news` (published_at, category_id, title, content) VALUES (CURRENT_TIMESTAMP, 1, 'お知らせサンプル007', 'test1<br>test2<br>test3<br>');
-INSERT INTO `ag-news` (published_at, category_id, title, content) VALUES (CURRENT_TIMESTAMP, 2, 'お知らせサンプル008', 'test1<br>test2<br>test3<br>');
-INSERT INTO `ag-news` (published_at, category_id, title, content) VALUES (CURRENT_TIMESTAMP, 3, 'お知らせサンプル009', 'test1<br>test2<br>test3<br>');
-INSERT INTO `ag-news` (published_at, category_id, title, content) VALUES (CURRENT_TIMESTAMP, 1, 'お知らせサンプル010', 'test1<br>test2<br>test3<br>');
-INSERT INTO `ag-news` (published_at, category_id, title, content) VALUES (CURRENT_TIMESTAMP, 2, 'お知らせサンプル011', 'test1<br>test2<br>test3<br>');
-INSERT INTO `ag-news` (published_at, category_id, title, content) VALUES (CURRENT_TIMESTAMP, 3, 'お知らせサンプル012', 'test1<br>test2<br>test3<br>');
-INSERT INTO `ag-news` (published_at, category_id, title, content) VALUES (CURRENT_TIMESTAMP, 1, 'お知らせサンプル013', 'test1<br>test2<br>test3<br>');
-INSERT INTO `ag-news` (published_at, category_id, title, content) VALUES (CURRENT_TIMESTAMP, 2, 'お知らせサンプル014', 'test1<br>test2<br>test3<br>');
-INSERT INTO `ag-news` (published_at, category_id, title, content) VALUES (CURRENT_TIMESTAMP, 3, 'お知らせサンプル015', 'test1<br>test2<br>test3<br>');
-INSERT INTO `ag-news` (published_at, category_id, title, content) VALUES (CURRENT_TIMESTAMP, 1, 'コンテンツ確認', 'ダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。<br>文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。<br><br><br>この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。<br>量、字間、行間等を確認するために入れています。この文章はダミーです。<br>文字の大きさ、量、字間、行間等を確認するために入れています。<br><br><br>ダミーです。<br>文字の大きさ、量、字間、行間等を確認するために入れています。<br><br><br>行間等を確認するために入れています。文章はダミーです。<br>文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。<br>文字を確認するために入れています。この文章はダミーです。<br>量、字間、行間等を確認するために入れています。');
+INSERT INTO `ag-news` (published_at, category_id, title, content) VALUES (CURRENT_TIMESTAMP - INTERVAL 15 DAY, 1, 'お知らせサンプル001', 'test1<br>test2<br>test3<br>');
+INSERT INTO `ag-news` (published_at, category_id, title, content) VALUES (CURRENT_TIMESTAMP - INTERVAL 14 DAY, 2, 'お知らせサンプル002', 'test1<br>test2<br>test3<br>');
+INSERT INTO `ag-news` (published_at, category_id, title, content) VALUES (CURRENT_TIMESTAMP - INTERVAL 13 DAY, 3, 'お知らせサンプル003', 'test1<br>test2<br>test3<br>');
+INSERT INTO `ag-news` (published_at, category_id, title, content) VALUES (CURRENT_TIMESTAMP - INTERVAL 12 DAY, 1, 'お知らせサンプル004', 'test1<br>test2<br>test3<br>');
+INSERT INTO `ag-news` (published_at, category_id, title, content) VALUES (CURRENT_TIMESTAMP - INTERVAL 11 DAY, 2, 'お知らせサンプル005', 'test1<br>test2<br>test3<br>');
+INSERT INTO `ag-news` (published_at, category_id, title, content) VALUES (CURRENT_TIMESTAMP - INTERVAL 10 DAY, 3, 'お知らせサンプル006', 'test1<br>test2<br>test3<br>');
+INSERT INTO `ag-news` (published_at, category_id, title, content) VALUES (CURRENT_TIMESTAMP - INTERVAL  9 DAY, 1, 'お知らせサンプル007', 'test1<br>test2<br>test3<br>');
+INSERT INTO `ag-news` (published_at, category_id, title, content) VALUES (CURRENT_TIMESTAMP - INTERVAL  8 DAY, 2, 'お知らせサンプル008', 'test1<br>test2<br>test3<br>');
+INSERT INTO `ag-news` (published_at, category_id, title, content) VALUES (CURRENT_TIMESTAMP - INTERVAL  7 DAY, 3, 'お知らせサンプル009', 'test1<br>test2<br>test3<br>');
+INSERT INTO `ag-news` (published_at, category_id, title, content) VALUES (CURRENT_TIMESTAMP - INTERVAL  6 DAY, 1, 'お知らせサンプル010', 'test1<br>test2<br>test3<br>');
+INSERT INTO `ag-news` (published_at, category_id, title, content) VALUES (CURRENT_TIMESTAMP - INTERVAL  5 DAY, 2, 'お知らせサンプル011', 'test1<br>test2<br>test3<br>');
+INSERT INTO `ag-news` (published_at, category_id, title, content) VALUES (CURRENT_TIMESTAMP - INTERVAL  4 DAY, 3, 'お知らせサンプル012', 'test1<br>test2<br>test3<br>');
+INSERT INTO `ag-news` (published_at, category_id, title, content) VALUES (CURRENT_TIMESTAMP - INTERVAL  3 DAY, 1, 'お知らせサンプル013', 'test1<br>test2<br>test3<br>');
+INSERT INTO `ag-news` (published_at, category_id, title, content) VALUES (CURRENT_TIMESTAMP - INTERVAL  2 DAY, 2, 'お知らせサンプル014', 'test1<br>test2<br>test3<br>');
+INSERT INTO `ag-news` (published_at, category_id, title, content) VALUES (CURRENT_TIMESTAMP - INTERVAL  1 DAY, 3, 'お知らせサンプル015', 'test1<br>test2<br>test3<br>');
+INSERT INTO `ag-news` (published_at, category_id, title, content) VALUES (CURRENT_TIMESTAMP - INTERVAL  0 DAY, 1, 'コンテンツ確認', 'ダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。<br>文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。<br><br><br>この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。<br>量、字間、行間等を確認するために入れています。この文章はダミーです。<br>文字の大きさ、量、字間、行間等を確認するために入れています。<br><br><br>ダミーです。<br>文字の大きさ、量、字間、行間等を確認するために入れています。<br><br><br>行間等を確認するために入れています。文章はダミーです。<br>文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。<br>文字を確認するために入れています。この文章はダミーです。<br>量、字間、行間等を確認するために入れています。');
 
 -- サンプルお知らせ：URLリンク
 INSERT INTO `ag-news` (published_at, category_id, title, type, url) VALUES (CURRENT_TIMESTAMP, 1, 'リンクお知らせAAA', 'url', 'https://google.com');
