@@ -16,13 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `admins`
+-- Table structure for table `ag-admins`
 --
 
-DROP TABLE IF EXISTS `admins`;
+DROP TABLE IF EXISTS `ag-admins`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `admins` (
+CREATE TABLE `ag-admins` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '作成日時',
   `updated_at` datetime DEFAULT NULL COMMENT '更新日時',
@@ -36,23 +36,23 @@ CREATE TABLE `admins` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `admins`
+-- Dumping data for table `ag-admins`
 --
 
-LOCK TABLES `admins` WRITE;
-/*!40000 ALTER TABLE `admins` DISABLE KEYS */;
-INSERT INTO `admins` VALUES (1,'2021-08-16 02:35:02',NULL,1,'admin','$2y$10$H/4AD6Kt3m15LxUZr7aRkenyLTszqYAMrLyiFTeRCXgbZjZd7PG8C');
-/*!40000 ALTER TABLE `admins` ENABLE KEYS */;
+LOCK TABLES `ag-admins` WRITE;
+/*!40000 ALTER TABLE `ag-admins` DISABLE KEYS */;
+INSERT INTO `ag-admins` VALUES (1,'2022-08-23 21:26:07',NULL,1,'admin','$2y$10$H/4AD6Kt3m15LxUZr7aRkenyLTszqYAMrLyiFTeRCXgbZjZd7PG8C');
+/*!40000 ALTER TABLE `ag-admins` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `login_sessions`
+-- Table structure for table `ag-login_sessions`
 --
 
-DROP TABLE IF EXISTS `login_sessions`;
+DROP TABLE IF EXISTS `ag-login_sessions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `login_sessions` (
+CREATE TABLE `ag-login_sessions` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '作成日時',
   `updated_at` datetime DEFAULT NULL COMMENT '更新日時',
@@ -62,27 +62,26 @@ CREATE TABLE `login_sessions` (
   `session_id` char(32) DEFAULT NULL COMMENT 'セッションID',
   PRIMARY KEY (`id`),
   KEY `status` (`status`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COMMENT='ログインセッション';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='ログインセッション';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `login_sessions`
+-- Dumping data for table `ag-login_sessions`
 --
 
-LOCK TABLES `login_sessions` WRITE;
-/*!40000 ALTER TABLE `login_sessions` DISABLE KEYS */;
-INSERT INTO `login_sessions` VALUES (1,'2021-08-16 04:56:28','2021-08-16 13:56:28',1,'admin','172.22.0.1','gqetf9muue3caismcrqt1sm8ou'),(2,'2021-08-16 04:56:37','2021-08-16 13:56:37',1,'admin','172.22.0.1','gqetf9muue3caismcrqt1sm8ou'),(3,'2021-08-16 04:59:13','2021-08-16 13:59:13',1,'admin','172.22.0.1','gqetf9muue3caismcrqt1sm8ou'),(4,'2022-08-19 05:09:34','2022-08-19 14:09:34',1,'admin','172.23.0.1','4tco7kvfgjknh209qqcf7mprg3'),(5,'2022-08-19 05:09:34','2022-08-19 14:09:34',1,'admin','172.23.0.1','4mkiqkoq2j4q1tafi47no89and'),(6,'2022-08-19 05:25:11','2022-08-19 14:25:11',1,'admin','172.23.0.1','4tco7kvfgjknh209qqcf7mprg3'),(7,'2022-08-22 21:26:45','2022-08-23 06:26:45',1,'admin','172.18.0.1','199fr9s9lif6n94116kqslpj0p'),(8,'2022-08-23 05:59:29','2022-08-23 14:59:29',1,'admin','172.18.0.1','199fr9s9lif6n94116kqslpj0p');
-/*!40000 ALTER TABLE `login_sessions` ENABLE KEYS */;
+LOCK TABLES `ag-login_sessions` WRITE;
+/*!40000 ALTER TABLE `ag-login_sessions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ag-login_sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `news`
+-- Table structure for table `ag-news`
 --
 
-DROP TABLE IF EXISTS `news`;
+DROP TABLE IF EXISTS `ag-news`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `news` (
+CREATE TABLE `ag-news` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '作成日時',
   `updated_at` datetime DEFAULT NULL COMMENT '更新日時',
@@ -98,27 +97,27 @@ CREATE TABLE `news` (
   `pdf_filename` text COMMENT 'アップロードPDFファイル名',
   PRIMARY KEY (`id`),
   KEY `status` (`status`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COMMENT='お知らせ';
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COMMENT='お知らせ';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `news`
+-- Dumping data for table `ag-news`
 --
 
-LOCK TABLES `news` WRITE;
-/*!40000 ALTER TABLE `news` DISABLE KEYS */;
-INSERT INTO `news` VALUES (1,'2022-08-22 07:20:32','2022-08-23 14:35:19',NULL,1,'2022-08-23 14:10:00','お知らせサンプル001','<p>test1<br />\r\n<strong>te<span style=\"background-color:#e74c3c;\">st2</span></strong><br />\r\ntest33333333</p>\r\n',3,'pdf','https://google.com',1,'sample-001.pdf'),(2,'2022-08-22 07:20:32',NULL,NULL,1,'2022-08-22 16:20:32','お知らせサンプル002','test1\ntest2\ntest3\n',2,'entry',NULL,NULL,NULL),(3,'2022-08-22 07:20:32',NULL,NULL,1,'2022-08-22 16:20:32','お知らせサンプル003','test1\ntest2\ntest3\n',3,'entry',NULL,NULL,NULL),(4,'2022-08-22 07:20:32',NULL,NULL,1,'2022-08-22 16:20:32','お知らせサンプル004','test1\ntest2\ntest3\n',1,'entry',NULL,NULL,NULL),(5,'2022-08-22 07:20:32',NULL,NULL,1,'2022-08-22 16:20:32','お知らせサンプル005','test1\ntest2\ntest3\n',2,'entry',NULL,NULL,NULL),(6,'2022-08-22 07:20:33',NULL,NULL,1,'2022-08-22 16:20:33','お知らせサンプル006','test1\ntest2\ntest3\n',3,'entry',NULL,NULL,NULL),(7,'2022-08-22 07:20:33',NULL,NULL,1,'2022-08-22 16:20:33','お知らせサンプル007','test1\ntest2\ntest3\n',1,'entry',NULL,NULL,NULL),(8,'2022-08-22 07:20:33',NULL,NULL,1,'2022-08-22 16:20:33','お知らせサンプル008','test1\ntest2\ntest3\n',2,'entry',NULL,NULL,NULL),(9,'2022-08-22 07:20:33',NULL,NULL,1,'2022-08-22 16:20:33','お知らせサンプル009','test1\ntest2\ntest3\n',3,'entry',NULL,NULL,NULL),(10,'2022-08-22 07:20:33',NULL,NULL,1,'2022-08-22 16:20:33','お知らせサンプル010','test1\ntest2\ntest3\n',1,'entry',NULL,NULL,NULL),(11,'2022-08-22 07:20:33',NULL,NULL,1,'2022-08-22 16:20:33','お知らせサンプル011','test1\ntest2\ntest3\n',2,'entry',NULL,NULL,NULL),(12,'2022-08-22 07:20:33',NULL,NULL,1,'2022-08-22 16:20:33','お知らせサンプル012','test1\ntest2\ntest3\n',3,'entry',NULL,NULL,NULL),(13,'2022-08-22 07:20:33',NULL,NULL,1,'2022-08-22 16:20:33','お知らせサンプル013','test1\ntest2\ntest3\n',1,'entry',NULL,NULL,NULL),(14,'2022-08-22 07:20:33',NULL,NULL,1,'2022-08-22 16:20:33','お知らせサンプル014','test1\ntest2\ntest3\n',2,'entry',NULL,NULL,NULL),(15,'2022-08-22 07:20:33',NULL,NULL,1,'2022-08-22 16:20:33','お知らせサンプル015','test1\ntest2\ntest3\n',3,'entry',NULL,NULL,NULL),(16,'2022-08-22 07:20:33',NULL,NULL,1,'2022-08-22 16:20:33','コンテンツ確認','ダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。<br>文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。<br><br><br>この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。<br>量、字間、行間等を確認するために入れています。この文章はダミーです。<br>文字の大きさ、量、字間、行間等を確認するために入れています。<br><br><br>ダミーです。<br>文字の大きさ、量、字間、行間等を確認するために入れています。<br><br><br>行間等を確認するために入れています。文章はダミーです。<br>文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。<br>文字を確認するために入れています。この文章はダミーです。<br>量、字間、行間等を確認するために入れています。',1,'entry',NULL,NULL,NULL),(17,'2022-08-22 07:20:33',NULL,NULL,1,'2022-08-22 16:20:33','リンクお知らせAAA',NULL,1,'url','https://google.com',NULL,NULL),(18,'2022-08-22 07:20:33',NULL,NULL,1,'2022-08-22 16:20:33','リンクお知らせBBB（別窓）',NULL,3,'url','https://yahoo.jp',1,NULL),(19,'2022-08-22 07:20:33',NULL,NULL,1,'2022-08-22 16:20:33','PDFお知らせ111',NULL,2,'pdf',NULL,NULL,'ほげほげ.pdf'),(20,'2022-08-22 07:20:33',NULL,NULL,1,'2022-08-22 16:20:33','PDFお知らせ222（別窓）',NULL,1,'pdf',NULL,1,'ふげふげ.pdf'),(21,'2022-08-23 05:22:24','2022-08-23 14:22:24',NULL,1,'2022-08-23 14:10:00','お知らせサンプル001','<p>test1<br />\r\n<strong>te<span style=\"background-color:#e74c3c;\">st2</span></strong><br />\r\ntest33333333</p>\r\n',3,'pdf','https://google.com',1,'魑魅魍魎魑魅魍魎魑魅魍魎魑魅魍魎魑魅魍魎魑魅魍魎魑魅魍魎.pdf'),(22,'2022-08-23 05:25:18','2022-08-23 14:25:18',NULL,1,'2022-08-23 14:10:00','お知らせサンプル001','<p>test1<br />\r\n<strong>te<span style=\"background-color:#e74c3c;\">st2</span></strong><br />\r\ntest33333333</p>\r\n',3,'pdf','https://google.com',1,'漢字サンプルファイル.pdf'),(23,'2022-08-23 05:25:54','2022-08-23 14:25:54',NULL,1,'2022-08-23 14:10:00','お知らせサンプル001','<p>test1<br />\r\n<strong>te<span style=\"background-color:#e74c3c;\">st2</span></strong><br />\r\ntest33333333</p>\r\n',3,'pdf','https://google.com',1,'sample-001.pdf'),(24,'2022-08-23 05:27:21','2022-08-23 14:27:21',NULL,1,'2022-08-23 14:10:00','お知らせサンプル001','<p>test1<br />\r\n<strong>te<span style=\"background-color:#e74c3c;\">st2</span></strong><br />\r\ntest33333333</p>\r\n',3,'pdf','https://google.com',1,'魑魅魍魎魑魅魍魎魑魅魍魎魑魅魍魎魑魅魍魎魑魅魍魎魑魅魍魎.pdf'),(25,'2022-08-23 05:30:19','2022-08-23 14:30:19',NULL,1,'2022-08-23 14:10:00','お知らせサンプル001','<p>test1<br />\r\n<strong>te<span style=\"background-color:#e74c3c;\">st2</span></strong><br />\r\ntest33333333</p>\r\n',3,'pdf','https://google.com',1,'漢字サンプルファイル.pdf'),(26,'2022-08-23 05:31:20','2022-08-23 14:31:20',NULL,1,'2022-08-23 14:10:00','お知らせサンプル001','<p>test1<br />\r\n<strong>te<span style=\"background-color:#e74c3c;\">st2</span></strong><br />\r\ntest33333333</p>\r\n',3,'pdf','https://google.com',1,'漢字サンプルファイル.pdf'),(27,'2022-08-23 05:31:36','2022-08-23 14:31:36',NULL,1,'2022-08-23 14:10:00','お知らせサンプル001','<p>test1<br />\r\n<strong>te<span style=\"background-color:#e74c3c;\">st2</span></strong><br />\r\ntest33333333</p>\r\n',3,'entry','https://google.com',NULL,NULL),(28,'2022-08-23 06:07:04','2022-08-23 15:07:32',NULL,1,'2022-08-23 15:08:00','test','<img alt=\"\" height=\"117\" src=\"/uploads/kcfinder/images/%E3%82%B9%E3%82%A4%E3%82%AB_small.jpg\" width=\"176\" />&nbsp; &nbsp;<img alt=\"\" height=\"119\" src=\"/uploads/kcfinder/images/%E3%81%84%E3%81%A1%E3%81%94_middle.jpg\" width=\"178\" />',1,'entry','',NULL,NULL);
-/*!40000 ALTER TABLE `news` ENABLE KEYS */;
+LOCK TABLES `ag-news` WRITE;
+/*!40000 ALTER TABLE `ag-news` DISABLE KEYS */;
+INSERT INTO `ag-news` VALUES (1,'2022-08-23 21:24:40',NULL,NULL,1,'2022-08-24 06:24:40','お知らせサンプル001','test1<br>test2<br>test3<br>',1,'entry',NULL,NULL,NULL),(2,'2022-08-23 21:24:40',NULL,NULL,1,'2022-08-24 06:24:40','お知らせサンプル002','test1<br>test2<br>test3<br>',2,'entry',NULL,NULL,NULL),(3,'2022-08-23 21:24:40',NULL,NULL,1,'2022-08-24 06:24:40','お知らせサンプル003','test1<br>test2<br>test3<br>',3,'entry',NULL,NULL,NULL),(4,'2022-08-23 21:24:40',NULL,NULL,1,'2022-08-24 06:24:40','お知らせサンプル004','test1<br>test2<br>test3<br>',1,'entry',NULL,NULL,NULL),(5,'2022-08-23 21:24:40',NULL,NULL,1,'2022-08-24 06:24:40','お知らせサンプル005','test1<br>test2<br>test3<br>',2,'entry',NULL,NULL,NULL),(6,'2022-08-23 21:24:40',NULL,NULL,1,'2022-08-24 06:24:40','お知らせサンプル006','test1<br>test2<br>test3<br>',3,'entry',NULL,NULL,NULL),(7,'2022-08-23 21:24:40',NULL,NULL,1,'2022-08-24 06:24:40','お知らせサンプル007','test1<br>test2<br>test3<br>',1,'entry',NULL,NULL,NULL),(8,'2022-08-23 21:24:40',NULL,NULL,1,'2022-08-24 06:24:40','お知らせサンプル008','test1<br>test2<br>test3<br>',2,'entry',NULL,NULL,NULL),(9,'2022-08-23 21:24:40',NULL,NULL,1,'2022-08-24 06:24:40','お知らせサンプル009','test1<br>test2<br>test3<br>',3,'entry',NULL,NULL,NULL),(10,'2022-08-23 21:24:40',NULL,NULL,1,'2022-08-24 06:24:40','お知らせサンプル010','test1<br>test2<br>test3<br>',1,'entry',NULL,NULL,NULL),(11,'2022-08-23 21:24:40',NULL,NULL,1,'2022-08-24 06:24:40','お知らせサンプル011','test1<br>test2<br>test3<br>',2,'entry',NULL,NULL,NULL),(12,'2022-08-23 21:24:40',NULL,NULL,1,'2022-08-24 06:24:40','お知らせサンプル012','test1<br>test2<br>test3<br>',3,'entry',NULL,NULL,NULL),(13,'2022-08-23 21:24:40',NULL,NULL,1,'2022-08-24 06:24:40','お知らせサンプル013','test1<br>test2<br>test3<br>',1,'entry',NULL,NULL,NULL),(14,'2022-08-23 21:24:40',NULL,NULL,1,'2022-08-24 06:24:40','お知らせサンプル014','test1<br>test2<br>test3<br>',2,'entry',NULL,NULL,NULL),(15,'2022-08-23 21:24:40',NULL,NULL,1,'2022-08-24 06:24:40','お知らせサンプル015','test1<br>test2<br>test3<br>',3,'entry',NULL,NULL,NULL),(16,'2022-08-23 21:24:40',NULL,NULL,1,'2022-08-24 06:24:40','コンテンツ確認','ダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。<br>文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。<br><br><br>この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。<br>量、字間、行間等を確認するために入れています。この文章はダミーです。<br>文字の大きさ、量、字間、行間等を確認するために入れています。<br><br><br>ダミーです。<br>文字の大きさ、量、字間、行間等を確認するために入れています。<br><br><br>行間等を確認するために入れています。文章はダミーです。<br>文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。<br>文字を確認するために入れています。この文章はダミーです。<br>量、字間、行間等を確認するために入れています。',1,'entry',NULL,NULL,NULL),(17,'2022-08-23 21:24:40',NULL,NULL,1,'2022-08-24 06:24:40','リンクお知らせAAA',NULL,1,'url','https://google.com',NULL,NULL),(18,'2022-08-23 21:24:40',NULL,NULL,1,'2022-08-24 06:24:40','リンクお知らせBBB（別窓）',NULL,3,'url','https://yahoo.jp',1,NULL),(19,'2022-08-23 21:24:40',NULL,NULL,1,'2022-08-24 06:24:40','PDFお知らせ111',NULL,2,'pdf',NULL,NULL,'ほげほげ.pdf'),(20,'2022-08-23 21:24:40',NULL,NULL,1,'2022-08-24 06:24:40','PDFお知らせ222（別窓）',NULL,1,'pdf',NULL,1,'ふげふげ.pdf');
+/*!40000 ALTER TABLE `ag-news` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `news_categories`
+-- Table structure for table `ag-news_categories`
 --
 
-DROP TABLE IF EXISTS `news_categories`;
+DROP TABLE IF EXISTS `ag-news_categories`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `news_categories` (
+CREATE TABLE `ag-news_categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '作成日時',
   `updated_at` datetime DEFAULT NULL COMMENT '更新日時',
@@ -133,13 +132,13 @@ CREATE TABLE `news_categories` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `news_categories`
+-- Dumping data for table `ag-news_categories`
 --
 
-LOCK TABLES `news_categories` WRITE;
-/*!40000 ALTER TABLE `news_categories` DISABLE KEYS */;
-INSERT INTO `news_categories` VALUES (1,'2022-08-22 07:20:32',NULL,NULL,1,1,'お知らせ','cat1'),(2,'2022-08-22 07:20:32',NULL,NULL,1,2,'更新情報','cat2'),(3,'2022-08-22 07:20:32',NULL,NULL,1,3,'お客様の声','cat3');
-/*!40000 ALTER TABLE `news_categories` ENABLE KEYS */;
+LOCK TABLES `ag-news_categories` WRITE;
+/*!40000 ALTER TABLE `ag-news_categories` DISABLE KEYS */;
+INSERT INTO `ag-news_categories` VALUES (1,'2022-08-23 21:24:40',NULL,NULL,1,1,'お知らせ','cat1'),(2,'2022-08-23 21:24:40',NULL,NULL,1,2,'更新情報','cat2'),(3,'2022-08-23 21:24:40',NULL,NULL,1,3,'お客様の声','cat3');
+/*!40000 ALTER TABLE `ag-news_categories` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -151,4 +150,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-23 15:10:36
+-- Dump completed on 2022-08-24  6:26:23

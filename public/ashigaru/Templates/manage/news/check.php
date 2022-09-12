@@ -3,6 +3,7 @@
 <head>
 <?php include __TEMPLATES_DIR__.'/manage/meta.php' ?>
 <title><?= @$Ag['config']['site_title'] ?> CMS管理画面</title>
+<link rel="stylesheet" href="<?= __SITE__ ?>/assets/css/ckeditor-add.css?20220912">
 </head>
 <body class="<?= implode(' ', @$page_slugs) ?>">
 <?php include __TEMPLATES_DIR__.'/manage/header.php' ?>
@@ -67,7 +68,7 @@
     <div class="uk-margin uk-overflow-hidden">
       <label class="uk-form-label">本文</label>
       <div class="uk-form-controls uk-form-controls-text">
-        <div id="newsCo" class="content-preview newsDetail">
+        <div class="content-preview page" style="overflow:hidden">
           <?= $entry->content ?>
         </div>
       </div>

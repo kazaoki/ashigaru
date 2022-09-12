@@ -53,12 +53,12 @@ function ckeditor_load(target: HTMLTextAreaElement)
                 height: 350,
 
                 // editor content css
-                // contentsCss: __MANAGE_ASSETS__+'/css/add-ckeditor.css?XXXXXX',
-                // bodyClass: 'newsDetail',
-                bodyId: document.querySelector('body.news')
-                    ? 'newsCo'
-                    : 'voiceCo'
-                ,
+                contentsCss: __SITE__+'/assets/css/ckeditor-add.css?20220912',
+                bodyClass: 'page',
+                // bodyId: document.querySelector('body.news')
+                //     ? 'newsCo'
+                //     : 'voiceCo'
+                // ,
 
                 // style set
                 // stylesSet: 'my_styles',
