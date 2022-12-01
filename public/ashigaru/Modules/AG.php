@@ -1,7 +1,7 @@
 <?php
 
 // バージョン
-define('__ASHIGARU_VERSION__', '1.0.4');
+define('__ASHIGARU_VERSION__', '1.1.2');
 
 class AG
 {
@@ -456,5 +456,28 @@ class AG
 			? mb_substr($text, 0, $limit).$tail_char
 			: $text
 		;
+	}
+
+	// -------------------------------------------------------------------
+	// CSVデータをShift_JIS(CP932)に変換する関数
+	// -------------------------------------------------------------------
+	static function arr2csv($fields, $to_sjis=true) {
+		$fp = fopen('php://temp', 'r+b');
+		foreach($fields as $field) {
+			fputcsv($fp, $field);
+		}
+		rewind($fp);
+		$tmp = str_replace(PHP_EOL, "\r\n", stream_get_contents($fp));
+		return $to_sjis
+			? mb_convert_encoding($tmp, 'SJIS-win', 'UTF-8')
+			: $tmp
+		;
+	}
+
+	// -------------------------------------------------------------------
+	// 変数をキレイにダンプして出力する
+	// -------------------------------------------------------------------
+	static function dd($data, $return=false) {
+		return highlight_string("<?php\n".var_export($data, true)."\n?>", $return);
 	}
 }
