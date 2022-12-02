@@ -1,7 +1,7 @@
 <?php
 
 // バージョン
-define('__ASHIGARU_VERSION__', '1.1.2');
+define('__ASHIGARU_VERSION__', '1.1.3');
 
 class AG
 {
@@ -133,6 +133,7 @@ class AG
 		extract($args);
 		$now = $now<1 ? 1 : intval($now);
 		$last_page = intval($count / $per) + (($count % $per) ? 1 : 0);
+		if($now>$last_page) $now = $last_page;
 		if ($last_page === 0) $last_page = 1;
 		$pages = array();
 		$head_page = $now - intval(($args['links'] - 1) / 2);
