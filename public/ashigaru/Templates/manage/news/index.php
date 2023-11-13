@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<?php include __TEMPLATES_DIR__.'/manage/meta.php' ?>
-<title><?= @$Ag['config']['system_title'] ?></title>
+  <?php include __TEMPLATES_DIR__.'/manage/meta.php' ?>
+  <title><?= @$Ag['config']['system_title'] ?></title>
 </head>
 <body class="<?= implode(' ', @$page_slugs) ?>">
 <?php include __TEMPLATES_DIR__.'/manage/header.php' ?>

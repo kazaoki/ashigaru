@@ -1,2 +1,7 @@
-window.addEventListener("DOMContentLoaded",(function(n){console.log("public loaded.")}));
-//# sourceMappingURL=index.js.map
+/**
+ * onload
+ */
+window.addEventListener('DOMContentLoaded', function()
+{
+	console.log('public loaded.')
+});

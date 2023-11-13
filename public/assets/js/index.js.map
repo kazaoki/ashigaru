@@ -1,1 +1,0 @@
-{"version":3,"sources":["public/assets/ts/index.ts"],"names":["window","addEventListener","event","console","log"],"mappings":"AAIAA,OAAOC,iBAAiB,oBAAoB,SAASC,GAEpDC,QAAQC,IAAI,iBACb","file":"index.js","sourcesContent":["\n/**\n * onload\n */\nwindow.addEventListener('DOMContentLoaded', function(event)\n{\n\tconsole.log('public loaded.')\n})\n"]}

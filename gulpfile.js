@@ -148,8 +148,8 @@ gulp.task('build', gulp.series(
 //  * build & watch (default))
 //  */
 gulp.task('default', gulp.series(
-	'sass',
-	'ts',
+	// 'sass',
+	// 'ts',
 	'manage-sass',
 	'manage-ts',
 	gulp.parallel(

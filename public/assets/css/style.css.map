@@ -1,1 +1,0 @@
-{"version":3,"sources":["style.scss","style.css"],"names":[],"mappings":"AAEC,UCDA,WDEC","file":"style.css","sourcesContent":["\nhtml {\n\tbody {\n\t\tbackground: #c2d4f8\n\t}\n}\n","html body {\n  background: #c2d4f8;\n}"]}

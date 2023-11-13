@@ -1,5 +1,11 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <?php include __TEMPLATES_DIR__.'/meta.php' ?>
+  <title>NEWS INDEX</title>
+</head>
+<body>
 <?php include __TEMPLATES_DIR__.'/header.php' ?>
-
 <main>
 <h1>お知らせ</h1>
 
@@ -32,5 +38,6 @@
 </section>
 
 </main>
-
 <?php include __TEMPLATES_DIR__.'/footer.php' ?>
+</body>
+</html>

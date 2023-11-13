@@ -1,4 +1,12 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <?php include __TEMPLATES_DIR__.'/meta.php' ?>
+  <title>TOP PAGE</title>
+</head>
+<body>
 <?php include __TEMPLATES_DIR__.'/header.php' ?>
+<main>
 
 <section>
   <h1>test</h1>
@@ -24,4 +32,7 @@
   <?php } ?>
 </section>
 
+</main>
 <?php include __TEMPLATES_DIR__.'/footer.php' ?>
+</body>
+</html>
