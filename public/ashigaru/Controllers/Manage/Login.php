@@ -48,6 +48,7 @@ class Login extends \App\Controllers\Base
 	// 管理者画面ログインページ
 	public function index() {
 
+		global $page_slugs;
 		global $Ag;
 
 		// ページスラッグ設定

@@ -1,7 +1,7 @@
 /*
  * for news preview in manage
  */
- .page {
+.page {
   & figure.cke_widget_element {
     margin: 0;
   }

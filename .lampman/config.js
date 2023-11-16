@@ -45,7 +45,7 @@ module.exports.config = {
 
         // PHP
         php: {
-            image: 'kazaoki/phpenv:8.0.8', // ここにあるバージョンから → https://hub.docker.com/r/kazaoki/phpenv/tags
+            image: 'kazaoki/phpenv:8.1.20', // ここにあるバージョンから → https://hub.docker.com/r/kazaoki/phpenv/tags
             // ↑ コメントアウトするとlampman標準のPHP使用(5.4とか)
             error_report: true, // 本番環境の場合は必ずfalseに。
             xdebug_start: true, // 本番環境の場合は必ずfalseに。
@@ -199,19 +199,19 @@ module.exports.config = {
         //     type: 'open_browser',
         //     port: '1080',
         // },
-        {
-            type: 'run_command',
-            command: 'gulp',
-        },
         // {
-        //     // open browser on upped (win&mac only)
-        //     type: 'open_browser',
-        //     schema: 'https',
-        //     path: '/',
-        //     // port: '',
-        //     // container: 'lampman',
-        //     // url: 'http://localhost:9981',
+        //     type: 'run_command',
+        //     command: 'gulp',
         // },
+        {
+            // open browser on upped (win&mac only)
+            type: 'open_browser',
+            schema: 'https',
+            path: '/',
+            // port: '',
+            // container: 'lampman',
+            // url: 'http://localhost:9981',
+        },
         // {
         //     // show message on upped
         //     type: 'show_message',

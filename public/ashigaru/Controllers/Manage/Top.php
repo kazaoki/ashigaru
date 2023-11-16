@@ -7,6 +7,7 @@ class Top extends \App\Controllers\Base
 	// 管理者画面トップページ
 	public function index() {
 
+		global $page_slugs;
 		global $Ag;
 
 		// ページスラッグ設定

@@ -12,6 +12,7 @@ class News extends \App\Controllers\Base
 	 */
 	public function index($cat_id=null, $page=1) {
 
+		global $page_slugs;
 		global $Ag;
 		global $Admin;
 
@@ -56,6 +57,7 @@ class News extends \App\Controllers\Base
 	 */
 	public function edit($entry_id=null) {
 
+		global $page_slugs;
 		global $router;
 		global $Ag;
 		global $Admin;
@@ -92,6 +94,7 @@ class News extends \App\Controllers\Base
 	 */
 	public function check() {
 
+		global $page_slugs;
 		global $router;
 		global $Ag;
 		global $Admin;
@@ -124,6 +127,7 @@ class News extends \App\Controllers\Base
 	 */
 	public function save() {
 
+		global $page_slugs;
 		global $router;
 		global $Ag;
 		global $Admin;
@@ -191,6 +195,7 @@ class News extends \App\Controllers\Base
 	 */
 	public function delete() {
 
+		global $page_slugs;
 		global $router;
 		global $Ag;
 		global $Admin;
@@ -220,6 +225,7 @@ class News extends \App\Controllers\Base
 	 */
 	public function pdf_preview() {
 
+		global $page_slugs;
 		global $router;
 		global $Ag;
 

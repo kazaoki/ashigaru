@@ -3,7 +3,7 @@
 <head>
   <?php include __TEMPLATES_DIR__.'/manage/meta.php' ?>
   <title><?= @$Ag['config']['site_title'] ?> CMS管理画面</title>
-  <link rel="stylesheet" href="<?= __SITE__ ?>/manage/assets/css/ckeditor-add.css?20231114">
+  <link rel="stylesheet" href="<?= __SITE__ ?>/manage/assets/css/ckeditor-content.css?20231114">
 </head>
 <body class="<?= implode(' ', @$page_slugs) ?>">
 <?php include __TEMPLATES_DIR__.'/manage/header.php' ?>

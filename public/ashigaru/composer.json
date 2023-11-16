@@ -11,12 +11,12 @@
     "require": {
         "bramus/router": "dev-master",
         "kazaoki/jp_send_mail": "dev-master",
-        "illuminate/database": "^8",
-        "illuminate/events": "^8"
+        "illuminate/database": "^10",
+        "illuminate/events": "^10"
     },
     "config": {
         "platform": {
-            "php": "7.4"
+            "php": "8.1"
         }
     }
 }

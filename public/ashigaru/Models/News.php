@@ -37,9 +37,13 @@ class News extends Model
 	];
 
 	use SoftDeletes;
-	protected $dates = [
-		'deleted_at',
-		'published_at',
+	// protected $dates = [
+	// 	'deleted_at',
+	// 	'published_at',
+	// ];
+	protected $casts = [
+		'deleted_at'   => 'datetime',
+		'published_at' => 'datetime',
 	];
 
 	// public $timestamps = false; // タイムスタンプの更新を無効にする
