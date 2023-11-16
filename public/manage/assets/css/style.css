@@ -5,23 +5,29 @@
 
 /* === Define vars === */
 :root {
+
+  /* --- Base color --- */
   --mainColor: #76b8ee;
-  --barBackground: linear-gradient(65deg, rgb(30 0 100) 0%, rgb(0 29 173) 80%);
   --mainColorLight: color-mix(in srgb, var(--mainColor),white 50%);
   --mainColorDark: color-mix(in srgb, var(--mainColor),black 70%);
   --linkColor: var(--mainColorDark);
   --textColor: var(--mainColorDark);
   --textColorWhite: #eeeeee;
+  --lineColor: #dddddd;
 
+  /* --- background --- */
+  --barBackground: linear-gradient(65deg, rgb(30 0 100) 0%, rgb(0 29 173) 80%);
+
+  /* --- Side bar show --- */
   /* --sideMenuDisplay: none; */
 
+  /* --- Base sizing --- */
   --HeaderHeight: 100px;
-  --opacity: .5;
-  --lineColor: #dddddd;
   --contentMaxWidth: 1500px;
+  --opacity: .5;
 
-  /* Break points */
-  /*
+  /* --- Break points --- */
+  /* Can't use variables in media queries yet...
   --bp-sm: 400px;
   --bp-md: 768px;
   --bp-mm: 960px;
@@ -29,11 +35,15 @@
   --bp-xl: 1200px;
    */
 
-  /* --- font --- */
+  /* --- Font --- */
   --font-roboto: 'Roboto', sans-serif;
   --font-awesome: 'Font Awesome 5 Free';
 
-  /* --- html --- */
+}
+
+/* === Styling === */
+
+html {
   min-width: 320px;
   height: 100%;
   font-family: var(--font-roboto);
@@ -81,18 +91,23 @@ header {
         padding-left: 20px;
       }
       .title {
-        padding-left: 40px;
+        padding-left: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
         & * {
           color: white;
           font-weight: bold;
           white-space: nowrap;
         }
         & h1 {
-          /* font-size: 1.5rem; */
-          font-size: clamp(1.0rem, 10 / 320 * 100vw, 2.0em);
+          font-size: clamp(1.0rem, 10 / 320 * 100vw, 1.5em);
         }
-        & h2 {
-          font-size: 1.0rem;
+        .logo {
+          background-color: #fff3;
+          width: 70px;
+          height: 70px;
+          margin-right: 15px;
         }
       }
     }
@@ -136,7 +151,7 @@ header {
             border-top-left-radius: 5px;
             border-top-right-radius: 5px;
           }
-          & small {
+          & span {
             display: none;
           }
           & ul.sub-menu {

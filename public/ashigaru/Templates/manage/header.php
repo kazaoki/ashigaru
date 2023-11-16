@@ -1,9 +1,9 @@
 <header>
   <div class="inner">
     <div id="cap">
-      <!-- <img class="logo" src="<?= __SITE__ ?>/assets/images/logo.svg"> -->
       <div class="title">
-        <h1><?= @$Ag['config']['system_title'] ?></h1>
+        <div class="logo"></div>
+        <h1><?= @$Ag['config']['site_title'] ?><br><?= @$Ag['config']['system_title'] ?></h1>
       </div>
     </div>
     <?php if(@$_SESSION['loggedin_admin_id']) { ?>

@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <?php include __TEMPLATES_DIR__.'/manage/meta.php' ?>
-  <title><?= @$Ag['config']['system_title'] ?></title>
+  <title><?= @$Ag['config']['site_title'] ?> <?= @$Ag['config']['system_title'] ?></title>
 </head>
 <body>
 <?php include __TEMPLATES_DIR__.'/manage/header.php' ?>

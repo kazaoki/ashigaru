@@ -16,7 +16,8 @@ define('__UPLOADS_DIR__', __SITE_DIR__.'/uploads');
 // その他設定
 $Ag['config'] =
 [
-	'system_title' => 'サンプルサイト 情報更新システム',
+	'site_title' => 'サンプルサイト',
+	'system_title' => '情報更新システム',
 	'db' => [
 		'driver'    => 'mysql',
 		'host'      => 'main.db',
