@@ -1,6 +1,9 @@
 /*
  * for news preview in manage
  */
+.cke_editable {
+  padding: 20px;
+}
 .page {
   & figure.cke_widget_element {
     margin: 0;

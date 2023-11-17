@@ -13,7 +13,7 @@
   <h2><?= \AG::h($entry->title) ?></h2>
   <h2><?= \AG::h($entry->published_at->format('Y.m.d')) ?></h2>
   <h2><span class="<?= \AG::h($entry->category->class) ?>"><?= \AG::h($entry->category->label) ?></span></h2>
-  <article><?= nl2br($entry->content) ?></article>
+  <article><?= $entry->content ?></article>
 </section>
 
 </main>
