@@ -32,3 +32,7 @@ indent_size = 4
 [*.scss]
 indent_style = tab
 indent_size = 4
+
+[dispatcher.php]
+indent_style = tab
+indent_size = 4

@@ -6,10 +6,10 @@ global $Ag;
 // パス定義
 define('__URL__', getenv('LAMPMAN_MODE') ? 'https://localhost' : 'https://example.jp');
 define('__SITE__', '');
-define('__SITE_DIR__', dirname(__DIR__));
+define('__SITE_DIR__', dirname(__DIR__, 2));
 define('__MANAGE__', __SITE__.'/manage');
-define('__MANAGE_ASSETS__', __MANAGE__.'/assets');
 define('__TEMPLATES_DIR__', __DIR__.'/Templates');
+define('__INCLUDES_DIR__', __SITE_DIR__.'/includes');
 define('__UPLOADS__', __SITE__.'/uploads');
 define('__UPLOADS_DIR__', __SITE_DIR__.'/uploads');
 
@@ -29,9 +29,9 @@ $Ag['config'] =
 		'prefix'    => 'ag-',
 	],
 
-	// 公開画面設定
-	'public' => [
-		'items_per_page' => 10,
+	// お知らせ設定
+	'news' => [
+		'items_per_page' => 5,
 	],
 
 	// 管理画面設定
