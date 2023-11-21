@@ -16,7 +16,7 @@ define('__UPLOADS_DIR__', __SITE_DIR__.'/uploads');
 // その他設定
 $Ag['config'] =
 [
-	'site_title' => 'サンプルサイト',
+	'site_title' => '〇〇〇〇〇〇〇〇様',
 	'system_title' => '情報更新システム',
 	'db' => [
 		'driver'    => 'mysql',
@@ -29,24 +29,25 @@ $Ag['config'] =
 		'prefix'    => 'ag-',
 	],
 
-	// お知らせ設定
+	// お知らせ管理設定
 	'news' => [
-		'items_per_page' => 5,
+		// 公開画面での一覧表示件数
+		'items_per_page_at_public' => 5,
+
+		// 管理画面での一覧表示件数
+		'items_per_page_at_manage' => 5,
+
+		// アップローダ許可形式：画像ファイル
+		// 'allow_image_ext' => ['jpg', 'jpeg', 'png', 'gif'],
+
+		// アップローダ許可形式：PDFファイル
+		'allow_pdf_ext' => ['pdf'],
+
+		// 記事タイプスラッグを表示ラベルに変換
+		'type_labels' => [
+			'entry' => '通常記事',
+			'pdf'   => 'PDFファイル',
+			'url'   => 'URLリンク',
+		]
 	],
-
-	// 管理画面設定
-	'manage' => [
-		'items_per_page' => 3,
-	],
-
-    // 公開サイト設定
-    'allow_image_ext'               => ['jpg', 'jpeg', 'png', 'gif'],
-    'allow_pdf_ext'                 => ['pdf'],
-
-    // 記事タイプラベル
-    'entry_types' => [
-        'entry' => '通常記事',
-        'pdf'   => 'PDFファイル',
-        'url'   => 'URLリンク',
-    ]
 ];

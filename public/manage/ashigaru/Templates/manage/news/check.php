@@ -3,7 +3,7 @@
 <head>
   <?php include __TEMPLATES_DIR__.'/manage/meta.php' ?>
   <title><?= @$Ag['config']['site_title'] ?> CMS管理画面</title>
-  <link rel="stylesheet" href="<?= __MANAGE_ASSETS__ ?>/css/ckeditor-add.css?20231118">
+  <link rel="stylesheet" href="<?= __MANAGE__ ?>/assets/css/ckeditor-add.css?20231118">
 </head>
 <body class="<?= implode(' ', @$page_slugs) ?>">
 <?php include __TEMPLATES_DIR__.'/manage/header.php' ?>
@@ -60,7 +60,7 @@
     <div class="uk-margin">
       <label class="uk-form-label">記事タイプ</label>
       <div class="uk-form-controls uk-form-controls-text">
-        <?= AG::h(@$Ag['config']['entry_types'][$entry->type]) ?>
+        <?= AG::h(@$Ag['config']['news']['type_labels'][$entry->type]) ?>
       </div>
     </div>
     <hr>

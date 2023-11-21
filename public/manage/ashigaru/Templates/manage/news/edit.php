@@ -86,7 +86,7 @@
 
     <!-- PDFファイルアップロード -->
     <div class="uk-margin" id="tab-type-pdf">
-      <?php $upload_pdf_accept = implode(',', array_map(function($ext){ return '.'.$ext; }, $Ag['config']['allow_pdf_ext'])) ?>
+      <?php $upload_pdf_accept = implode(',', array_map(function($ext){ return '.'.$ext; }, $Ag['config']['news']['allow_pdf_ext'])) ?>
       <?php $upped_pdf = @$_POST['pdf_upped'] ?: $entry->pdf_filename ?>
       <label class="uk-form-label uk-text-nowrap req">PDFファイル<wbr>アップロード</label>
       <div class="uk-form-controls">
@@ -141,8 +141,8 @@
 <?php include __TEMPLATES_DIR__.'/manage/footer.php' ?>
 
 <script src="https://cdn.ckeditor.com/4.17.1/standard-all/ckeditor.js"></script>
-<script src="<?= __MANAGE_ASSETS__ ?>/js/ckeditor-loader.js"></script>
-<script src="<?= __MANAGE_ASSETS__ ?>/validon/validon.js"></script>
+<script src="<?= __MANAGE__ ?>/assets/js/ckeditor-loader.js"></script>
+<script src="<?= __MANAGE__ ?>/assets/validon/validon.js"></script>
 <script>
 var validon
 document.addEventListener('DOMContentLoaded', function (event)

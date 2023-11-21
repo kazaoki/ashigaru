@@ -102,6 +102,13 @@ header {
         }
         & h1 {
           font-size: clamp(1.0rem, 10 / 320 * 100vw, 1.5em);
+          .site-title {
+            font-size: 0.8em;
+            font-weight: normal;
+          }
+          .system-title {
+            font-size: 1.5em;
+          }
         }
         .logo {
           background-color: #fff3;
@@ -360,12 +367,12 @@ button.cancel-button {
   clear: both;
 }
 .req:before {
-  content: '[必須]';
+  content: '必須';
   display: block;
   padding: 3px 5px;
   font-size: 12px;
   letter-spacing: 1.1px;
-  background: rgba(red, .1);
+  background: rgba(255, 0, 0, .1);
   color: red;
   font-weight: bold;
   white-space: nowrap;
@@ -412,7 +419,7 @@ button.cancel-button {
   & > a {
     padding: 5px 10px;
     &:hover {
-      background: #ffd;
+      background-color: #ffd;
       outline: solid 1px orange !important;
     }
     &.uk-active {

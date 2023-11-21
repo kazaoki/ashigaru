@@ -22,12 +22,18 @@
 # sed -i "s/\%h /\%\{X-Forwarded-For\}i /g" /etc/httpd/conf/httpd.conf
 # sed -i "s/\%h /\%\{X-Forwarded-For\}i /g" /etc/httpd/conf.d/ssl.conf
 
-# # -- PHP tuning
-# echo 'opcache.memory_consumption=128' >> /root/.anyenv/envs/phpenv/versions/7.3.6/etc/php.ini
-# echo 'opcache.interned_strings_buffer=8' >> /root/.anyenv/envs/phpenv/versions/7.3.6/etc/php.ini
-# echo 'opcache.max_accelerated_files=4000' >> /root/.anyenv/envs/phpenv/versions/7.3.6/etc/php.ini
-# echo 'opcache.revalidate_freq=2' >> /root/.anyenv/envs/phpenv/versions/7.3.6/etc/php.ini
-# echo 'opcache.fast_shutdown=1' >> /root/.anyenv/envs/phpenv/versions/7.3.6/etc/php.ini
+# -- PHP tuning
+echo 'opcache.memory_consumption=128' >> $(cat /phpinipath)
+echo 'opcache.interned_strings_buffer=8' >> $(cat /phpinipath)
+echo 'opcache.max_accelerated_files=4000' >> $(cat /phpinipath)
+echo 'opcache.revalidate_freq=2' >> $(cat /phpinipath)
+echo 'opcache.fast_shutdown=1' >> $(cat /phpinipath)
+
+echo 'zend_extension = opcache' >> $(cat /phpinipath)
+echo 'opcache.enable = 1' >> $(cat /phpinipath)
+echo 'opcache.enable_cli = 1' >> $(cat /phpinipath)
+echo 'opcache.jit = tracing' >> $(cat /phpinipath)
+echo 'opcache.jit_buffer_size = 128M' >> $(cat /phpinipath)
 
 # # -- Force DefaultCharset
 # echo 'AddDefaultCharset Shift_JIS' >> /etc/httpd/conf/httpd.conf

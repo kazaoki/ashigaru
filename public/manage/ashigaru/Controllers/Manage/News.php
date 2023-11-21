@@ -29,7 +29,7 @@ class News extends \App\Controllers\Base
 		// ページング用意
 		$pager = \AG::pager([
 			'now'           => $page,
-			'per'           => $Ag['config']['manage']['items_per_page'],
+			'per'           => $Ag['config']['news']['items_per_page_at_manage'],
 			'count'         => $query->count(),
 			'links'         => 5,
 			'href_template' => $cat_id
@@ -39,7 +39,7 @@ class News extends \App\Controllers\Base
 
 		// クエリにページング適用
 		$news = $query
-			->take($Ag['config']['manage']['items_per_page'])
+			->take($Ag['config']['news']['items_per_page_at_manage'])
 			->skip($pager['offset'])
 			->get()
 		;

@@ -53,7 +53,7 @@ function _index($cat, $page) {
 				// ページング
 			$pager = \AG::pager([
 				'now'       => $page,
-				'per'       => $Ag['config']['news']['items_per_page'],
+				'per'       => $Ag['config']['news']['items_per_page_at_public'],
 				'count'     => $count,
 				'links'     => 5,
 				'href_template' => __SITE__.'/news'.($cat ? '/cat/'.$cat : '').'/page/%d/',
@@ -61,7 +61,7 @@ function _index($cat, $page) {
 
 			// リスト取得
 			$posts = $query
-				->take($Ag['config']['news']['items_per_page'])
+				->take($Ag['config']['news']['items_per_page_at_public'])
 				->skip($pager['offset'])
 				->get()
 			;
