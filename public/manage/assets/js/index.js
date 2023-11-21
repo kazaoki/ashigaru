@@ -1,5 +1,5 @@
 
-// DOMロード時にPHP定義の一部を同期
+// vars
 let __SITE__;
 let __MANAGE__;
 let __UPLOADS__;
@@ -9,6 +9,7 @@ let __PAGE_SLUG__;
 * onload
 */
 window.addEventListener('DOMContentLoaded', function(event) {
+
 	// PHP定義値の一部を、metaタグから取得する
 	__SITE__ = document.querySelector('meta[name="ashigaru:site"]').getAttribute('content');
 	__MANAGE__ = document.querySelector('meta[name="ashigaru:manage"]').getAttribute('content');

@@ -140,7 +140,7 @@
 </main>
 <?php include __TEMPLATES_DIR__.'/manage/footer.php' ?>
 
-<script src="https://cdn.ckeditor.com/4.17.1/standard-all/ckeditor.js"></script>
+<script src="https://cdn.ckeditor.com/4.22.1/standard-all/ckeditor.js"></script>
 <script src="<?= __MANAGE__ ?>/assets/js/ckeditor-loader.js"></script>
 <script src="<?= __MANAGE__ ?>/assets/validon/validon.js"></script>
 <script>
