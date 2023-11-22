@@ -13,15 +13,18 @@
 <!-------------------------- content start -------------------------->
 
 <section class="title">
-  <h1>管理画面トップ</h1>
+  <h1 class="error">503 Service Unavailable</h1>
+  <h2>予期しないエラーが発生しました。</h2>
 </section>
 
 <section>
+  <?php if(@$messages) { ?>
   <ul class="uk-list uk-list-bullet">
-    <li>...</li>
-    <li>...</li>
-    <li>...</li>
+    <?php foreach($messages as $message) { ?>
+      <li class="messages"><?= preg_replace('/^<br>|<br>$/', '', $message) ?></li>
+    <?php } ?>
   </ul>
+  <?php } ?>
 </section>
 
 <!--------------------------- content end --------------------------->

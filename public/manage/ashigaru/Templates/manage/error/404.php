@@ -13,15 +13,12 @@
 <!-------------------------- content start -------------------------->
 
 <section class="title">
-  <h1>管理画面トップ</h1>
+  <h1>404 Not Found</h1>
+  <h2>ご指定のページは見つかりませんでした。</h2>
 </section>
 
 <section>
-  <ul class="uk-list uk-list-bullet">
-    <li>...</li>
-    <li>...</li>
-    <li>...</li>
-  </ul>
+  <p>お探しのページは削除されたか、URLが変更された可能性があります。</p>
 </section>
 
 <!--------------------------- content end --------------------------->
