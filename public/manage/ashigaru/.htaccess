@@ -1,10 +1,1 @@
-# Deny from all
-
-Options +SymLinksIfOwnerMatch
-
-# /ashigaru/assets/* へのアクセスは許可する。（管理画面用アセット）
-<IfModule mod_rewrite.c>
-  RewriteEngine on
-  RewriteCond %{REQUEST_URI} !./assets
-  RewriteRule ^.*$ - [R=404,L]
-</IfModule>
+Deny from all
