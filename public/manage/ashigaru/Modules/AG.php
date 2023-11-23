@@ -481,4 +481,13 @@ class AG
 	static function dd($data, $return=false) {
 		return highlight_string("<?php\n".var_export($data, true)."\n?>", $return);
 	}
+
+	// -------------------------------------------------------------------
+	// 管理画面用：指定スラッグが $page_slugs に含まれていれば active を返す
+	// -------------------------------------------------------------------
+	static function now_active($slug)
+	{
+		global $page_slugs;
+		return @in_array($slug, @$page_slugs) ? 'active' : '';
+	}
 }
