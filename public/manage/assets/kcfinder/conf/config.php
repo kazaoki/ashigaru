@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/../../../../ashigaru/loader.php';
+require __DIR__ . '/../../../ashigaru/loader.php';
 require __DIR__ . '/../each-polyfill.php';
 
 /** This file is part of KCFinder project
