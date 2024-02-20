@@ -14,7 +14,7 @@
   --textColor: var(--mainColorDark);
   --textColorWhite: #eeeeee;
   --lineColor: #dddddd;
-  --errorColor: #ff1657;
+  --errorColor: #e70045;
 
   /* --- background --- */
   --barBackground: linear-gradient(65deg, rgb(10 29 84) 0%, rgb(37 81 102) 80%);
@@ -88,8 +88,8 @@ header {
       display: flex;
       align-items: center;
       .logo {
-        width: 150px;
-        padding-left: 20px;
+        /* width: 150px;
+        padding-left: 20px; */
       }
       .title {
         padding-left: 20px;
@@ -112,7 +112,7 @@ header {
           }
         }
         .logo {
-          background-color: #fff3;
+          /* background-color: #fff3; */
           width: 70px;
           height: 70px;
           margin-right: 15px;
@@ -121,7 +121,7 @@ header {
     }
 
     & nav#global-menu {
-      padding: 0 20px;
+      padding: 0 0 0 20px;
       flex-grow: 1;
       display: flex;
       flex-direction: column-reverse;
@@ -183,7 +183,8 @@ header {
         color: var(--textColorWhite);
         font-size: 2.5rem;
         /* background: red; */
-        padding: 5px 10px;
+        padding: 30px;
+        cursor: pointer;
       }
       /* @media screen and (max-width: var(--bp-mm)) { */
       @media screen and (max-width: 960px) {
@@ -287,7 +288,7 @@ main {
     flex-grow: 1;
     & > section {
       padding: 0 40px;
-      max-width: var(--contentMaxWidth);
+      max-width: min(calc(100vw - 20px), var(--contentMaxWidth));
       margin: 40px auto;
     }
     & > section.title {
