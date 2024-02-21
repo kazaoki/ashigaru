@@ -20,7 +20,7 @@
   --barBackground: linear-gradient(65deg, rgb(10 29 84) 0%, rgb(37 81 102) 80%);
 
   /* --- Side bar show --- */
-  /* --sideMenuDisplay: none; */
+  --sideMenuDisplay: none;
 
   /* --- Base sizing --- */
   --HeaderHeight: 100px;
@@ -31,7 +31,7 @@
   /* Can't use variables in media queries yet...
   --bp-sm: 400px;
   --bp-md: 768px;
-  --bp-mm: 960px;
+  --bp-mm: 977px;
   --bp-lg: 1000px;
   --bp-xl: 1200px;
    */
@@ -108,7 +108,7 @@ header {
             font-weight: normal;
           }
           .system-title {
-            font-size: 1.5em;
+            font-size: 1.3em;
           }
         }
         .logo {
@@ -121,7 +121,7 @@ header {
     }
 
     & nav#global-menu {
-      padding: 0 0 0 20px;
+      padding: 0 20px;
       flex-grow: 1;
       display: flex;
       flex-direction: column-reverse;
@@ -183,11 +183,11 @@ header {
         color: var(--textColorWhite);
         font-size: 2.5rem;
         /* background: red; */
-        padding: 30px;
+        padding: 20px;
         cursor: pointer;
       }
       /* @media screen and (max-width: var(--bp-mm)) { */
-      @media screen and (max-width: 960px) {
+      @media screen and (max-width: 977px) {
         flex-direction: row-reverse;
         align-items: center;
         /* padding-right: 30px; */
@@ -274,7 +274,7 @@ main {
       box-shadow: 25px 0 25px -25px rgba(0,0,0,0.5) inset;
     }
     /* @media screen and (max-width: var(--bp-mm)) { */
-    @media screen and (max-width: 960px) {
+    @media screen and (max-width: 977px) {
       & > div {
         position: inherit;
         top: 0;
@@ -464,4 +464,28 @@ main.error #content section.title {
     color: var(--errorColor);
     margin-top: 20px;
   }
+}
+
+button.uk-button-gold {
+  background: gold
+}
+
+table.uk-table {
+  td {
+    white-space: initial;
+  }
+  td.state {
+    white-space: nowrap;
+    text-align: center;
+    font-weight: bold;
+    small {
+      font-weight: normal;
+    }
+  }
+  td.title { min-width: 200px; }
+  td.label { min-width: 200px; }
+  td.category { font-size: 0.8rem; }
+  td.date { font-size: 0.8rem; white-space: nowrap; }
+  td.sponsor_name { font-size: 0.8rem; }
+  td.nowrap { white-space: nowrap; }
 }

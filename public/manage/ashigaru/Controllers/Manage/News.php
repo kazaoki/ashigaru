@@ -40,7 +40,7 @@ class News extends \App\Controllers\Base
 		// クエリにページング適用
 		$news = $query
 			->take($Ag['config']['news']['items_per_page_at_manage'])
-			->skip($pager['offset'])
+			->skip(@$pager['offset'])
 			->get()
 		;
 

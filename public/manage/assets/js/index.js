@@ -22,18 +22,6 @@ window.addEventListener('DOMContentLoaded', function(event) {
 
 	// お知らせ管理のイベント登録
 	if('news' === __PAGE_SLUG__) {
-		// お知らせ管理のカテゴリ絞り込みプルダウンの挙動
-		const filter_cat = document.getElementById('filter-cat');
-		if(filter_cat) {
-			filter_cat.onchange = e => {
-				const cat_id = e.target.value;
-				if(cat_id) {
-					location.href = __MANAGE__ + '/news/cat/' + cat_id + '/';
-				} else {
-					location.href = __MANAGE__ + '/news/';
-				}
-			};
-		}
 
 		// アップロードPDF選択時にサムネ更新（BASE64セット）
 		const pdf_upload_buttons = document.querySelectorAll('input.upload-pdf');
