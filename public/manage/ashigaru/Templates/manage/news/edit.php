@@ -17,7 +17,7 @@
 </section>
 
 <section>
-  <form action="<?= __MANAGE__ ?>/news/check/" method="POST" class="uk-form-horizontal uk-margin-large" id="form" enctype="multipart/form-data">
+  <form action="<?= __MANAGE__ ?>/news/check/" method="POST" class="uk-form-horizontal uk-margin-large" id="form">
     <input type="hidden" name="csrf_token" value="<?= AG::csrf_generate() ?>">
     <div class="uk-margin">
       <label class="uk-form-label">登録ID</label>
@@ -168,11 +168,7 @@ document.addEventListener('DOMContentLoaded', function (event)
         var error = document.querySelector('#form .error')
         if(error) {
           var scroll_top = (error.getBoundingClientRect().top+window.pageYOffset) - (window.innerHeight / 2)
-          if(-1!==navigator.userAgent.indexOf('Trident')) {
-            window.scroll(0, scroll_top) // for IE11
-          } else {
-            window.scroll({top: scroll_top, behavior: 'smooth'}) // for other browser
-          }
+          window.scroll({top: scroll_top, behavior: 'smooth'})
         }
       }
     }
