@@ -83,6 +83,7 @@
 <!-- 操作ボタンによるPOST送信用フォーム -->
 <form method="POST" id="post-action-form">
   <input type="hidden" name="csrf_token" value="<?= AG::csrf_generate() ?>">
+  <input type="hidden" name="cat_id" value="<?= \Ag::h(@$cat_id) ?>">
   <input type="hidden" name="page" value="<?= \Ag::h(@$pager['now']) ?>">
 </form>
 
