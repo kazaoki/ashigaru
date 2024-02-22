@@ -22,6 +22,7 @@
     以下の内容でよろしければ、下の「保存する」ボタンをクリックしてください。
   </p>
   <form action="<?= __MANAGE__ ?>/news/save/" method="POST" class="uk-form-horizontal uk-margin-large" id="form">
+    <?= AG::hiddens() ?>
     <div class="uk-margin">
       <label class="uk-form-label">登録ID</label>
       <div class="uk-form-controls uk-form-controls-text">
@@ -115,7 +116,6 @@
       <button type="button" class="uk-button uk-button-link uk-margin-right" onclick="validon.back('../edit/<?= @$_POST['entry_id'] ? @$_POST['entry_id'].'/' : '' ?>')"><i class="fas fa-pen"></i> 修正する</button>
       <button type="submit" class="uk-button uk-button-primary uk-button-large uk-margin-left"><i class="fas fa-save"></i> 保存する</button>
     </div>
-    <?= AG::hiddens() ?>
   </form>
   <!-- PDFプレビュー用フォーム -->
   <form action="<?= __MANAGE__ ?>/news/pdf_preview/" target="_blank" method="POST" id="pdf-preview-form" enctype="multipart/form-data">
