@@ -68,6 +68,7 @@ class News extends Model
 		// 基本的に公開日が最新のものからソートする
 		static::addGlobalScope('order', function ($query) {
 			$query->orderBy('published_at', 'DESC');
+			$query->orderBy('updated_at', 'DESC');
 			$query->orderBy('status', 'ASC');
 		});
 	}

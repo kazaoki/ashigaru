@@ -109,6 +109,7 @@
             </div>
           </div>
         </div>
+        <input type="hidden" name="is_blank" value="0">
         <label><input class="uk-checkbox" type="checkbox" name="is_blank" id="is-blank-pdf" value="1"<?= $entry->is_blank ? ' checked' : '' ?>> 別ウィンドウで開く</label>
       </div>
     </div>
@@ -118,6 +119,7 @@
       <label class="uk-form-label req">URLリンク先</label>
       <div class="uk-form-controls">
         <div class="uk-margin-small-bottom"><input class="uk-input" type="text" name="url" value="<?= $entry->url ?>" placeholder="https://"></div>
+        <input type="hidden" name="is_blank" value="0">
         <label><input class="uk-checkbox" type="checkbox" name="is_blank" id="is-blank-url" value="1"<?= $entry->is_blank ? ' checked' : '' ?>> 別ウィンドウで開く</label>
       </div>
     </div>
